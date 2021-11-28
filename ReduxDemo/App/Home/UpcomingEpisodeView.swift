@@ -1,5 +1,5 @@
 //
-//  ShowView.swift
+//  UpcomingEpisodeView.swift
 //  ReduxDemo
 //
 //  Created by Wojciech Kulik on 28/11/2021.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct ShowView : View {
-    var entry: TvShowEntry
+struct UpcomingEpisodeView : View {
+    var entry: UpcomingEpisode
 
     var posterView: some View {
         Image(entry.show?.cover ?? "")
@@ -69,7 +69,7 @@ struct ShowView : View {
 struct ShowView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ShowView(entry: .mockGameOfThrones)
+            UpcomingEpisodeView(entry: .mockGameOfThrones)
                 .frame(width: .infinity, height: 170.0, alignment: .center)
         }
     }

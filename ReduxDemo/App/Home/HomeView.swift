@@ -25,7 +25,7 @@ struct HomeView: View {
 
             List {
                 ZStack {
-                    ShowView(entry: .mockGameOfThrones)
+                    UpcomingEpisodeView(entry: .mockGameOfThrones)
                         .listRowBackground(Color.clear)
                         .cornerRadius(8.0)
                         .padding(.bottom, 6.0)
@@ -33,7 +33,7 @@ struct HomeView: View {
                     NavigationLink(destination: { EpisodeDetailsLoadingView(episodeId: EpisodeDetails.mockGameOfThrones.id) }, label: {}).opacity(0)
                 }.listRowSeparator(.hidden)
                 ZStack {
-                    ShowView(entry: .mockBreakingBad)
+                    UpcomingEpisodeView(entry: .mockBreakingBad)
                         .listRowBackground(Color.clear)
                         .cornerRadius(8.0)
                         .padding(.bottom, 6.0)
@@ -41,7 +41,7 @@ struct HomeView: View {
                     NavigationLink(destination: { EpisodeDetailsLoadingView(episodeId: EpisodeDetails.mockBreakingBad.id) }, label: {}).opacity(0)
                 }.listRowSeparator(.hidden)
                 ZStack {
-                    ShowView(entry: .mockGameOfThrones)
+                    UpcomingEpisodeView(entry: .mockGameOfThrones)
                         .listRowBackground(Color.clear)
                         .cornerRadius(8.0)
                         .padding(.bottom, 6.0)
