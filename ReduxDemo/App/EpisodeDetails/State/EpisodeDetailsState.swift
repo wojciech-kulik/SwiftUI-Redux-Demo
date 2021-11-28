@@ -13,6 +13,7 @@ struct EpisodeDetailsState: Codable {
     let comments: [Comment]
     let isLoading: Bool
     let isLoadingComments: Bool
+    let selectedCommentId: UUID?
     let presentedUserProfileId: UUID?
 }
 
@@ -23,6 +24,7 @@ extension EpisodeDetailsState {
         comments = []
         isLoading = true
         isLoadingComments = true
+        selectedCommentId = nil
         presentedUserProfileId = nil
     }
 }

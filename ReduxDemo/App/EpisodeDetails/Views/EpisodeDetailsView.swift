@@ -68,11 +68,15 @@ struct EpisodeDetailsView: View {
                 ProgressView().tint(.yellow)
                 Spacer()
             }
-        } else if let comments = state?.comments {
+        } else if let state = state {
             commentBox
-            ForEach(comments) { comment in
-                CommentView(canPresentProfile: true, comment: comment)
-                    .padding(.vertical, 8.0)
+            ForEach(state.comments) { comment in
+                CommentView(
+                    canPresentProfile: true,
+                    comment: comment,
+                    isUserProfileVisible: state.presentedUserProfileId == comment.userId && state.selectedCommentId == comment.id
+                )
+                .padding(.vertical, 8.0)
             }.padding(.top, 24.0)
         } else {
             commentBox

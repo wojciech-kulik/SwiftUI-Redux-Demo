@@ -10,22 +10,24 @@ import Foundation
 extension EpisodeDetailsState {
     static let reducer: Reducer<Self> = { state, action in
         switch action {
-        case ActiveScreensStateAction.showScreen(.userProfile(let id)):
+        case ActiveScreensStateAction.showScreen(.userProfile(let id, let selectedCommentId)):
             return EpisodeDetailsState(
                 episodeId: state.episodeId,
                 details: state.details,
                 comments: state.comments,
                 isLoading: state.isLoading,
                 isLoadingComments: state.isLoadingComments,
+                selectedCommentId: selectedCommentId,
                 presentedUserProfileId: id
             )
-        case ActiveScreensStateAction.dismissScreen(.userProfile(let id)) where id == state.presentedUserProfileId:
+        case ActiveScreensStateAction.dismissScreen(.userProfile(let id, _)) where id == state.presentedUserProfileId:
             return EpisodeDetailsState(
                 episodeId: state.episodeId,
                 details: state.details,
                 comments: state.comments,
                 isLoading: state.isLoading,
                 isLoadingComments: state.isLoadingComments,
+                selectedCommentId: nil,
                 presentedUserProfileId: nil
             )
         case EpisodeDetailsAction.fetchEpisodeComments(let id) where id == state.episodeId:
@@ -35,6 +37,7 @@ extension EpisodeDetailsState {
                 comments: [],
                 isLoading: state.isLoading,
                 isLoadingComments: true,
+                selectedCommentId: state.selectedCommentId,
                 presentedUserProfileId: state.presentedUserProfileId
             )
         case EpisodeDetailsAction.receivedEpisodeComments(let comments) where comments.isEmpty || comments[0].episodeId == state.episodeId:
@@ -44,6 +47,7 @@ extension EpisodeDetailsState {
                 comments: comments,
                 isLoading: state.isLoading,
                 isLoadingComments: false,
+                selectedCommentId: state.selectedCommentId,
                 presentedUserProfileId: state.presentedUserProfileId
             )
         case EpisodeDetailsAction.fetchEpisodeDetails(let id) where id == state.episodeId:
@@ -53,6 +57,7 @@ extension EpisodeDetailsState {
                 comments: state.comments,
                 isLoading: true,
                 isLoadingComments: state.isLoadingComments,
+                selectedCommentId: state.selectedCommentId,
                 presentedUserProfileId: state.presentedUserProfileId
             )
         case EpisodeDetailsAction.receivedEpisodeDetails(let details) where details.id == state.episodeId:
@@ -62,6 +67,7 @@ extension EpisodeDetailsState {
                 comments: state.comments,
                 isLoading: false,
                 isLoadingComments: state.isLoadingComments,
+                selectedCommentId: state.selectedCommentId,
                 presentedUserProfileId: state.presentedUserProfileId
             )
         default:

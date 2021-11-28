@@ -11,7 +11,7 @@ enum AppScreen {
     case splashScreen
     case home
     case episode(id: UUID)
-    case userProfile(id: UUID)
+    case userProfile(id: UUID, sourceCommentId: UUID)
 }
 
 enum ActiveScreensStateAction: Action {
