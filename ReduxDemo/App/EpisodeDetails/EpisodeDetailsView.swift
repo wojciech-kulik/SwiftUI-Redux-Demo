@@ -15,7 +15,7 @@ struct EpisodeDetailsView: View {
         VStack(spacing: 0.0) {
             Image(details.photo)
                 .resizable()
-                .frame(height: 240)
+                .frame(height: 220)
                 .aspectRatio(contentMode: .fill)
 
             Text(details.title)
@@ -52,7 +52,7 @@ struct EpisodeDetailsView: View {
             .cornerRadius(6.0)
 
         ForEach(0..<3) { _ in
-            CommentView(comment: .mock)
+            CommentView(canPresentProfile: true, comment: .mock)
                 .padding(.vertical, 16.0)
         }.padding(.top, 24.0)
     }
@@ -80,6 +80,6 @@ struct EpisodeDetailsView: View {
 
 struct EpisodeDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        EpisodeDetailsView(details: .mock)
+        EpisodeDetailsView(details: .mockGameOfThrones)
     }
 }

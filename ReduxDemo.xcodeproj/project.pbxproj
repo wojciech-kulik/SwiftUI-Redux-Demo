@@ -21,6 +21,9 @@
 		1631CF422753B6C70046BF66 /* EpisodeDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF412753B6C70046BF66 /* EpisodeDetails.swift */; };
 		1631CF442753C38E0046BF66 /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF432753C38E0046BF66 /* CommentView.swift */; };
 		1631CF462753C4480046BF66 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF452753C4480046BF66 /* Comment.swift */; };
+		1631CF482753CFAF0046BF66 /* EpisodeDetailsLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF472753CFAF0046BF66 /* EpisodeDetailsLoadingView.swift */; };
+		1631CF4A2753FBA80046BF66 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF492753FBA80046BF66 /* User.swift */; };
+		1631CF4D2753FC2F0046BF66 /* UserDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF4C2753FC2F0046BF66 /* UserDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		1631CF412753B6C70046BF66 /* EpisodeDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetails.swift; sourceTree = "<group>"; };
 		1631CF432753C38E0046BF66 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		1631CF452753C4480046BF66 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		1631CF472753CFAF0046BF66 /* EpisodeDetailsLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsLoadingView.swift; sourceTree = "<group>"; };
+		1631CF492753FBA80046BF66 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1631CF4C2753FC2F0046BF66 /* UserDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +104,7 @@
 				1631CF3027539F530046BF66 /* Splash */,
 				1631CF2E27539F080046BF66 /* Home */,
 				1631CF3E2753B5E10046BF66 /* EpisodeDetails */,
+				1631CF4B2753FC1C0046BF66 /* UserDetails */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -126,6 +133,7 @@
 				1631CF382753A3B40046BF66 /* TvShow.swift */,
 				1631CF412753B6C70046BF66 /* EpisodeDetails.swift */,
 				1631CF452753C4480046BF66 /* Comment.swift */,
+				1631CF492753FBA80046BF66 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -141,10 +149,19 @@
 		1631CF3E2753B5E10046BF66 /* EpisodeDetails */ = {
 			isa = PBXGroup;
 			children = (
+				1631CF472753CFAF0046BF66 /* EpisodeDetailsLoadingView.swift */,
 				1631CF3F2753B5F10046BF66 /* EpisodeDetailsView.swift */,
 				1631CF432753C38E0046BF66 /* CommentView.swift */,
 			);
 			path = EpisodeDetails;
+			sourceTree = "<group>";
+		};
+		1631CF4B2753FC1C0046BF66 /* UserDetails */ = {
+			isa = PBXGroup;
+			children = (
+				1631CF4C2753FC2F0046BF66 /* UserDetailsView.swift */,
+			);
+			path = UserDetails;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,10 +240,13 @@
 				1631CF372753A37F0046BF66 /* TvShowEntry.swift in Sources */,
 				1631CF3227539F5D0046BF66 /* SplashView.swift in Sources */,
 				1631CF3C2753A9BE0046BF66 /* Color.swift in Sources */,
+				1631CF4A2753FBA80046BF66 /* User.swift in Sources */,
 				1631CF422753B6C70046BF66 /* EpisodeDetails.swift in Sources */,
 				1631CF462753C4480046BF66 /* Comment.swift in Sources */,
 				1631CF1F27539BB70046BF66 /* HomeView.swift in Sources */,
+				1631CF4D2753FC2F0046BF66 /* UserDetailsView.swift in Sources */,
 				1631CF402753B5F10046BF66 /* EpisodeDetailsView.swift in Sources */,
+				1631CF482753CFAF0046BF66 /* EpisodeDetailsLoadingView.swift in Sources */,
 				1631CF442753C38E0046BF66 /* CommentView.swift in Sources */,
 				1631CF1D27539BB70046BF66 /* ReduxDemoApp.swift in Sources */,
 			);

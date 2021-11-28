@@ -13,20 +13,20 @@ struct Episode {
 }
 
 struct TvShow {
-    let id: String
+    let id: UUID
     let title: String
     let cover: String
 }
 
 extension TvShow {
     static let mockGameOfThrones = TvShow(
-        id: "1",
+        id: UUID(),
         title: "Game of Thrones",
         cover: "got"
     )
 
     static let mockBreakingBad = TvShow(
-        id: "2",
+        id: UUID(),
         title: "Breaking Bad",
         cover: "breaking_bad"
     )
