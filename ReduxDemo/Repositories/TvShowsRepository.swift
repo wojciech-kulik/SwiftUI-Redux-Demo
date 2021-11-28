@@ -17,7 +17,7 @@ final class TvShowsRepository: ObservableObject {
     private let shows = [TvShow.mockGameOfThrones, .mockBreakingBad]
 
     func fetchUpcomingEpisodes() -> AnyPublisher<[UpcomingEpisode], TvShowsRepositoryError> {
-        Just([UpcomingEpisode.mockGameOfThrones, .mockBreakingBad])
+        Just([UpcomingEpisode.mockGameOfThrones, .mockBreakingBad].sorted(by: { $0.releaseDate < $1.releaseDate }))
             .delay(for: 2.0, scheduler: DispatchQueue.main)
             .setFailureType(to: TvShowsRepositoryError.self)
             .eraseToAnyPublisher()
@@ -40,7 +40,7 @@ final class TvShowsRepository: ObservableObject {
         let comments = Comment.allMocks.filter({ $0.episodeId == episodeId })
 
         if !comments.isEmpty {
-            return Just(comments)
+            return Just(comments.sorted(by: { $0.date > $1.date }))
                 .delay(for: 2.0, scheduler: DispatchQueue.main)
                 .setFailureType(to: TvShowsRepositoryError.self)
                 .eraseToAnyPublisher()

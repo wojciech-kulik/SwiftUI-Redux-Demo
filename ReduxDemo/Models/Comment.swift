@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Comment: Codable {
+struct Comment: Codable, Identifiable {
+    let id: UUID
     let userId: UUID
     let avatar: String
     let name: String
@@ -18,6 +19,7 @@ struct Comment: Codable {
 
 extension Comment {
     static let mock = Comment(
+        id: UUID(),
         userId: User.mock.id,
         avatar: User.mock.avatar,
         name: User.mock.name,
@@ -28,6 +30,7 @@ extension Comment {
 
     static let allMocks = [
         Comment(
+            id: UUID(),
             userId: User.mock.id,
             avatar: User.mock.avatar,
             name: User.mock.name,
@@ -36,6 +39,7 @@ extension Comment {
             episodeId: EpisodeDetails.mockGameOfThrones.id
         ),
         Comment(
+            id: UUID(),
             userId: User.mock2.id,
             avatar: User.mock2.avatar,
             name: User.mock2.name,
@@ -44,15 +48,17 @@ extension Comment {
             episodeId: EpisodeDetails.mockGameOfThrones.id
         ),
         Comment(
+            id: UUID(),
             userId: User.mock.id,
             avatar: User.mock.avatar,
             name: User.mock.name,
             date: Date().addingTimeInterval(-8500),
-            text: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
+            text: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum",
             episodeId: EpisodeDetails.mockGameOfThrones.id
         ),
 
         Comment(
+            id: UUID(),
             userId: User.mock2.id,
             avatar: User.mock2.avatar,
             name: User.mock2.name,
@@ -61,6 +67,7 @@ extension Comment {
             episodeId: EpisodeDetails.mockBreakingBad.id
         ),
         Comment(
+            id: UUID(),
             userId: User.mock.id,
             avatar: User.mock.avatar,
             name: User.mock.name,
@@ -69,6 +76,7 @@ extension Comment {
             episodeId: EpisodeDetails.mockBreakingBad.id
         ),
         Comment(
+            id: UUID(),
             userId: User.mock2.id,
             avatar: User.mock2.avatar,
             name: User.mock2.name,

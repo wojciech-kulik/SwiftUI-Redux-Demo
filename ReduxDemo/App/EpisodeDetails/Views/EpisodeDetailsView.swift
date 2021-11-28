@@ -7,10 +7,18 @@
 
 import SwiftUI
 
+fileprivate var lastState: EpisodeDetailsState?
+
 struct EpisodeDetailsView: View {
     @State var details: EpisodeDetails
     @State var comment: String = ""
     @EnvironmentObject var store: Store<AppState>
+
+    var state: EpisodeDetailsState? {
+        let state = store.state.state(for: .episode(id: details.id), type: EpisodeDetailsState.self)
+        lastState = state ?? lastState
+        return lastState
+    }
 
     var headerView: some View {
         VStack(spacing: 0.0) {
@@ -46,16 +54,24 @@ struct EpisodeDetailsView: View {
             .padding(.top, 20.0)
             .padding(.vertical)
 
-        TextEditor(text: $comment)
-            .background(.white)
-            .foregroundColor(.black)
-            .frame(height: 120)
-            .cornerRadius(6.0)
+        if state?.isLoadingComments == true {
+            HStack {
+                Spacer()
+                ProgressView().tint(.yellow)
+                Spacer()
+            }
+        } else if let comments = state?.comments {
+            TextEditor(text: $comment)
+                .background(.white)
+                .foregroundColor(.black)
+                .frame(height: 120)
+                .cornerRadius(6.0)
 
-        ForEach(0..<3) { _ in
-            CommentView(canPresentProfile: true, comment: .mock)
-                .padding(.vertical, 16.0)
-        }.padding(.top, 24.0)
+            ForEach(comments) { comment in
+                CommentView(canPresentProfile: true, comment: comment)
+                    .padding(.vertical, 16.0)
+            }.padding(.top, 24.0)
+        }
     }
 
     var body: some View {
@@ -76,6 +92,7 @@ struct EpisodeDetailsView: View {
         .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardDidShowNotification)) { _ in
 
         }
+        .onLoad { store.dispatch(EpisodeDetailsAction.fetchEpisodeComments(id: details.id)) }
     }
 }
 

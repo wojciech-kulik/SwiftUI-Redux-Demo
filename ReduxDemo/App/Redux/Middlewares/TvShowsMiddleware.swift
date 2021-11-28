@@ -25,6 +25,12 @@ extension Middlewares {
                 .map { EpisodeDetailsAction.receivedEpisodeDetails($0) }
                 .catch { _ in Empty().eraseToAnyPublisher() }
                 .eraseToAnyPublisher()
+        case EpisodeDetailsAction.fetchEpisodeComments(let id):
+            return tvShowsRepository
+                .fetchComments(for: id)
+                .map { EpisodeDetailsAction.receivedEpisodeComments($0) }
+                .catch { _ in Empty().eraseToAnyPublisher() }
+                .eraseToAnyPublisher()
         default:
             return Empty().eraseToAnyPublisher()
         }

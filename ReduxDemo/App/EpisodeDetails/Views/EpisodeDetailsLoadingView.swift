@@ -24,7 +24,7 @@ struct EpisodeDetailsLoadingView: View {
         if let details = state?.details {
             EpisodeDetailsView(details: details).environmentObject(store)
         } else {
-            ProgressView(label: { Text("Loading details") })
+            ProgressView(label: { Text("Loading details").foregroundColor(.yellow) }).tint(.yellow)
                 .onLoad { store.dispatch(EpisodeDetailsAction.fetchEpisodeDetails(id: episodeId)) }
         }
     }
