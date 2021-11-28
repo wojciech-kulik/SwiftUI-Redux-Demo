@@ -10,23 +10,25 @@ import Foundation
 struct TvShowEntry {
     let date: Date
     let show: TvShow?
-    let nextEpisode: Episode?
+    let nextEpisode: Episode
+    let episodesInSeason: Int
 }
 
 extension TvShowEntry {
-    static func preview() -> TvShowEntry {
-        return TvShowEntry(
-            date: Date(),
-            show: .previewGameOfThrones,
-            nextEpisode: TvShow.previewGameOfThrones.nextEpisodes[0]
-        )
-    }
+    private static let ReleaseHourGot: TimeInterval = 16 * 3600
+    private static let ReleaseHourBreakingBad: TimeInterval = 8 * 3600
 
-    static func preview2() -> TvShowEntry {
-        return TvShowEntry(
-            date: Date(),
-            show: .previewBreakingBad,
-            nextEpisode: TvShow.previewBreakingBad.nextEpisodes[0]
-        )
-    }
+    static var mockGameOfThrones = TvShowEntry(
+        date: Date(),
+        show: .mockGameOfThrones,
+        nextEpisode: Episode(number: 2, releaseDate: Date().addingTimeInterval(ReleaseHourGot)),
+        episodesInSeason: 10
+    )
+
+    static var mockBreakingBad = TvShowEntry(
+        date: Date(),
+        show: .mockBreakingBad,
+        nextEpisode: Episode(number: 3, releaseDate: Date().addingTimeInterval(ReleaseHourBreakingBad)),
+        episodesInSeason: 8
+    )
 }

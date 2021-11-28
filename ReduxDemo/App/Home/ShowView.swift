@@ -24,7 +24,7 @@ struct ShowView : View {
                 .font(.headline)
 
             Text("Next episode: " +
-                "\(entry.nextEpisode?.number ?? 0) of \(entry.show?.episodesInSeason ?? 0)")
+                "\(entry.nextEpisode.number) of \(entry.episodesInSeason)")
                 .font(.footnote)
                 .foregroundColor(.gray)
         }
@@ -32,12 +32,12 @@ struct ShowView : View {
 
     var timerView: some View {
         VStack(alignment: .leading, spacing: 4.0) {
-            Text(entry.nextEpisode?.releaseDate ?? Date(), style: .timer)
+            Text(entry.nextEpisode.releaseDate, style: .timer)
                 .minimumScaleFactor(0.3)
                 .foregroundColor(Color.yellow.opacity(0.9))
                 .font(.title)
 
-            Text(entry.nextEpisode?.releaseDate ?? Date(), style: .date)
+            Text(entry.nextEpisode.releaseDate, style: .date)
                 .font(.footnote)
                 .foregroundColor(.gray)
         }
@@ -69,7 +69,7 @@ struct ShowView : View {
 struct ShowView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ShowView(entry: .preview())
+            ShowView(entry: .mockGameOfThrones)
                 .frame(width: .infinity, height: 170.0, alignment: .center)
         }
     }

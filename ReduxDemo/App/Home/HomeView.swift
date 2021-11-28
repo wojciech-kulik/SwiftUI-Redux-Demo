@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HomeView: View {
+    @State var searchText = ""
+
     var body: some View {
         UITableView.appearance().backgroundColor = .clear
         UITableViewCell.appearance().backgroundColor = .clear
@@ -15,20 +17,28 @@ struct HomeView: View {
         return ZStack {
             Color.black.ignoresSafeArea()
 
+            Text("")
+                .searchable(
+                    text: $searchText,
+                    placement: .navigationBarDrawer(displayMode: .always)
+                )
+
             List {
-                ShowView(entry: .preview())
-                    .listRowBackground(Color.clear)
-                    .listRowSeparator(.hidden)
-                    .cornerRadius(12.0)
-                    .padding(.bottom, 6.0)
-                    .padding(.horizontal, 6.0)
-                ShowView(entry: .preview2())
+                ZStack {
+                    ShowView(entry: .mockGameOfThrones)
+                        .listRowBackground(Color.clear)
+                        .cornerRadius(12.0)
+                        .padding(.bottom, 6.0)
+                        .padding(.horizontal, 6.0)
+                    NavigationLink(destination: { EpisodeDetailsView(details: .mock) }, label: {}).opacity(0)
+                }.listRowSeparator(.hidden)
+                ShowView(entry: .mockBreakingBad)
                     .listRowBackground(Color.clear)
                     .listRowSeparator(.hidden)
                     .cornerRadius(8.0)
                     .padding(.bottom, 6.0)
                     .padding(.horizontal, 6.0)
-                ShowView(entry: .preview())
+                ShowView(entry: .mockGameOfThrones)
                     .listRowBackground(Color.clear)
                     .listRowSeparator(.hidden)
                     .cornerRadius(8.0)
