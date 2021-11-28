@@ -10,9 +10,13 @@ import Foundation
 struct UpcomingEpisode: Codable, Identifiable {
     let id: UUID
     let releaseDate: Date
-    let show: TvShow?
+    let show: TvShow
     let episode: Int
     let episodesInSeason: Int
+}
+
+extension UpcomingEpisode: CustomStringConvertible {
+    var description: String { "UpcomingEpisode(\(show.title))" }
 }
 
 extension UpcomingEpisode {

@@ -17,6 +17,10 @@ struct Comment: Codable, Identifiable {
     let episodeId: UUID
 }
 
+extension Comment: CustomStringConvertible {
+    var description: String { "Comment(\(name))" }
+}
+
 extension Comment {
     static let mock = Comment(
         id: UUID(),

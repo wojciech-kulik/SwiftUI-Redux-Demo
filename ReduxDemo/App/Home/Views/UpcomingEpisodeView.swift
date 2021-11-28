@@ -11,7 +11,7 @@ struct UpcomingEpisodeView : View {
     var episode: UpcomingEpisode
 
     var posterView: some View {
-        Image(episode.show?.cover ?? "")
+        Image(episode.show.cover)
             .resizable()
             .aspectRatio(contentMode: .fill)
             .frame(maxWidth: 120.0)
@@ -19,7 +19,7 @@ struct UpcomingEpisodeView : View {
 
     var headerView: some View {
         VStack(alignment: .leading, spacing: 5.0) {
-            Text(episode.show?.title ?? "-")
+            Text(episode.show.title)
                 .minimumScaleFactor(0.5)
                 .font(.headline)
 
@@ -34,7 +34,7 @@ struct UpcomingEpisodeView : View {
         VStack(alignment: .leading, spacing: 4.0) {
             Text(episode.releaseDate, style: .timer)
                 .minimumScaleFactor(0.3)
-                .foregroundColor(Color.yellow.opacity(0.9))
+                .foregroundColor(.yellow)
                 .font(.title)
 
             Text(episode.releaseDate, style: .date)

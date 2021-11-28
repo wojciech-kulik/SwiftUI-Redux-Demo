@@ -14,6 +14,18 @@ enum AppScreenState: Codable {
     case userProfile(UserDetailsState)
 }
 
+extension AppScreenState: CustomStringConvertible {
+    var description: String {
+        switch self {
+        case .splashScreen: return "splashScreen"
+        case .home(let state): return "home(isLoading=\(state.isLoading))"
+        case .episode(let state): return "episode(\(state.details?.title ?? "-"), isLoading=\(state.isLoading), isLoadingComments=\(state.isLoadingComments)"
+        case .userProfile(let state): return "userProfile(\(state.details?.name ?? "-"), isLoading=\(state.isLoading))"
+        }
+
+    }
+}
+
 extension AppScreenState {
     static func == (lhs: AppScreenState, rhs: AppScreen) -> Bool {
         switch (lhs, rhs) {

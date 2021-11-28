@@ -31,26 +31,34 @@ struct EpisodeDetailsView: View {
                 .font(.title)
                 .padding()
 
-            Text("S\(details.season, specifier: "%02d")E\(details.episode, specifier: "%02d")")
+            Text("S\(details.season, specifier: "%02d")E\(details.episode, specifier: "%02d") • \(details.releaseDate, format: .relative(presentation: .named))")
                 .font(.subheadline)
-                .foregroundColor(.gray)
+                .foregroundColor(.yellow)
         }
     }
 
     @ViewBuilder
     var descriptionView: some View {
-        Text("Description:")
-            .foregroundColor(.gray)
+        Text("Description")
+            .foregroundColor(.yellow)
             .padding(.top, 20.0)
             .padding(.vertical)
 
-        Text(details.description)
+        Text(details.episodeDescription)
+    }
+
+    var commentBox: some View {
+        TextEditor(text: $comment)
+            .background(Color(hex: "#1a1a1a"))
+            .foregroundColor(.white)
+            .frame(height: 120)
+            .cornerRadius(6.0)
     }
 
     @ViewBuilder
     var commentsView: some View {
-        Text("Comments:")
-            .foregroundColor(.gray)
+        Text("Comments")
+            .foregroundColor(.yellow)
             .padding(.top, 20.0)
             .padding(.vertical)
 
@@ -61,21 +69,26 @@ struct EpisodeDetailsView: View {
                 Spacer()
             }
         } else if let comments = state?.comments {
-            TextEditor(text: $comment)
-                .background(.white)
-                .foregroundColor(.black)
-                .frame(height: 120)
-                .cornerRadius(6.0)
-
+            commentBox
             ForEach(comments) { comment in
                 CommentView(canPresentProfile: true, comment: comment)
-                    .padding(.vertical, 16.0)
+                    .padding(.vertical, 8.0)
             }.padding(.top, 24.0)
+        } else {
+            commentBox
+            HStack {
+                Spacer()
+                Text("Post the first comment!")
+                    .foregroundColor(.gray)
+                Spacer()
+            }
+            .padding(.top, 24.0)
         }
     }
 
     var body: some View {
         UITextView.appearance().backgroundColor = .clear
+        UIScrollView.appearance().keyboardDismissMode = .onDrag
 
         return ScrollView {
             VStack(alignment: .leading, spacing: 0.0) {
@@ -89,6 +102,7 @@ struct EpisodeDetailsView: View {
         }
         .ignoresSafeArea(edges: [.top])
         .tint(.black)
+        .accentColor(.yellow)
         .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardDidShowNotification)) { _ in
 
         }
