@@ -13,11 +13,15 @@ final class MainNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.backgroundColor = .black
+        navigationBar.isHidden = true
+
         let splashView = SplashView { [weak self] in
             let home = UIHostingController(rootView: HomeView())
             UIView.animate(withDuration: 0.2, delay: 0.0, options: [], animations: {
                 self?.viewControllers[0].view.alpha = 0.0
             }, completion: { _ in
+                self?.navigationBar.isHidden = false
                 home.view.alpha = 0.0
                 self?.viewControllers = [home]
                 UIView.animate(withDuration: 0.2) { home.view.alpha = 1.0 }

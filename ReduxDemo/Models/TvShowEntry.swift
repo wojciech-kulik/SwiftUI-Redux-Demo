@@ -11,7 +11,6 @@ struct TvShowEntry {
     let date: Date
     let show: TvShow?
     let nextEpisode: Episode?
-    let isError: Bool
 }
 
 extension TvShowEntry {
@@ -19,8 +18,7 @@ extension TvShowEntry {
         return TvShowEntry(
             date: Date(),
             show: .previewGameOfThrones,
-            nextEpisode: TvShow.previewGameOfThrones.nextEpisodes[0],
-            isError: false
+            nextEpisode: TvShow.previewGameOfThrones.nextEpisodes[0]
         )
     }
 
@@ -28,17 +26,7 @@ extension TvShowEntry {
         return TvShowEntry(
             date: Date(),
             show: .previewBreakingBad,
-            nextEpisode: TvShow.previewBreakingBad.nextEpisodes[0],
-            isError: false
-        )
-    }
-
-    static func error() -> TvShowEntry {
-        return TvShowEntry(
-            date: Date(),
-            show: nil,
-            nextEpisode: nil,
-            isError: true
+            nextEpisode: TvShow.previewBreakingBad.nextEpisodes[0]
         )
     }
 }

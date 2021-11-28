@@ -43,7 +43,7 @@ struct ShowView : View {
         }
     }
 
-    var countdownView: some View {
+    var body: some View {
         ZStack {
             Color(white: 0.1, opacity: 1.0).ignoresSafeArea()
 
@@ -57,31 +57,12 @@ struct ShowView : View {
                     Spacer()
                 }
                 .padding(16)
-                
+
                 Spacer()
             }
         }
         .foregroundColor(.white)
         .lineLimit(1)
-    }
-
-    @ViewBuilder
-    var body: some View {
-        if entry.isError {
-            errorView(message: "Could not get TV show")
-        } else {
-            countdownView
-        }
-    }
-
-    private func errorView(message: String) -> some View {
-        ZStack {
-            Color.black.ignoresSafeArea()
-            Text(message)
-                .padding()
-                .multilineTextAlignment(.center)
-        }
-        .foregroundColor(.white)
     }
 }
 
