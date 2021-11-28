@@ -11,13 +11,16 @@ struct CommentView: View {
     let canPresentProfile: Bool
 
     @State var comment: Comment
-    @State var isUserProfileVisible = false
+
+    @EnvironmentObject var store: Store<AppState>
+
+    var state: EpisodeDetailsState? { store.state.state(for: .episode(id: comment.episodeId), type: EpisodeDetailsState.self) }
 
     var body: some View {
         HStack(alignment: .top, spacing: 16.0) {
             if canPresentProfile {
                 Button {
-                    isUserProfileVisible = true
+                    store.dispatch(ActiveScreensStateAction.showScreen(.userProfile(id: comment.userId, sourceCommentId: comment.id)))
                 } label: {
                     Image(comment.avatar)
                         .resizable()
@@ -34,7 +37,13 @@ struct CommentView: View {
                     .fontWeight(.bold)
                 Text(comment.text)
             }
-        }.sheet(isPresented: $isUserProfileVisible) {
+        }.sheet(isPresented: Binding(
+            get: { comment.userId == state?.presentedUserProfileId && comment.id == state?.selectedCommentId },
+            set: {
+                guard !$0 else { return }
+                store.dispatch(ActiveScreensStateAction.dismissScreen(.userProfile(id: comment.userId, sourceCommentId: comment.id)))
+            }
+        )) {
             UserDetailsView(user: .mock)
         }
     }

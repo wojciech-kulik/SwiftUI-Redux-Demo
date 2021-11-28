@@ -11,7 +11,6 @@
 		1631CF1F27539BB70046BF66 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF1E27539BB70046BF66 /* HomeView.swift */; };
 		1631CF2127539BB90046BF66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1631CF2027539BB90046BF66 /* Assets.xcassets */; };
 		1631CF2427539BB90046BF66 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1631CF2327539BB90046BF66 /* Preview Assets.xcassets */; };
-		1631CF2C27539CDB0046BF66 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF2B27539CDB0046BF66 /* MainNavigationController.swift */; };
 		1631CF3227539F5D0046BF66 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF3127539F5D0046BF66 /* SplashView.swift */; };
 		1631CF342753A30D0046BF66 /* UpcomingEpisodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF332753A30D0046BF66 /* UpcomingEpisodeView.swift */; };
 		1631CF372753A37F0046BF66 /* UpcomingEpisode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF362753A37F0046BF66 /* UpcomingEpisode.swift */; };
@@ -32,7 +31,6 @@
 		1631CF5C27540B5B0046BF66 /* HomeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF5B27540B5B0046BF66 /* HomeState.swift */; };
 		1631CF6127540B840046BF66 /* EpisodeDetailsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF6027540B840046BF66 /* EpisodeDetailsState.swift */; };
 		1631CF6427540BA10046BF66 /* UserDetailsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF6327540BA10046BF66 /* UserDetailsState.swift */; };
-		1631CF6927540C0B0046BF66 /* AppStateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF6827540C0B0046BF66 /* AppStateAction.swift */; };
 		1631CF6B27540C160046BF66 /* AppStateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF6A27540C160046BF66 /* AppStateReducer.swift */; };
 		1631CF6E27540C700046BF66 /* ActiveScreensState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF6D27540C700046BF66 /* ActiveScreensState.swift */; };
 		1631CF7027540CBE0046BF66 /* ActiveScreensStateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF6F27540CBE0046BF66 /* ActiveScreensStateReducer.swift */; };
@@ -57,13 +55,11 @@
 		1631CF1E27539BB70046BF66 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		1631CF2027539BB90046BF66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1631CF2327539BB90046BF66 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		1631CF2B27539CDB0046BF66 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		1631CF3127539F5D0046BF66 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		1631CF332753A30D0046BF66 /* UpcomingEpisodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingEpisodeView.swift; sourceTree = "<group>"; };
 		1631CF362753A37F0046BF66 /* UpcomingEpisode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingEpisode.swift; sourceTree = "<group>"; };
 		1631CF382753A3B40046BF66 /* TvShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShow.swift; sourceTree = "<group>"; };
 		1631CF3B2753A9BE0046BF66 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		1631CF3D2753AFE10046BF66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1631CF3F2753B5F10046BF66 /* EpisodeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsView.swift; sourceTree = "<group>"; };
 		1631CF412753B6C70046BF66 /* EpisodeDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetails.swift; sourceTree = "<group>"; };
 		1631CF432753C38E0046BF66 /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
@@ -79,7 +75,6 @@
 		1631CF5B27540B5B0046BF66 /* HomeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeState.swift; sourceTree = "<group>"; };
 		1631CF6027540B840046BF66 /* EpisodeDetailsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsState.swift; sourceTree = "<group>"; };
 		1631CF6327540BA10046BF66 /* UserDetailsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsState.swift; sourceTree = "<group>"; };
-		1631CF6827540C0B0046BF66 /* AppStateAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateAction.swift; sourceTree = "<group>"; };
 		1631CF6A27540C160046BF66 /* AppStateReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateReducer.swift; sourceTree = "<group>"; };
 		1631CF6D27540C700046BF66 /* ActiveScreensState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveScreensState.swift; sourceTree = "<group>"; };
 		1631CF6F27540CBE0046BF66 /* ActiveScreensStateReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveScreensStateReducer.swift; sourceTree = "<group>"; };
@@ -134,7 +129,6 @@
 				16FAB26127543DC200C73200 /* Modules */,
 				1631CF4E275402180046BF66 /* Repositories */,
 				1631CF2027539BB90046BF66 /* Assets.xcassets */,
-				1631CF3D2753AFE10046BF66 /* Info.plist */,
 				1631CF2227539BB90046BF66 /* Preview Content */,
 			);
 			path = ReduxDemo;
@@ -152,7 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				1631CF1C27539BB70046BF66 /* ReduxDemoApp.swift */,
-				1631CF2B27539CDB0046BF66 /* MainNavigationController.swift */,
 				1631CF522754092E0046BF66 /* Store.swift */,
 				1631CF81275418160046BF66 /* Middlewares */,
 				1631CF56275409890046BF66 /* AppState */,
@@ -233,7 +226,6 @@
 			isa = PBXGroup;
 			children = (
 				1631CF57275409940046BF66 /* AppState.swift */,
-				1631CF6827540C0B0046BF66 /* AppStateAction.swift */,
 				1631CF6A27540C160046BF66 /* AppStateReducer.swift */,
 			);
 			path = AppState;
@@ -421,7 +413,6 @@
 				1631CF7227540CEA0046BF66 /* ActiveScreensStateAction.swift in Sources */,
 				1631CF342753A30D0046BF66 /* UpcomingEpisodeView.swift in Sources */,
 				1631CF85275419590046BF66 /* LoggerMiddleware.swift in Sources */,
-				1631CF2C27539CDB0046BF66 /* MainNavigationController.swift in Sources */,
 				1631CF372753A37F0046BF66 /* UpcomingEpisode.swift in Sources */,
 				1631CF552754095F0046BF66 /* AnyCancellable.swift in Sources */,
 				1631CF5C27540B5B0046BF66 /* HomeState.swift in Sources */,
@@ -436,7 +427,6 @@
 				1631CF6B27540C160046BF66 /* AppStateReducer.swift in Sources */,
 				1631CF462753C4480046BF66 /* Comment.swift in Sources */,
 				1631CF1F27539BB70046BF66 /* HomeView.swift in Sources */,
-				1631CF6927540C0B0046BF66 /* AppStateAction.swift in Sources */,
 				1631CF76275410430046BF66 /* HomeStateAction.swift in Sources */,
 				1631CF7C275411AA0046BF66 /* UserDetailsStateAction.swift in Sources */,
 				1631CF4D2753FC2F0046BF66 /* UserDetailsView.swift in Sources */,
@@ -586,7 +576,7 @@
 				DEVELOPMENT_TEAM = JT56B63DU5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ReduxDemo/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -616,7 +606,7 @@
 				DEVELOPMENT_TEAM = JT56B63DU5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ReduxDemo/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

@@ -5,7 +5,7 @@
 //  Created by Wojciech Kulik on 28/11/2021.
 //
 
-import UIKit
+import SwiftUI
 
 let store = Store(
     initial: AppState(),
@@ -13,30 +13,28 @@ let store = Store(
     middlewares: [Middlewares.tvShows, Middlewares.logger]
 )
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-    var window: UIWindow?
+struct AppView: View {
+    @EnvironmentObject var store: Store<AppState>
 
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let windowScene = (scene as? UIWindowScene) else { return }
-
-        UINavigationBar.appearance().tintColor = .yellow
-
-        let window = UIWindow(windowScene: windowScene)
-        self.window = window
-        window.backgroundColor = .white
-
-        window.rootViewController = MainNavigationController()
-        window.makeKeyAndVisible()
+    var body: some View {
+        if store.state.state(for: .home, type: HomeState.self) != nil {
+            NavigationView {
+                HomeView().environmentObject(store)
+            }
+            .navigationViewStyle(.stack)
+        } else {
+            SplashView()
+        }
     }
 }
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        return true
-    }
+@main
+struct ReduxDemoApp: App {
+    var body: some Scene {
+        UINavigationBar.appearance().tintColor = .yellow
 
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+        return WindowGroup {
+            AppView().environmentObject(store)
+        }
     }
 }

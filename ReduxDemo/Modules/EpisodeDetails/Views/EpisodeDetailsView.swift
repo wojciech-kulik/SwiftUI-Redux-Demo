@@ -73,10 +73,10 @@ struct EpisodeDetailsView: View {
             ForEach(state.comments) { comment in
                 CommentView(
                     canPresentProfile: true,
-                    comment: comment,
-                    isUserProfileVisible: state.presentedUserProfileId == comment.userId && state.selectedCommentId == comment.id
+                    comment: comment
                 )
                 .padding(.vertical, 8.0)
+                .environmentObject(store)
             }.padding(.top, 24.0)
         } else {
             commentBox

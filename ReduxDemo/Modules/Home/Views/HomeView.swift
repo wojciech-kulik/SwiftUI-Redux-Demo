@@ -46,6 +46,7 @@ struct HomeView: View {
                 }
             }.listStyle(.plain)
         }
+        .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("TV Shows")
         .onLoad { store.dispatch(HomeStateAction.fetchUpcomingEpisodes) }
     }

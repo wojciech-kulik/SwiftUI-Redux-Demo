@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct SplashView: View {
-    var onDidFinish: (() -> ())?
-
     var body: some View {
         Image("splash")
             .resizable()
@@ -18,7 +16,7 @@ struct SplashView: View {
             .cornerRadius(80.0)
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                    onDidFinish?()
+                    store.dispatch(ActiveScreensStateAction.showScreen(.home))
                 }
             }
     }
