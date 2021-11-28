@@ -8,17 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		1631CF1D27539BB70046BF66 /* ReduxDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF1C27539BB70046BF66 /* ReduxDemoApp.swift */; };
-		1631CF1F27539BB70046BF66 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF1E27539BB70046BF66 /* ContentView.swift */; };
+		1631CF1F27539BB70046BF66 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF1E27539BB70046BF66 /* HomeView.swift */; };
 		1631CF2127539BB90046BF66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1631CF2027539BB90046BF66 /* Assets.xcassets */; };
 		1631CF2427539BB90046BF66 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1631CF2327539BB90046BF66 /* Preview Assets.xcassets */; };
+		1631CF2C27539CDB0046BF66 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF2B27539CDB0046BF66 /* MainNavigationController.swift */; };
+		1631CF3227539F5D0046BF66 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF3127539F5D0046BF66 /* SplashView.swift */; };
+		1631CF342753A30D0046BF66 /* ShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF332753A30D0046BF66 /* ShowView.swift */; };
+		1631CF372753A37F0046BF66 /* TvShowEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF362753A37F0046BF66 /* TvShowEntry.swift */; };
+		1631CF392753A3B40046BF66 /* TvShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF382753A3B40046BF66 /* TvShow.swift */; };
+		1631CF3C2753A9BE0046BF66 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF3B2753A9BE0046BF66 /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1631CF1927539BB70046BF66 /* ReduxDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReduxDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1631CF1C27539BB70046BF66 /* ReduxDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReduxDemoApp.swift; sourceTree = "<group>"; };
-		1631CF1E27539BB70046BF66 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1631CF1E27539BB70046BF66 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		1631CF2027539BB90046BF66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1631CF2327539BB90046BF66 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1631CF2B27539CDB0046BF66 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		1631CF3127539F5D0046BF66 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		1631CF332753A30D0046BF66 /* ShowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowView.swift; sourceTree = "<group>"; };
+		1631CF362753A37F0046BF66 /* TvShowEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowEntry.swift; sourceTree = "<group>"; };
+		1631CF382753A3B40046BF66 /* TvShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShow.swift; sourceTree = "<group>"; };
+		1631CF3B2753A9BE0046BF66 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		1631CF3D2753AFE10046BF66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,9 +64,11 @@
 		1631CF1B27539BB70046BF66 /* ReduxDemo */ = {
 			isa = PBXGroup;
 			children = (
-				1631CF1C27539BB70046BF66 /* ReduxDemoApp.swift */,
-				1631CF1E27539BB70046BF66 /* ContentView.swift */,
+				1631CF2D27539F010046BF66 /* App */,
+				1631CF3A2753A9B80046BF66 /* Extensions */,
+				1631CF352753A3770046BF66 /* Models */,
 				1631CF2027539BB90046BF66 /* Assets.xcassets */,
+				1631CF3D2753AFE10046BF66 /* Info.plist */,
 				1631CF2227539BB90046BF66 /* Preview Content */,
 			);
 			path = ReduxDemo;
@@ -65,6 +80,51 @@
 				1631CF2327539BB90046BF66 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1631CF2D27539F010046BF66 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				1631CF1C27539BB70046BF66 /* ReduxDemoApp.swift */,
+				1631CF2B27539CDB0046BF66 /* MainNavigationController.swift */,
+				1631CF3027539F530046BF66 /* Splash */,
+				1631CF2E27539F080046BF66 /* Home */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		1631CF2E27539F080046BF66 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				1631CF1E27539BB70046BF66 /* HomeView.swift */,
+				1631CF332753A30D0046BF66 /* ShowView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		1631CF3027539F530046BF66 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				1631CF3127539F5D0046BF66 /* SplashView.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		1631CF352753A3770046BF66 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1631CF362753A37F0046BF66 /* TvShowEntry.swift */,
+				1631CF382753A3B40046BF66 /* TvShow.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1631CF3A2753A9B80046BF66 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1631CF3B2753A9BE0046BF66 /* Color.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +197,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1631CF1F27539BB70046BF66 /* ContentView.swift in Sources */,
+				1631CF392753A3B40046BF66 /* TvShow.swift in Sources */,
+				1631CF342753A30D0046BF66 /* ShowView.swift in Sources */,
+				1631CF2C27539CDB0046BF66 /* MainNavigationController.swift in Sources */,
+				1631CF372753A37F0046BF66 /* TvShowEntry.swift in Sources */,
+				1631CF3227539F5D0046BF66 /* SplashView.swift in Sources */,
+				1631CF3C2753A9BE0046BF66 /* Color.swift in Sources */,
+				1631CF1F27539BB70046BF66 /* HomeView.swift in Sources */,
 				1631CF1D27539BB70046BF66 /* ReduxDemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,11 +338,12 @@
 				DEVELOPMENT_TEAM = JT56B63DU5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = ReduxDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -301,11 +368,12 @@
 				DEVELOPMENT_TEAM = JT56B63DU5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = ReduxDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
