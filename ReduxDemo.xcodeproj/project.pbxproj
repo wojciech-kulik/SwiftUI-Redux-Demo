@@ -48,6 +48,7 @@
 		1631CF85275419590046BF66 /* LoggerMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF84275419590046BF66 /* LoggerMiddleware.swift */; };
 		1631CF8727542A670046BF66 /* ViewDidLoadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF8627542A670046BF66 /* ViewDidLoadModifier.swift */; };
 		1631CF8927542A850046BF66 /* View+Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF8827542A850046BF66 /* View+Modifiers.swift */; };
+		16FAB26427543E3000C73200 /* AppScreenStateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAB26327543E3000C73200 /* AppScreenStateReducer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +95,7 @@
 		1631CF84275419590046BF66 /* LoggerMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerMiddleware.swift; sourceTree = "<group>"; };
 		1631CF8627542A670046BF66 /* ViewDidLoadModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDidLoadModifier.swift; sourceTree = "<group>"; };
 		1631CF8827542A850046BF66 /* View+Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Modifiers.swift"; sourceTree = "<group>"; };
+		16FAB26327543E3000C73200 /* AppScreenStateReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScreenStateReducer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				1631CF2D27539F010046BF66 /* App */,
 				1631CF3A2753A9B80046BF66 /* Extensions */,
 				1631CF352753A3770046BF66 /* Models */,
+				16FAB26127543DC200C73200 /* Modules */,
 				1631CF4E275402180046BF66 /* Repositories */,
 				1631CF2027539BB90046BF66 /* Assets.xcassets */,
 				1631CF3D2753AFE10046BF66 /* Info.plist */,
@@ -150,14 +153,11 @@
 			children = (
 				1631CF1C27539BB70046BF66 /* ReduxDemoApp.swift */,
 				1631CF2B27539CDB0046BF66 /* MainNavigationController.swift */,
-				1631CF51275409290046BF66 /* Redux */,
-				1631CF6627540BC20046BF66 /* SharedViews */,
+				1631CF522754092E0046BF66 /* Store.swift */,
+				1631CF81275418160046BF66 /* Middlewares */,
 				1631CF56275409890046BF66 /* AppState */,
 				1631CF6C27540C4C0046BF66 /* ActiveScreensState */,
-				1631CF3027539F530046BF66 /* Splash */,
-				1631CF2E27539F080046BF66 /* Home */,
-				1631CF3E2753B5E10046BF66 /* EpisodeDetails */,
-				1631CF4B2753FC1C0046BF66 /* UserDetails */,
+				16FAB26227543E1200C73200 /* AppScreenState */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -229,15 +229,6 @@
 			path = Repositories;
 			sourceTree = "<group>";
 		};
-		1631CF51275409290046BF66 /* Redux */ = {
-			isa = PBXGroup;
-			children = (
-				1631CF522754092E0046BF66 /* Store.swift */,
-				1631CF81275418160046BF66 /* Middlewares */,
-			);
-			path = Redux;
-			sourceTree = "<group>";
-		};
 		1631CF56275409890046BF66 /* AppState */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,12 +287,12 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		1631CF6627540BC20046BF66 /* SharedViews */ = {
+		1631CF6627540BC20046BF66 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
 				1631CF432753C38E0046BF66 /* CommentView.swift */,
 			);
-			path = SharedViews;
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		1631CF6727540BD10046BF66 /* Views */ = {
@@ -315,7 +306,6 @@
 		1631CF6C27540C4C0046BF66 /* ActiveScreensState */ = {
 			isa = PBXGroup;
 			children = (
-				1631CF5927540B460046BF66 /* AppScreenState.swift */,
 				1631CF6D27540C700046BF66 /* ActiveScreensState.swift */,
 				1631CF7127540CEA0046BF66 /* ActiveScreensStateAction.swift */,
 				1631CF6F27540CBE0046BF66 /* ActiveScreensStateReducer.swift */,
@@ -330,6 +320,27 @@
 				1631CF84275419590046BF66 /* LoggerMiddleware.swift */,
 			);
 			path = Middlewares;
+			sourceTree = "<group>";
+		};
+		16FAB26127543DC200C73200 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				1631CF6627540BC20046BF66 /* Shared */,
+				1631CF3027539F530046BF66 /* Splash */,
+				1631CF2E27539F080046BF66 /* Home */,
+				1631CF3E2753B5E10046BF66 /* EpisodeDetails */,
+				1631CF4B2753FC1C0046BF66 /* UserDetails */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		16FAB26227543E1200C73200 /* AppScreenState */ = {
+			isa = PBXGroup;
+			children = (
+				1631CF5927540B460046BF66 /* AppScreenState.swift */,
+				16FAB26327543E3000C73200 /* AppScreenStateReducer.swift */,
+			);
+			path = AppScreenState;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -436,6 +447,7 @@
 				1631CF6E27540C700046BF66 /* ActiveScreensState.swift in Sources */,
 				1631CF7027540CBE0046BF66 /* ActiveScreensStateReducer.swift in Sources */,
 				1631CF442753C38E0046BF66 /* CommentView.swift in Sources */,
+				16FAB26427543E3000C73200 /* AppScreenStateReducer.swift in Sources */,
 				1631CF1D27539BB70046BF66 /* ReduxDemoApp.swift in Sources */,
 				1631CF6127540B840046BF66 /* EpisodeDetailsState.swift in Sources */,
 				1631CF5A27540B460046BF66 /* AppScreenState.swift in Sources */,

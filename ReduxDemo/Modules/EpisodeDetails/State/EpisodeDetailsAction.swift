@@ -11,5 +11,5 @@ enum EpisodeDetailsAction: Action {
     case fetchEpisodeDetails(id: UUID)
     case receivedEpisodeDetails(EpisodeDetails)
     case fetchEpisodeComments(id: UUID)
-    case receivedEpisodeComments([Comment])
+    case receivedEpisodeComments([Comment], episodeId: UUID)
 }

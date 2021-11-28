@@ -11,6 +11,7 @@ extension ActiveScreensState {
     static let reducer: Reducer<Self> = { state, action in
         var screens = state.screens
 
+        // Update visible screens
         if let action = action as? ActiveScreensStateAction {
             switch action {
             case .showScreen(.splashScreen), .dismissScreen(.home), .dismissScreen(.splashScreen): screens = [.splashScreen]
@@ -21,15 +22,8 @@ extension ActiveScreensState {
             }
         }
 
-        // Forward actions to state reducers (cascade)
-        screens = screens.map {
-            switch $0 {
-            case .splashScreen: return $0
-            case .home(let state): return .home(HomeState.reducer(state, action))
-            case .episode(let state): return .episode(EpisodeDetailsState.reducer(state, action))
-            case .userProfile(let state): return .userProfile(UserDetailsState.reducer(state, action))
-            }
-        }
+        // Reduce each screen state
+        screens = screens.map { AppScreenState.reducer($0, action) }
 
         return ActiveScreensState(screens: screens)
     }

@@ -32,11 +32,8 @@ extension AppScreenState {
         case (.splashScreen, .splashScreen): return true
         case (.home, .home): return true
         case (.episode(let state), .episode(let id)): return state.episodeId == id
-        case (.userProfile(let state), .episode(let id)): return state.userId == id
-        case (.splashScreen, _): return false
-        case (.home, _): return false
-        case (.episode, _): return false
-        case (.userProfile, _): return false
+        case (.userProfile(let state), .userProfile(let id, _)): return state.userId == id
+        case (.splashScreen, _), (.home, _), (.episode, _), (.userProfile, _): return false
         }
     }
 

@@ -40,7 +40,7 @@ extension EpisodeDetailsState {
                 selectedCommentId: state.selectedCommentId,
                 presentedUserProfileId: state.presentedUserProfileId
             )
-        case EpisodeDetailsAction.receivedEpisodeComments(let comments) where comments.isEmpty || comments[0].episodeId == state.episodeId:
+        case EpisodeDetailsAction.receivedEpisodeComments(let comments, let episodeId) where episodeId == state.episodeId:
             return EpisodeDetailsState(
                 episodeId: state.episodeId,
                 details: state.details,
