@@ -7,6 +7,12 @@
 
 import UIKit
 
+let store = Store(
+    initial: AppState(),
+    reducer: AppState.reducer,
+    middlewares: [Middlewares.tvShows, Middlewares.logger]
+)
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 

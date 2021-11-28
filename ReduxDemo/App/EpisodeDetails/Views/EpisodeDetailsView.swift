@@ -10,6 +10,7 @@ import SwiftUI
 struct EpisodeDetailsView: View {
     @State var details: EpisodeDetails
     @State var comment: String = ""
+    @EnvironmentObject var store: Store<AppState>
 
     var headerView: some View {
         VStack(spacing: 0.0) {
@@ -81,5 +82,6 @@ struct EpisodeDetailsView: View {
 struct EpisodeDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         EpisodeDetailsView(details: .mockGameOfThrones)
+            .environmentObject(store)
     }
 }

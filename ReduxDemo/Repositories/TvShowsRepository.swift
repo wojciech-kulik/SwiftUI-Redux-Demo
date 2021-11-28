@@ -17,7 +17,7 @@ final class TvShowsRepository: ObservableObject {
     private let shows = [TvShow.mockGameOfThrones, .mockBreakingBad]
 
     func fetchUpcomingEpisodes() -> AnyPublisher<[UpcomingEpisode], TvShowsRepositoryError> {
-        Just([UpcomingEpisode.mockGameOfThrones, .mockBreakingBad, .mockGameOfThrones])
+        Just([UpcomingEpisode.mockGameOfThrones, .mockBreakingBad])
             .delay(for: 2.0, scheduler: DispatchQueue.main)
             .setFailureType(to: TvShowsRepositoryError.self)
             .eraseToAnyPublisher()

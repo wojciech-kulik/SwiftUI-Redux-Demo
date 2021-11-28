@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct EpisodeDetails {
+struct EpisodeDetails: Codable {
     let id: UUID
     let title: String
     let photo: String

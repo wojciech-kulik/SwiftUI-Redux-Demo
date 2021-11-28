@@ -17,7 +17,13 @@ final class MainNavigationController: UINavigationController {
         navigationBar.isHidden = true
 
         let splashView = SplashView { [weak self] in
-            let home = UIHostingController(rootView: HomeView().environmentObject(TvShowsRepository()))
+            store.dispatch(AppStateAction.appDidLoad)
+            store.dispatch(ActiveScreensStateAction.showScreen(.home))
+            
+            let homeView = HomeView()
+                .environmentObject(store)
+            let home = UIHostingController(rootView: homeView)
+            
             UIView.animate(withDuration: 0.2, delay: 0.0, options: [], animations: {
                 self?.viewControllers[0].view.alpha = 0.0
             }, completion: { _ in

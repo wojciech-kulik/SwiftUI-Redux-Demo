@@ -7,10 +7,11 @@
 
 import Foundation
 
-struct UpcomingEpisode {
-    let date: Date
+struct UpcomingEpisode: Codable, Identifiable {
+    let id: UUID
+    let releaseDate: Date
     let show: TvShow?
-    let nextEpisode: Episode
+    let episode: Int
     let episodesInSeason: Int
 }
 
@@ -19,16 +20,18 @@ extension UpcomingEpisode {
     private static let ReleaseHourBreakingBad: TimeInterval = 8 * 3600
 
     static var mockGameOfThrones = UpcomingEpisode(
-        date: Date(),
+        id: EpisodeDetails.mockGameOfThrones.id,
+        releaseDate: Date().addingTimeInterval(ReleaseHourGot),
         show: .mockGameOfThrones,
-        nextEpisode: Episode(number: 2, releaseDate: Date().addingTimeInterval(ReleaseHourGot)),
+        episode: 2,
         episodesInSeason: 10
     )
 
     static var mockBreakingBad = UpcomingEpisode(
-        date: Date(),
+        id: EpisodeDetails.mockBreakingBad.id,
+        releaseDate: Date().addingTimeInterval(ReleaseHourBreakingBad),
         show: .mockBreakingBad,
-        nextEpisode: Episode(number: 3, releaseDate: Date().addingTimeInterval(ReleaseHourBreakingBad)),
+        episode: 3,
         episodesInSeason: 8
     )
 }

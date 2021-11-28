@@ -7,12 +7,7 @@
 
 import Foundation
 
-struct Episode {
-    let number: Int
-    let releaseDate: Date
-}
-
-struct TvShow {
+struct TvShow: Codable {
     let id: UUID
     let title: String
     let cover: String

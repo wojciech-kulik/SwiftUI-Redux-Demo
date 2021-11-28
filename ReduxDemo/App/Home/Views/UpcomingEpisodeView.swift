@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct UpcomingEpisodeView : View {
-    var entry: UpcomingEpisode
+    var episode: UpcomingEpisode
 
     var posterView: some View {
-        Image(entry.show?.cover ?? "")
+        Image(episode.show?.cover ?? "")
             .resizable()
             .aspectRatio(contentMode: .fill)
             .frame(maxWidth: 120.0)
@@ -19,12 +19,12 @@ struct UpcomingEpisodeView : View {
 
     var headerView: some View {
         VStack(alignment: .leading, spacing: 5.0) {
-            Text(entry.show?.title ?? "-")
+            Text(episode.show?.title ?? "-")
                 .minimumScaleFactor(0.5)
                 .font(.headline)
 
             Text("Next episode: " +
-                "\(entry.nextEpisode.number) of \(entry.episodesInSeason)")
+                "\(episode.episode) of \(episode.episodesInSeason)")
                 .font(.footnote)
                 .foregroundColor(.gray)
         }
@@ -32,12 +32,12 @@ struct UpcomingEpisodeView : View {
 
     var timerView: some View {
         VStack(alignment: .leading, spacing: 4.0) {
-            Text(entry.nextEpisode.releaseDate, style: .timer)
+            Text(episode.releaseDate, style: .timer)
                 .minimumScaleFactor(0.3)
                 .foregroundColor(Color.yellow.opacity(0.9))
                 .font(.title)
 
-            Text(entry.nextEpisode.releaseDate, style: .date)
+            Text(episode.releaseDate, style: .date)
                 .font(.footnote)
                 .foregroundColor(.gray)
         }
@@ -69,7 +69,7 @@ struct UpcomingEpisodeView : View {
 struct ShowView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            UpcomingEpisodeView(entry: .mockGameOfThrones)
+            UpcomingEpisodeView(episode: .mockGameOfThrones)
                 .frame(width: .infinity, height: 170.0, alignment: .center)
         }
     }
