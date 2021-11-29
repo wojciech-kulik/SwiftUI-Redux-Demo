@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 /// Namespace for Middlewares
 enum Middlewares {}
@@ -60,6 +61,8 @@ final class Store<State>: ObservableObject {
                 .store(in: &subscriptions, key: key)
         }
 
-        state = newState
+        withAnimation {
+            state = newState
+        }
     }
 }
