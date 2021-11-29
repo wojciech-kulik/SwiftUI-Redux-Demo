@@ -31,6 +31,12 @@ extension Middlewares {
                 .map { CommentsStateAction.receivedEpisodeComments($0, episodeId: id) }
                 .catch { _ in Empty().eraseToAnyPublisher() }
                 .eraseToAnyPublisher()
+        case CommentsStateAction.postComment(let comment):
+            return tvShowsRepository
+                .postComment(comment)
+                .map { NoOpAction() }
+                .catch { _ in Empty().eraseToAnyPublisher() }
+                .eraseToAnyPublisher()
         default:
             return Empty().eraseToAnyPublisher()
         }

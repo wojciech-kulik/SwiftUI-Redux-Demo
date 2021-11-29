@@ -16,7 +16,8 @@ extension CommentsState {
                 comments: state.comments,
                 isLoading: state.isLoading,
                 selectedCommentId: selectedCommentId,
-                presentedUserProfileId: id
+                presentedUserProfileId: id,
+                newCommentText: state.newCommentText
             )
         case ActiveScreensStateAction.dismissScreen(.userProfile(let id, _)) where id == state.presentedUserProfileId:
             return CommentsState(
@@ -24,7 +25,8 @@ extension CommentsState {
                 comments: state.comments,
                 isLoading: state.isLoading,
                 selectedCommentId: nil,
-                presentedUserProfileId: nil
+                presentedUserProfileId: nil,
+                newCommentText: state.newCommentText
             )
         case CommentsStateAction.fetchEpisodeComments(let id) where id == state.episodeId:
             return CommentsState(
@@ -32,7 +34,8 @@ extension CommentsState {
                 comments: [],
                 isLoading: true,
                 selectedCommentId: state.selectedCommentId,
-                presentedUserProfileId: state.presentedUserProfileId
+                presentedUserProfileId: state.presentedUserProfileId,
+                newCommentText: state.newCommentText
             )
         case CommentsStateAction.receivedEpisodeComments(let comments, let episodeId) where episodeId == state.episodeId:
             return CommentsState(
@@ -40,7 +43,26 @@ extension CommentsState {
                 comments: comments,
                 isLoading: false,
                 selectedCommentId: state.selectedCommentId,
-                presentedUserProfileId: state.presentedUserProfileId
+                presentedUserProfileId: state.presentedUserProfileId,
+                newCommentText: ""
+            )
+        case CommentsStateAction.postComment(let comment) where comment.episodeId == state.episodeId:
+            return CommentsState(
+                episodeId: state.episodeId,
+                comments: [comment] + state.comments,
+                isLoading: state.isLoading,
+                selectedCommentId: state.selectedCommentId,
+                presentedUserProfileId: state.presentedUserProfileId,
+                newCommentText: ""
+            )
+        case CommentsStateAction.updateNewCommentText(let text):
+            return CommentsState(
+                episodeId: state.episodeId,
+                comments: state.comments,
+                isLoading: state.isLoading,
+                selectedCommentId: state.selectedCommentId,
+                presentedUserProfileId: state.presentedUserProfileId,
+                newCommentText: text
             )
         default:
             return state

@@ -9,8 +9,7 @@ import SwiftUI
 
 struct CommentsListView: View {
     @State var episodeId: UUID
-    @State var newCommentText: String = ""
-
+    
     @EnvironmentObject var store: Store<AppState>
 
     var state: CommentsState? { store.state.state(for: .episode(id: episodeId), type: EpisodeDetailsState.self)?.comments }
@@ -27,7 +26,7 @@ struct CommentsListView: View {
                 .onLoad { store.dispatch(CommentsStateAction.fetchEpisodeComments(id: episodeId)) }
             } else {
                 VStack(alignment: .leading) {
-                    NewCommentView()
+                    NewCommentView(episodeId: episodeId)
 
                     if !state.comments.isEmpty {
                         ForEach(state.comments) { comment in

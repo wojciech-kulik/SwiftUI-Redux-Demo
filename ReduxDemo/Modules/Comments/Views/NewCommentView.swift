@@ -8,15 +8,24 @@
 import SwiftUI
 
 struct NewCommentView: View {
-    @State var newCommentText: String = ""
+    let episodeId: UUID
     
     @EnvironmentObject var store: Store<AppState>
 
+    var state: CommentsState? { store.state.state(for: .episode(id: episodeId), type: EpisodeDetailsState.self)?.comments }
+
+    @ViewBuilder
     var body: some View {
+        if let state = state {
+            createCommentBox(state: state)
+        }
+    }
+
+    private func createCommentBox(state: CommentsState) -> some View {
         UITextView.appearance().backgroundColor = .clear
 
         return VStack {
-            TextEditor(text: $newCommentText)
+            TextEditor(text: Binding(get: { state.newCommentText }, set: { store.dispatch(CommentsStateAction.updateNewCommentText($0)) }))
                 .background(Color(hex: "#1a1a1a"))
                 .foregroundColor(.white)
                 .frame(height: 120)
@@ -25,9 +34,17 @@ struct NewCommentView: View {
             HStack {
                 Spacer()
                 Button("Post") {
-                    // TODO
+                    store.dispatch(CommentsStateAction.postComment(Comment(
+                        id: UUID(),
+                        userId: User.mock.id,
+                        avatar: User.mock.avatar,
+                        name: User.mock.name,
+                        date: Date(),
+                        text: state.newCommentText,
+                        episodeId: episodeId
+                    )))
                 }
-                .disabled(newCommentText.isEmpty)
+                .disabled(state.newCommentText.isEmpty)
                 .padding(.top, 8)
                 .foregroundColor(.yellow)
                 .buttonStyle(.bordered)
@@ -40,7 +57,7 @@ struct NewCommentView: View {
 
 struct NewCommentView_Previews: PreviewProvider {
     static var previews: some View {
-        NewCommentView()
+        NewCommentView(episodeId: EpisodeDetails.mockGameOfThrones.id)
             .environmentObject(store)
     }
 }

@@ -12,6 +12,7 @@ import SwiftUI
 /// Namespace for Middlewares
 enum Middlewares {}
 protocol Action {}
+struct NoOpAction: Action {}
 
 typealias Reducer<State> = (State, Action) -> State
 typealias Middleware<State> = (State, Action) -> AnyPublisher<Action, Never>

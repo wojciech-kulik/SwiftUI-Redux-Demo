@@ -13,6 +13,7 @@ struct CommentsState: Codable {
     let isLoading: Bool
     let selectedCommentId: UUID?
     let presentedUserProfileId: UUID?
+    let newCommentText: String
 }
 
 extension CommentsState {
@@ -22,5 +23,6 @@ extension CommentsState {
         isLoading = true
         selectedCommentId = nil
         presentedUserProfileId = nil
+        newCommentText = ""
     }
 }
