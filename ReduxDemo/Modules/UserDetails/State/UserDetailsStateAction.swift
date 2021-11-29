@@ -7,4 +7,7 @@
 
 import Foundation
 
-enum UserDetailsStateAction: Action {}
+enum UserDetailsStateAction: Action {
+    case fetchUserProfile(userId: UUID)
+    case receivedUserProfile(user: User, comments: [Comment])
+}

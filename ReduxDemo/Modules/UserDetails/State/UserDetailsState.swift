@@ -12,7 +12,6 @@ struct UserDetailsState: Codable {
     let details: User?
     let comments: [Comment]
     let isLoading: Bool
-    let isLoadingComments: Bool
 }
 
 extension UserDetailsState {
@@ -21,6 +20,5 @@ extension UserDetailsState {
         details = nil
         comments = []
         isLoading = true
-        isLoadingComments = true
     }
 }

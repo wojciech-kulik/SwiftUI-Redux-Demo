@@ -46,6 +46,8 @@
 		1631CF85275419590046BF66 /* LoggerMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF84275419590046BF66 /* LoggerMiddleware.swift */; };
 		1631CF8727542A670046BF66 /* ViewDidLoadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF8627542A670046BF66 /* ViewDidLoadModifier.swift */; };
 		1631CF8927542A850046BF66 /* View+Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF8827542A850046BF66 /* View+Modifiers.swift */; };
+		164DC11427555A8C0004CAFF /* UsersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164DC11327555A8C0004CAFF /* UsersRepository.swift */; };
+		164DC11627555DBD0004CAFF /* Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164DC11527555DBD0004CAFF /* Publisher.swift */; };
 		1652578B2754597A00E34B85 /* CommentsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1652578A2754597A00E34B85 /* CommentsListView.swift */; };
 		1652578D27545A7F00E34B85 /* NewCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1652578C27545A7F00E34B85 /* NewCommentView.swift */; };
 		1684940127545D4C00BF3611 /* CommentsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1684940027545D4C00BF3611 /* CommentsState.swift */; };
@@ -95,6 +97,8 @@
 		1631CF84275419590046BF66 /* LoggerMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerMiddleware.swift; sourceTree = "<group>"; };
 		1631CF8627542A670046BF66 /* ViewDidLoadModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDidLoadModifier.swift; sourceTree = "<group>"; };
 		1631CF8827542A850046BF66 /* View+Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Modifiers.swift"; sourceTree = "<group>"; };
+		164DC11327555A8C0004CAFF /* UsersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRepository.swift; sourceTree = "<group>"; };
+		164DC11527555DBD0004CAFF /* Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publisher.swift; sourceTree = "<group>"; };
 		1652578A2754597A00E34B85 /* CommentsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsListView.swift; sourceTree = "<group>"; };
 		1652578C27545A7F00E34B85 /* NewCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCommentView.swift; sourceTree = "<group>"; };
 		1684940027545D4C00BF3611 /* CommentsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsState.swift; sourceTree = "<group>"; };
@@ -202,6 +206,7 @@
 				1631CF7F275412C40046BF66 /* AppState+ScreenStateSelector.swift */,
 				1631CF8627542A670046BF66 /* ViewDidLoadModifier.swift */,
 				1631CF8827542A850046BF66 /* View+Modifiers.swift */,
+				164DC11527555DBD0004CAFF /* Publisher.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -228,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				1631CF4F275402670046BF66 /* TvShowsRepository.swift */,
+				164DC11327555A8C0004CAFF /* UsersRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -445,6 +451,7 @@
 				1631CF342753A30D0046BF66 /* UpcomingEpisodeView.swift in Sources */,
 				1631CF85275419590046BF66 /* LoggerMiddleware.swift in Sources */,
 				1631CF372753A37F0046BF66 /* UpcomingEpisode.swift in Sources */,
+				164DC11627555DBD0004CAFF /* Publisher.swift in Sources */,
 				1631CF552754095F0046BF66 /* AnyCancellable.swift in Sources */,
 				1631CF5C27540B5B0046BF66 /* HomeState.swift in Sources */,
 				1631CF7E275411BE0046BF66 /* UserDetailsStateReducer.swift in Sources */,
@@ -478,6 +485,7 @@
 				1631CF6127540B840046BF66 /* EpisodeDetailsState.swift in Sources */,
 				1631CF5A27540B460046BF66 /* AppScreenState.swift in Sources */,
 				1631CF832754182A0046BF66 /* TvShowsMiddleware.swift in Sources */,
+				164DC11427555A8C0004CAFF /* UsersRepository.swift in Sources */,
 				1631CF80275412C40046BF66 /* AppState+ScreenStateSelector.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

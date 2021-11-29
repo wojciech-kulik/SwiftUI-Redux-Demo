@@ -14,7 +14,6 @@ enum TvShowsRepositoryError: Error {
 }
 
 final class TvShowsRepository: ObservableObject {
-    private let shows = [TvShow.mockGameOfThrones, .mockBreakingBad]
     private var comments = Comment.allMocks
 
     func fetchUpcomingEpisodes() -> AnyPublisher<[UpcomingEpisode], TvShowsRepositoryError> {
@@ -37,7 +36,7 @@ final class TvShowsRepository: ObservableObject {
         }
     }
 
-    func fetchComments(for episodeId: UUID) -> AnyPublisher<[Comment], TvShowsRepositoryError> {
+    func fetchComments(episodeId: UUID) -> AnyPublisher<[Comment], TvShowsRepositoryError> {
         let comments = comments.filter({ $0.episodeId == episodeId })
 
         if !comments.isEmpty {
@@ -50,6 +49,15 @@ final class TvShowsRepository: ObservableObject {
                 .delay(for: 2.0, scheduler: DispatchQueue.main)
                 .eraseToAnyPublisher()
         }
+    }
+
+    func fetchComments(userId: UUID) -> AnyPublisher<[Comment], TvShowsRepositoryError> {
+        let comments = comments.filter { $0.userId == userId }
+
+        return Just(comments.sorted(by: { $0.date > $1.date }))
+            .delay(for: 1.5, scheduler: DispatchQueue.main)
+            .setFailureType(to: TvShowsRepositoryError.self)
+            .eraseToAnyPublisher()
     }
 
     func postComment(_ comment: Comment) -> AnyPublisher<Void, TvShowsRepositoryError> {

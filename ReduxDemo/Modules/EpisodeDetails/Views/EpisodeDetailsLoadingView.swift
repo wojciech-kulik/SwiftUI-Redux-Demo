@@ -19,7 +19,7 @@ struct EpisodeDetailsLoadingView: View {
             EpisodeDetailsView(details: details)
         } else if state?.isLoading == true {
             ProgressView(label: {
-                Text("Loading details")
+                Text("Loading Details")
                     .foregroundColor(.yellow)
             })
             .tint(.yellow)

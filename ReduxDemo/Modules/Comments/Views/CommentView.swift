@@ -38,13 +38,13 @@ struct CommentView: View {
                 Text(comment.text)
             }
         }.sheet(isPresented: Binding(
-            get: { comment.userId == state?.presentedUserProfileId && comment.id == state?.selectedCommentId },
+            get: { canPresentProfile && comment.userId == state?.presentedUserProfileId && comment.id == state?.selectedCommentId },
             set: {
                 guard !$0 else { return }
                 store.dispatch(ActiveScreensStateAction.dismissScreen(.userProfile(id: comment.userId, sourceCommentId: comment.id)))
             }
         )) {
-            UserDetailsView(user: .mock)
+            UserDetailsView(userId: comment.userId, sourceCommentId: comment.id)
         }
     }
 }

@@ -10,6 +10,7 @@ import Combine
 
 extension Middlewares {
     private static let tvShowsRepository = TvShowsRepository()
+    private static let usersRepository = UsersRepository()
 
     static let tvShows: Middleware<AppState> = { state, action in
         switch action {
@@ -17,26 +18,33 @@ extension Middlewares {
             return tvShowsRepository
                 .fetchUpcomingEpisodes()
                 .map { HomeStateAction.receivedUpcomingEpisodes($0) }
-                .catch { _ in Empty().eraseToAnyPublisher() }
+                .ignoreError()
                 .eraseToAnyPublisher()
         case EpisodeDetailsAction.fetchEpisodeDetails(let id):
             return tvShowsRepository
                 .fetchEpisodeDetails(episodeId: id)
                 .map { EpisodeDetailsAction.receivedEpisodeDetails($0) }
-                .catch { _ in Empty().eraseToAnyPublisher() }
+                .ignoreError()
                 .eraseToAnyPublisher()
         case CommentsStateAction.fetchEpisodeComments(let id):
             return tvShowsRepository
-                .fetchComments(for: id)
+                .fetchComments(episodeId: id)
                 .map { CommentsStateAction.receivedEpisodeComments($0, episodeId: id) }
-                .catch { _ in Empty().eraseToAnyPublisher() }
+                .ignoreError()
                 .eraseToAnyPublisher()
         case CommentsStateAction.postComment(let comment):
             return tvShowsRepository
                 .postComment(comment)
                 .map { NoOpAction() }
-                .catch { _ in Empty().eraseToAnyPublisher() }
+                .ignoreError()
                 .eraseToAnyPublisher()
+        case UserDetailsStateAction.fetchUserProfile(let userId):
+            return Publishers.Zip(
+                usersRepository.fetchUser(id: userId).ignoreError(),
+                tvShowsRepository.fetchComments(userId: userId).ignoreError()
+            )
+            .map { UserDetailsStateAction.receivedUserProfile(user: $0, comments: $1) }
+            .eraseToAnyPublisher()
         default:
             return Empty().eraseToAnyPublisher()
         }
