@@ -21,12 +21,20 @@ struct HomeView: View {
             Color.black.ignoresSafeArea()
             Text("")
                 .searchable(
-                    text: $searchText,
+                    text: Binding(get: { state?.searchText ?? "" }, set: { store.dispatch(HomeStateAction.filterEpisodes(phrase: $0)) }),
                     placement: .navigationBarDrawer(displayMode: .always)
                 )
 
             if let state = state, !state.isLoading {
-                createEpisodesList(for: state)
+                if state.upcomingEpisodes.isEmpty {
+                    Text("No episodes" + (state.searchText != "" ? " for \"\(state.searchText)\"" : ""))
+                        .font(.title2)
+                        .foregroundColor(.gray)
+                        .multilineTextAlignment(.center)
+                        .padding(32.0)
+                } else {
+                    createEpisodesList(for: state)
+                }
             } else {
                 ProgressView().tint(.yellow)
             }

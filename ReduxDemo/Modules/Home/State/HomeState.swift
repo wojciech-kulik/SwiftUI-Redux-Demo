@@ -11,6 +11,7 @@ struct HomeState: Codable {
     let upcomingEpisodes: [UpcomingEpisode]
     let isLoading: Bool
     let presentedEpisodeId: UUID?
+    let searchText: String
 }
 
 extension HomeState {
@@ -18,5 +19,6 @@ extension HomeState {
         upcomingEpisodes = []
         isLoading = true
         presentedEpisodeId = nil
+        searchText = ""
     }
 }

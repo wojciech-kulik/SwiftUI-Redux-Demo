@@ -32,7 +32,7 @@ struct UpcomingEpisodeView : View {
 
     var timerView: some View {
         VStack(alignment: .leading, spacing: 4.0) {
-            Text(episode.releaseDate, style: .timer)
+            (episode.releaseDate < Date() ? Text("00:00:00") : Text(episode.releaseDate, style: .timer))
                 .minimumScaleFactor(0.3)
                 .foregroundColor(.yellow)
                 .font(.title)

@@ -20,7 +20,7 @@ extension UpcomingEpisode: CustomStringConvertible {
 }
 
 extension UpcomingEpisode {
-    private static let ReleaseHourGot: TimeInterval = 16 * 3600
+    private static let ReleaseHourGot: TimeInterval = 88 * 3600
     private static let ReleaseHourBreakingBad: TimeInterval = 8 * 3600
 
     static var mockGameOfThrones = UpcomingEpisode(

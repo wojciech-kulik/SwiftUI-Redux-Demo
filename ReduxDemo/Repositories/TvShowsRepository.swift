@@ -16,9 +16,15 @@ enum TvShowsRepositoryError: Error {
 final class TvShowsRepository: ObservableObject {
     private var comments = Comment.allMocks
 
-    func fetchUpcomingEpisodes() -> AnyPublisher<[UpcomingEpisode], TvShowsRepositoryError> {
-        Just([UpcomingEpisode.mockGameOfThrones, .mockBreakingBad].sorted(by: { $0.releaseDate < $1.releaseDate }))
-            .delay(for: 1.5, scheduler: DispatchQueue.main)
+    func fetchUpcomingEpisodes(phrase: String? = nil) -> AnyPublisher<[UpcomingEpisode], TvShowsRepositoryError> {
+        let isFiltering = phrase != nil
+        let phrase = phrase?.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        let episodes = [UpcomingEpisode.mockGameOfThrones, .mockBreakingBad]
+            .filter { phrase == "" || $0.show.title.lowercased().contains(phrase) }
+            .sorted(by: { $0.releaseDate < $1.releaseDate })
+
+        return Just(episodes)
+            .delay(for: isFiltering ? 0.0 : 1.5, scheduler: DispatchQueue.main)
             .setFailureType(to: TvShowsRepositoryError.self)
             .eraseToAnyPublisher()
     }

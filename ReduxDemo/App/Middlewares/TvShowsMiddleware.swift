@@ -11,6 +11,7 @@ import Combine
 extension Middlewares {
     private static let tvShowsRepository = TvShowsRepository()
     private static let usersRepository = UsersRepository()
+    private static var searchDebouncer = CurrentValueSubject<String, Never>("")
 
     static let tvShows: Middleware<AppState> = { state, action in
         switch action {
@@ -20,6 +21,19 @@ extension Middlewares {
                 .map { HomeStateAction.receivedUpcomingEpisodes($0) }
                 .ignoreError()
                 .eraseToAnyPublisher()
+        case HomeStateAction.filterEpisodes(let phrase):
+            // Cancelling previous request
+            searchDebouncer.send(completion: .finished)
+            searchDebouncer = CurrentValueSubject<String, Never>(phrase)
+
+            return searchDebouncer
+                .debounce(for: phrase == "" ? 0.0 : 0.5, scheduler: DispatchQueue.main)
+                .first()
+                .flatMap { tvShowsRepository.fetchUpcomingEpisodes(phrase: $0) }
+                .map { HomeStateAction.receivedUpcomingEpisodes($0) }
+                .ignoreError()
+                .eraseToAnyPublisher()
+
         case EpisodeDetailsAction.fetchEpisodeDetails(let id):
             return tvShowsRepository
                 .fetchEpisodeDetails(episodeId: id)

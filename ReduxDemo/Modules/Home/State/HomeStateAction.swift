@@ -10,4 +10,6 @@ import Foundation
 enum HomeStateAction: Action {
     case fetchUpcomingEpisodes
     case receivedUpcomingEpisodes([UpcomingEpisode])
+    case updateSearchText(String)
+    case filterEpisodes(phrase: String)
 }
