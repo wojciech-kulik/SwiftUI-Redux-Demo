@@ -9,11 +9,10 @@ import SwiftUI
 
 struct SplashView: View {
     var body: some View {
-        Image("splash")
+        Image("logo")
             .resizable()
-            .frame(width: 160.0, height: 160.0, alignment: .center)
+            .frame(width: 120.0, height: 120.0, alignment: .center)
             .aspectRatio(contentMode: .fit)
-            .cornerRadius(80.0)
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                     store.dispatch(ActiveScreensStateAction.showScreen(.home))

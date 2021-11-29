@@ -57,7 +57,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1631CF1927539BB70046BF66 /* ReduxDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReduxDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1631CF1927539BB70046BF66 /* Redux Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Redux Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1631CF1C27539BB70046BF66 /* ReduxDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReduxDemoApp.swift; sourceTree = "<group>"; };
 		1631CF1E27539BB70046BF66 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		1631CF2027539BB90046BF66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -99,6 +99,7 @@
 		1631CF8827542A850046BF66 /* View+Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Modifiers.swift"; sourceTree = "<group>"; };
 		164DC11327555A8C0004CAFF /* UsersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRepository.swift; sourceTree = "<group>"; };
 		164DC11527555DBD0004CAFF /* Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publisher.swift; sourceTree = "<group>"; };
+		164DC11727557DDD0004CAFF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1652578A2754597A00E34B85 /* CommentsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsListView.swift; sourceTree = "<group>"; };
 		1652578C27545A7F00E34B85 /* NewCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCommentView.swift; sourceTree = "<group>"; };
 		1684940027545D4C00BF3611 /* CommentsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsState.swift; sourceTree = "<group>"; };
@@ -129,7 +130,7 @@
 		1631CF1A27539BB70046BF66 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1631CF1927539BB70046BF66 /* ReduxDemo.app */,
+				1631CF1927539BB70046BF66 /* Redux Demo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,6 +144,7 @@
 				16FAB26127543DC200C73200 /* Modules */,
 				1631CF4E275402180046BF66 /* Repositories */,
 				1631CF2027539BB90046BF66 /* Assets.xcassets */,
+				164DC11727557DDD0004CAFF /* README.md */,
 				1631CF2227539BB90046BF66 /* Preview Content */,
 			);
 			path = ReduxDemo;
@@ -389,7 +391,7 @@
 			);
 			name = ReduxDemo;
 			productName = ReduxDemo;
-			productReference = 1631CF1927539BB70046BF66 /* ReduxDemo.app */;
+			productReference = 1631CF1927539BB70046BF66 /* Redux Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -632,10 +634,10 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = pl.wojciechkulik.ReduxDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Redux Demo";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -662,10 +664,10 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = pl.wojciechkulik.ReduxDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Redux Demo";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
