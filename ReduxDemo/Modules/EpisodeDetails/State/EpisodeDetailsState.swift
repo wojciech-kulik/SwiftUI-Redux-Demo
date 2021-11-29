@@ -10,21 +10,15 @@ import Foundation
 struct EpisodeDetailsState: Codable {
     let episodeId: UUID
     let details: EpisodeDetails?
-    let comments: [Comment]
+    let comments: CommentsState
     let isLoading: Bool
-    let isLoadingComments: Bool
-    let selectedCommentId: UUID?
-    let presentedUserProfileId: UUID?
 }
 
 extension EpisodeDetailsState {
     init(id: UUID) {
         episodeId = id
         details = nil
-        comments = []
+        comments = CommentsState(episodeId: id)
         isLoading = true
-        isLoadingComments = true
-        selectedCommentId = nil
-        presentedUserProfileId = nil
     }
 }

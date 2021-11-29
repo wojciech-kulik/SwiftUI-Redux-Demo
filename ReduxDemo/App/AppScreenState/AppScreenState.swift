@@ -19,7 +19,7 @@ extension AppScreenState: CustomStringConvertible {
         switch self {
         case .splashScreen: return "splashScreen"
         case .home(let state): return "home(isLoading=\(state.isLoading))"
-        case .episode(let state): return "episode(\(state.details?.title ?? "-"), isLoading=\(state.isLoading), isLoadingComments=\(state.isLoadingComments)"
+        case .episode(let state): return "episode(\(state.details?.title ?? "-"), isLoading=\(state.isLoading), isLoadingComments=\(state.comments.isLoading)"
         case .userProfile(let state): return "userProfile(\(state.details?.name ?? "-"), isLoading=\(state.isLoading))"
         }
 

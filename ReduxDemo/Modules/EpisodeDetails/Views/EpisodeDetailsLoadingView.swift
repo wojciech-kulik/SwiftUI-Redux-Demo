@@ -7,23 +7,17 @@
 
 import SwiftUI
 
-fileprivate var lastState: EpisodeDetailsState?
-
 struct EpisodeDetailsLoadingView: View {
     @State var episodeId: UUID
     @EnvironmentObject var store: Store<AppState>
 
-    var state: EpisodeDetailsState? {
-        let state = store.state.state(for: .episode(id: episodeId), type: EpisodeDetailsState.self)
-        lastState = state ?? lastState
-        return lastState
-    }
+    var state: EpisodeDetailsState? { store.state.state(for: .episode(id: episodeId), type: EpisodeDetailsState.self) }
 
     @ViewBuilder
     var body: some View {
         if let details = state?.details {
-            EpisodeDetailsView(details: details).environmentObject(store)
-        } else {
+            EpisodeDetailsView(details: details)
+        } else if state?.isLoading == true {
             ProgressView(label: {
                 Text("Loading details")
                     .foregroundColor(.yellow)

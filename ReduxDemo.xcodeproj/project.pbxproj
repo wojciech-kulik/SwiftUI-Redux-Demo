@@ -46,6 +46,11 @@
 		1631CF85275419590046BF66 /* LoggerMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF84275419590046BF66 /* LoggerMiddleware.swift */; };
 		1631CF8727542A670046BF66 /* ViewDidLoadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF8627542A670046BF66 /* ViewDidLoadModifier.swift */; };
 		1631CF8927542A850046BF66 /* View+Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF8827542A850046BF66 /* View+Modifiers.swift */; };
+		1652578B2754597A00E34B85 /* CommentsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1652578A2754597A00E34B85 /* CommentsListView.swift */; };
+		1652578D27545A7F00E34B85 /* NewCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1652578C27545A7F00E34B85 /* NewCommentView.swift */; };
+		1684940127545D4C00BF3611 /* CommentsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1684940027545D4C00BF3611 /* CommentsState.swift */; };
+		1684940327545D8400BF3611 /* CommentsStateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1684940227545D8400BF3611 /* CommentsStateAction.swift */; };
+		1684940527545E1200BF3611 /* CommentsStateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1684940427545E1200BF3611 /* CommentsStateReducer.swift */; };
 		16FAB26427543E3000C73200 /* AppScreenStateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAB26327543E3000C73200 /* AppScreenStateReducer.swift */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +95,11 @@
 		1631CF84275419590046BF66 /* LoggerMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerMiddleware.swift; sourceTree = "<group>"; };
 		1631CF8627542A670046BF66 /* ViewDidLoadModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDidLoadModifier.swift; sourceTree = "<group>"; };
 		1631CF8827542A850046BF66 /* View+Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Modifiers.swift"; sourceTree = "<group>"; };
+		1652578A2754597A00E34B85 /* CommentsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsListView.swift; sourceTree = "<group>"; };
+		1652578C27545A7F00E34B85 /* NewCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCommentView.swift; sourceTree = "<group>"; };
+		1684940027545D4C00BF3611 /* CommentsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsState.swift; sourceTree = "<group>"; };
+		1684940227545D8400BF3611 /* CommentsStateAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsStateAction.swift; sourceTree = "<group>"; };
+		1684940427545E1200BF3611 /* CommentsStateReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsStateReducer.swift; sourceTree = "<group>"; };
 		16FAB26327543E3000C73200 /* AppScreenStateReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScreenStateReducer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -279,14 +289,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		1631CF6627540BC20046BF66 /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-				1631CF432753C38E0046BF66 /* CommentView.swift */,
-			);
-			path = Shared;
-			sourceTree = "<group>";
-		};
 		1631CF6727540BD10046BF66 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,12 +316,41 @@
 			path = Middlewares;
 			sourceTree = "<group>";
 		};
+		165257862754594800E34B85 /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+				168493FF27545D3600BF3611 /* State */,
+				165257872754595100E34B85 /* Views */,
+			);
+			path = Comments;
+			sourceTree = "<group>";
+		};
+		165257872754595100E34B85 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1652578A2754597A00E34B85 /* CommentsListView.swift */,
+				1652578C27545A7F00E34B85 /* NewCommentView.swift */,
+				1631CF432753C38E0046BF66 /* CommentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		168493FF27545D3600BF3611 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				1684940027545D4C00BF3611 /* CommentsState.swift */,
+				1684940227545D8400BF3611 /* CommentsStateAction.swift */,
+				1684940427545E1200BF3611 /* CommentsStateReducer.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
 		16FAB26127543DC200C73200 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				1631CF6627540BC20046BF66 /* Shared */,
 				1631CF3027539F530046BF66 /* Splash */,
 				1631CF2E27539F080046BF66 /* Home */,
+				165257862754594800E34B85 /* Comments */,
 				1631CF3E2753B5E10046BF66 /* EpisodeDetails */,
 				1631CF4B2753FC1C0046BF66 /* UserDetails */,
 			);
@@ -417,8 +448,11 @@
 				1631CF552754095F0046BF66 /* AnyCancellable.swift in Sources */,
 				1631CF5C27540B5B0046BF66 /* HomeState.swift in Sources */,
 				1631CF7E275411BE0046BF66 /* UserDetailsStateReducer.swift in Sources */,
+				1684940127545D4C00BF3611 /* CommentsState.swift in Sources */,
 				1631CF3227539F5D0046BF66 /* SplashView.swift in Sources */,
 				1631CF3C2753A9BE0046BF66 /* Color.swift in Sources */,
+				1684940327545D8400BF3611 /* CommentsStateAction.swift in Sources */,
+				1684940527545E1200BF3611 /* CommentsStateReducer.swift in Sources */,
 				1631CF4A2753FBA80046BF66 /* User.swift in Sources */,
 				1631CF8927542A850046BF66 /* View+Modifiers.swift in Sources */,
 				1631CF422753B6C70046BF66 /* EpisodeDetails.swift in Sources */,
@@ -428,6 +462,7 @@
 				1631CF462753C4480046BF66 /* Comment.swift in Sources */,
 				1631CF1F27539BB70046BF66 /* HomeView.swift in Sources */,
 				1631CF76275410430046BF66 /* HomeStateAction.swift in Sources */,
+				1652578D27545A7F00E34B85 /* NewCommentView.swift in Sources */,
 				1631CF7C275411AA0046BF66 /* UserDetailsStateAction.swift in Sources */,
 				1631CF4D2753FC2F0046BF66 /* UserDetailsView.swift in Sources */,
 				1631CF532754092E0046BF66 /* Store.swift in Sources */,
@@ -435,6 +470,7 @@
 				1631CF402753B5F10046BF66 /* EpisodeDetailsView.swift in Sources */,
 				1631CF482753CFAF0046BF66 /* EpisodeDetailsLoadingView.swift in Sources */,
 				1631CF6E27540C700046BF66 /* ActiveScreensState.swift in Sources */,
+				1652578B2754597A00E34B85 /* CommentsListView.swift in Sources */,
 				1631CF7027540CBE0046BF66 /* ActiveScreensStateReducer.swift in Sources */,
 				1631CF442753C38E0046BF66 /* CommentView.swift in Sources */,
 				16FAB26427543E3000C73200 /* AppScreenStateReducer.swift in Sources */,

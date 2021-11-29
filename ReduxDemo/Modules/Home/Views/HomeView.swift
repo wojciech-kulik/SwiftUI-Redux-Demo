@@ -37,9 +37,13 @@ struct HomeView: View {
                         NavigationLink(
                             isActive: Binding(
                                 get: { episode.id == state.presentedEpisodeId },
-                                set: { store.dispatch($0 ? ActiveScreensStateAction.showScreen(.episode(id: episode.id)) : .dismissScreen(.episode(id: episode.id))) }
+                                set: {
+                                    let currentValue = episode.id == state.presentedEpisodeId
+                                    guard currentValue != $0 else { return }
+                                    store.dispatch($0 ? ActiveScreensStateAction.showScreen(.episode(id: episode.id)) : .dismissScreen(.episode(id: episode.id)))
+                                }
                             ),
-                            destination: { EpisodeDetailsLoadingView(episodeId: episode.id).environmentObject(store) },
+                            destination: { EpisodeDetailsLoadingView(episodeId: episode.id) },
                             label: {}
                         ).opacity(0)
                     }.listRowSeparator(.hidden)

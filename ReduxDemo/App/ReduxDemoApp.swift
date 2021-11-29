@@ -19,7 +19,7 @@ struct AppView: View {
     var body: some View {
         if store.state.state(for: .home, type: HomeState.self) != nil {
             NavigationView {
-                HomeView().environmentObject(store)
+                HomeView()
             }
             .navigationViewStyle(.stack)
         } else {

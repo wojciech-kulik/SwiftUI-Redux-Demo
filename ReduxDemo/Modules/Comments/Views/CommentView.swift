@@ -14,7 +14,7 @@ struct CommentView: View {
 
     @EnvironmentObject var store: Store<AppState>
 
-    var state: EpisodeDetailsState? { store.state.state(for: .episode(id: comment.episodeId), type: EpisodeDetailsState.self) }
+    var state: CommentsState? { store.state.state(for: .episode(id: comment.episodeId), type: EpisodeDetailsState.self)?.comments }
 
     var body: some View {
         HStack(alignment: .top, spacing: 16.0) {
@@ -52,5 +52,6 @@ struct CommentView: View {
 struct CommentView_Previews: PreviewProvider {
     static var previews: some View {
         CommentView(canPresentProfile: true, comment: .mock)
+            .environmentObject(store)
     }
 }
