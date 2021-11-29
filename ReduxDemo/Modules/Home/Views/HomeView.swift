@@ -33,7 +33,7 @@ struct HomeView: View {
                         .multilineTextAlignment(.center)
                         .padding(32.0)
                 } else {
-                    createEpisodesList(for: state)
+                    createEpisodesList()
                 }
             } else {
                 ProgressView().tint(.yellow)
@@ -44,27 +44,32 @@ struct HomeView: View {
         .onLoad { store.dispatch(HomeStateAction.fetchUpcomingEpisodes) }
     }
 
-    private func createEpisodesList(for state: HomeState) -> some View {
+    private func createEpisodesList() -> some View {
         List {
-            ForEach(state.upcomingEpisodes) { episode in
+            ForEach(state?.upcomingEpisodes ?? []) { episode in
                 ZStack {
-                    UpcomingEpisodeView(episode: episode)
-                        .listRowBackground(Color.clear)
-                        .cornerRadius(8.0)
-                        .padding(.bottom, 6.0)
-                        .padding(.horizontal, 6.0)
+                    Button(
+                        action: { store.dispatch(ActiveScreensStateAction.showScreen(.episode(id: episode.id))) },
+                        label: {
+                            UpcomingEpisodeView(episode: episode)
+                                .listRowBackground(Color.clear)
+                                .cornerRadius(8.0)
+                                .padding(.bottom, 6.0)
+                                .padding(.horizontal, 6.0)
+                        }
+                    )
                     NavigationLink(
                         isActive: Binding(
-                            get: { episode.id == state.presentedEpisodeId },
-                            set: {
-                                let currentValue = episode.id == state.presentedEpisodeId
-                                guard currentValue != $0 else { return }
-                                store.dispatch($0 ? ActiveScreensStateAction.showScreen(.episode(id: episode.id)) : .dismissScreen(.episode(id: episode.id)))
+                            get: { episode.id == state?.presentedEpisodeId },
+                            set: { isActive in
+                                let currentValue = episode.id == state?.presentedEpisodeId
+                                guard currentValue != isActive, !isActive else { return }
+                                store.dispatch(ActiveScreensStateAction.dismissScreen(.episode(id: episode.id)))
                             }
                         ),
                         destination: { EpisodeDetailsLoadingView(episodeId: episode.id) },
                         label: {}
-                    ).opacity(0)
+                    ).hidden()
                 }.listRowSeparator(.hidden)
             }
         }.listStyle(.plain)

@@ -41,7 +41,7 @@ extension HomeState {
         case HomeStateAction.filterEpisodes(let phrase), HomeStateAction.updateSearchText(let phrase):
             return HomeState(
                 upcomingEpisodes: state.upcomingEpisodes,
-                isLoading: true,
+                isLoading: phrase != "",
                 presentedEpisodeId: state.presentedEpisodeId,
                 searchText: phrase
             )
