@@ -9,34 +9,40 @@ import SwiftUI
 
 struct CommentView: View {
     let canPresentProfile: Bool
-
-    @State var comment: Comment
+    let comment: Comment
 
     @EnvironmentObject var store: Store<AppState>
-
     var state: CommentsState? { store.state.state(for: .episode(id: comment.episodeId), type: EpisodeDetailsState.self)?.comments }
 
-    var body: some View {
-        HStack(alignment: .top, spacing: 16.0) {
-            if canPresentProfile {
-                Button {
-                    store.dispatch(ActiveScreensStateAction.showScreen(.userProfile(id: comment.userId, sourceCommentId: comment.id)))
-                } label: {
-                    Image(comment.avatar)
-                        .resizable()
-                        .frame(width: 60.0, height: 60.0)
-                }
-            } else {
+    @ViewBuilder
+    var avatarView: some View {
+        if canPresentProfile {
+            Button {
+                store.dispatch(ActiveScreensStateAction.showScreen(.userProfile(id: comment.userId, sourceCommentId: comment.id)))
+            } label: {
                 Image(comment.avatar)
                     .resizable()
                     .frame(width: 60.0, height: 60.0)
             }
+        } else {
+            Image(comment.avatar)
+                .resizable()
+                .frame(width: 60.0, height: 60.0)
+        }
+    }
 
-            VStack(alignment: .leading, spacing: 6.0) {
-                Text("\(comment.name) • \(comment.date, format: .relative(presentation: .named))")
-                    .fontWeight(.bold)
-                Text(comment.text)
-            }
+    var commentView: some View {
+        VStack(alignment: .leading, spacing: 6.0) {
+            Text("\(comment.name) • \(comment.date, format: .relative(presentation: .named))")
+                .fontWeight(.bold)
+            Text(comment.text)
+        }
+    }
+
+    var body: some View {
+        HStack(alignment: .top, spacing: 16.0) {
+            avatarView
+            commentView
         }.sheet(isPresented: Binding(
             get: { canPresentProfile && comment.userId == state?.presentedUserProfileId && comment.id == state?.selectedCommentId },
             set: {

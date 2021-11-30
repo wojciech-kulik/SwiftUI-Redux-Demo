@@ -12,7 +12,6 @@ struct UserDetailsView: View {
     let sourceCommentId: UUID
 
     @EnvironmentObject var store: Store<AppState>
-
     var state: UserDetailsState? {
         store.state.state(for: .userProfile(id: userId, sourceCommentId: sourceCommentId), type: UserDetailsState.self)
     }
@@ -31,14 +30,15 @@ struct UserDetailsView: View {
 
                     Text("Joined: \(userDetails.signUpDate, format: .relative(presentation: .named))")
                         .font(.subheadline)
-                        .foregroundColor(.gray)
+                        .foregroundColor(.secondary)
 
                     Text("Location: \(userDetails.location)")
                         .font(.subheadline)
-                        .foregroundColor(.gray)
+                        .foregroundColor(.secondary)
 
                     Text("Comments")
                         .font(.callout)
+                        .foregroundColor(.yellow)
                         .padding(.top, 32.0)
 
                     VStack(alignment: .leading, spacing: 0) {
@@ -52,8 +52,7 @@ struct UserDetailsView: View {
                 .padding(.top, 24.0)
             }
         } else {
-            ProgressView(label: { Text("Loading Profile").foregroundColor(.yellow) })
-                .tint(.yellow)
+            SpinnerView("Loading Profile")
                 .onLoad { store.dispatch(UserDetailsStateAction.fetchUserProfile(userId: userId)) }
         }
     }

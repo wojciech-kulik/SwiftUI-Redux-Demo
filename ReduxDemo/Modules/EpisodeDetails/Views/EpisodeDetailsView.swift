@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct EpisodeDetailsView: View {
-    @State var details: EpisodeDetails
-    @EnvironmentObject var store: Store<AppState>
+    let details: EpisodeDetails
 
     var headerView: some View {
         VStack(spacing: 0.0) {
@@ -59,14 +58,11 @@ struct EpisodeDetailsView: View {
             }
         }
         .ignoresSafeArea(edges: [.top])
-        .tint(.black)
-        .accentColor(.yellow)
     }
 }
 
 struct EpisodeDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         EpisodeDetailsView(details: .mockGameOfThrones)
-            .environmentObject(store)
     }
 }

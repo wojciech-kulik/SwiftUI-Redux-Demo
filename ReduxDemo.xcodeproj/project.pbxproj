@@ -54,6 +54,8 @@
 		1684940327545D8400BF3611 /* CommentsStateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1684940227545D8400BF3611 /* CommentsStateAction.swift */; };
 		1684940527545E1200BF3611 /* CommentsStateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1684940427545E1200BF3611 /* CommentsStateReducer.swift */; };
 		16C3D1772755B02D009B24B8 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C3D1762755B02D009B24B8 /* UIApplication.swift */; };
+		16C3D17B2755B641009B24B8 /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C3D17A2755B641009B24B8 /* SpinnerView.swift */; };
+		16C3D17D2755B7F1009B24B8 /* CenteringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C3D17C2755B7F1009B24B8 /* CenteringView.swift */; };
 		16FAB26427543E3000C73200 /* AppScreenStateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAB26327543E3000C73200 /* AppScreenStateReducer.swift */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +109,8 @@
 		1684940227545D8400BF3611 /* CommentsStateAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsStateAction.swift; sourceTree = "<group>"; };
 		1684940427545E1200BF3611 /* CommentsStateReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsStateReducer.swift; sourceTree = "<group>"; };
 		16C3D1762755B02D009B24B8 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		16C3D17A2755B641009B24B8 /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
+		16C3D17C2755B7F1009B24B8 /* CenteringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteringView.swift; sourceTree = "<group>"; };
 		16FAB26327543E3000C73200 /* AppScreenStateReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScreenStateReducer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				1631CF2D27539F010046BF66 /* App */,
+				16C3D1792755B62F009B24B8 /* Components */,
 				1631CF3A2753A9B80046BF66 /* Extensions */,
 				16C3D1782755B3E3009B24B8 /* GlobalStates */,
 				1631CF81275418160046BF66 /* Middlewares */,
@@ -364,6 +369,15 @@
 			path = GlobalStates;
 			sourceTree = "<group>";
 		};
+		16C3D1792755B62F009B24B8 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				16C3D17A2755B641009B24B8 /* SpinnerView.swift */,
+				16C3D17C2755B7F1009B24B8 /* CenteringView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		16FAB26127543DC200C73200 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -463,6 +477,7 @@
 				1631CF58275409940046BF66 /* AppState.swift in Sources */,
 				1631CF7227540CEA0046BF66 /* ActiveScreensStateAction.swift in Sources */,
 				1631CF342753A30D0046BF66 /* UpcomingEpisodeView.swift in Sources */,
+				16C3D17D2755B7F1009B24B8 /* CenteringView.swift in Sources */,
 				1631CF85275419590046BF66 /* LoggerMiddleware.swift in Sources */,
 				1631CF372753A37F0046BF66 /* UpcomingEpisode.swift in Sources */,
 				164DC11627555DBD0004CAFF /* Publisher.swift in Sources */,
@@ -481,6 +496,7 @@
 				1631CF7A275411270046BF66 /* EpisodeDetailsReducer.swift in Sources */,
 				1631CF6B27540C160046BF66 /* AppStateReducer.swift in Sources */,
 				1631CF462753C4480046BF66 /* Comment.swift in Sources */,
+				16C3D17B2755B641009B24B8 /* SpinnerView.swift in Sources */,
 				1631CF1F27539BB70046BF66 /* HomeView.swift in Sources */,
 				1631CF76275410430046BF66 /* HomeStateAction.swift in Sources */,
 				1652578D27545A7F00E34B85 /* NewCommentView.swift in Sources */,

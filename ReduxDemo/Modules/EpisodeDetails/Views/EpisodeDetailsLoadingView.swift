@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct EpisodeDetailsLoadingView: View {
-    @State var episodeId: UUID
+    let episodeId: UUID
+    
     @EnvironmentObject var store: Store<AppState>
-
     var state: EpisodeDetailsState? { store.state.state(for: .episode(id: episodeId), type: EpisodeDetailsState.self) }
 
     @ViewBuilder
@@ -18,13 +18,9 @@ struct EpisodeDetailsLoadingView: View {
         if let details = state?.details {
             EpisodeDetailsView(details: details)
         } else if state?.isLoading == true {
-            ProgressView(label: {
-                Text("Loading Details")
-                    .foregroundColor(.yellow)
-            })
-            .animation(nil, value: UUID())
-            .tint(.yellow)
-            .onLoad { store.dispatch(EpisodeDetailsAction.fetchEpisodeDetails(id: episodeId)) }
+            SpinnerView("Loading Details")
+                .animation(nil, value: UUID())
+                .onLoad { store.dispatch(EpisodeDetailsAction.fetchEpisodeDetails(id: episodeId)) }
         }
     }
 }

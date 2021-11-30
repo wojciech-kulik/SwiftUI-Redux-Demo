@@ -12,7 +12,6 @@ struct NewCommentView: View {
 
     @FocusState var isTextEditorFocused: Bool
     @EnvironmentObject var store: Store<AppState>
-
     var state: CommentsState? { store.state.state(for: .episode(id: episodeId), type: EpisodeDetailsState.self)?.comments }
 
     @ViewBuilder
@@ -29,7 +28,6 @@ struct NewCommentView: View {
             TextEditor(text: Binding(get: { state.newCommentText }, set: { store.dispatch(CommentsStateAction.updateNewCommentText($0)) }))
                 .focused($isTextEditorFocused)
                 .background(Color(hex: "#1a1a1a"))
-                .foregroundColor(.white)
                 .frame(height: 120)
                 .cornerRadius(6.0)
 
@@ -52,7 +50,6 @@ struct NewCommentView: View {
                 .foregroundColor(.yellow)
                 .buttonStyle(.bordered)
                 .controlSize(.large)
-                .tint(.yellow)
             }
         }
     }

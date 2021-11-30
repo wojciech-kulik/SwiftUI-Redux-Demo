@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UpcomingEpisodeView : View {
-    var episode: UpcomingEpisode
+    let episode: UpcomingEpisode
 
     var posterView: some View {
         Image(episode.show.cover)
@@ -26,7 +26,7 @@ struct UpcomingEpisodeView : View {
             Text("Next episode: " +
                 "\(episode.episode) of \(episode.episodesInSeason)")
                 .font(.footnote)
-                .foregroundColor(.gray)
+                .foregroundColor(.secondary)
         }
     }
 
@@ -39,7 +39,7 @@ struct UpcomingEpisodeView : View {
 
             Text(episode.releaseDate, style: .date)
                 .font(.footnote)
-                .foregroundColor(.gray)
+                .foregroundColor(.secondary)
         }
     }
 
@@ -61,7 +61,6 @@ struct UpcomingEpisodeView : View {
                 Spacer()
             }
         }
-        .foregroundColor(.white)
         .lineLimit(1)
     }
 }

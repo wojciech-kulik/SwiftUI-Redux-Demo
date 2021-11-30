@@ -14,6 +14,8 @@ enum TvShowsRepositoryError: Error {
 }
 
 final class TvShowsRepository: ObservableObject {
+    private let simulatedDelay: RunLoop.SchedulerTimeType.Stride = 1.0
+
     private var comments = Comment.allMocks
 
     func fetchUpcomingEpisodes(phrase: String? = nil) -> AnyPublisher<[UpcomingEpisode], TvShowsRepositoryError> {
@@ -24,7 +26,7 @@ final class TvShowsRepository: ObservableObject {
             .sorted(by: { $0.releaseDate < $1.releaseDate })
 
         return Just(episodes)
-            .delay(for: isFiltering ? 0.0 : 1.5, scheduler: DispatchQueue.main)
+            .delay(for: isFiltering ? 0.0 : simulatedDelay, scheduler: RunLoop.main)
             .setFailureType(to: TvShowsRepositoryError.self)
             .eraseToAnyPublisher()
     }
@@ -32,12 +34,12 @@ final class TvShowsRepository: ObservableObject {
     func fetchEpisodeDetails(episodeId: UUID) -> AnyPublisher<EpisodeDetails, TvShowsRepositoryError> {
         if let episode = EpisodeDetails.allMocks.first(where: { $0.id == episodeId }) {
             return Just(episode)
-                .delay(for: 1.5, scheduler: DispatchQueue.main)
+                .delay(for: simulatedDelay, scheduler: RunLoop.main)
                 .setFailureType(to: TvShowsRepositoryError.self)
                 .eraseToAnyPublisher()
         } else {
             return Fail(error: TvShowsRepositoryError.couldNotFind)
-                .delay(for: 2.0, scheduler: DispatchQueue.main)
+                .delay(for: simulatedDelay, scheduler: RunLoop.main)
                 .eraseToAnyPublisher()
         }
     }
@@ -47,12 +49,12 @@ final class TvShowsRepository: ObservableObject {
 
         if !comments.isEmpty {
             return Just(comments.sorted(by: { $0.date > $1.date }))
-                .delay(for: 1.5, scheduler: DispatchQueue.main)
+                .delay(for: simulatedDelay, scheduler: RunLoop.main)
                 .setFailureType(to: TvShowsRepositoryError.self)
                 .eraseToAnyPublisher()
         } else {
             return Fail(error: TvShowsRepositoryError.couldNotFind)
-                .delay(for: 2.0, scheduler: DispatchQueue.main)
+                .delay(for: simulatedDelay, scheduler: RunLoop.main)
                 .eraseToAnyPublisher()
         }
     }
@@ -61,7 +63,7 @@ final class TvShowsRepository: ObservableObject {
         let comments = comments.filter { $0.userId == userId }
 
         return Just(comments.sorted(by: { $0.date > $1.date }))
-            .delay(for: 1.5, scheduler: DispatchQueue.main)
+            .delay(for: simulatedDelay, scheduler: RunLoop.main)
             .setFailureType(to: TvShowsRepositoryError.self)
             .eraseToAnyPublisher()
     }
@@ -70,7 +72,7 @@ final class TvShowsRepository: ObservableObject {
         comments.append(comment)
 
         return Empty()
-            .delay(for: 1.5, scheduler: DispatchQueue.main)
+            .delay(for: simulatedDelay, scheduler: RunLoop.main)
             .eraseToAnyPublisher()
     }
 }

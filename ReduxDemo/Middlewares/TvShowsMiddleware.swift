@@ -27,7 +27,7 @@ extension Middlewares {
             searchDebouncer = CurrentValueSubject<String, Never>(phrase)
 
             return searchDebouncer
-                .debounce(for: phrase == "" ? 0.0 : 0.5, scheduler: DispatchQueue.main)
+                .debounce(for: phrase == "" ? 0.0 : 0.5, scheduler: RunLoop.main)
                 .first()
                 .flatMap { tvShowsRepository.fetchUpcomingEpisodes(phrase: $0) }
                 .map { HomeStateAction.receivedUpcomingEpisodes($0) }

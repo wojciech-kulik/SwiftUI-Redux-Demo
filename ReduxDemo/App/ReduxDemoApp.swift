@@ -34,7 +34,10 @@ struct ReduxDemoApp: App {
         UINavigationBar.appearance().tintColor = .systemYellow
 
         return WindowGroup {
-            AppView().environmentObject(store)
+            AppView()
+                .tint(.yellow)
+                .foregroundColor(.primary)
+                .environmentObject(store)
         }
     }
 }
