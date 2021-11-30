@@ -9,7 +9,8 @@ import SwiftUI
 
 struct NewCommentView: View {
     let episodeId: UUID
-    
+
+    @FocusState var isTextEditorFocused: Bool
     @EnvironmentObject var store: Store<AppState>
 
     var state: CommentsState? { store.state.state(for: .episode(id: episodeId), type: EpisodeDetailsState.self)?.comments }
@@ -26,6 +27,7 @@ struct NewCommentView: View {
 
         return VStack {
             TextEditor(text: Binding(get: { state.newCommentText }, set: { store.dispatch(CommentsStateAction.updateNewCommentText($0)) }))
+                .focused($isTextEditorFocused)
                 .background(Color(hex: "#1a1a1a"))
                 .foregroundColor(.white)
                 .frame(height: 120)
@@ -34,6 +36,7 @@ struct NewCommentView: View {
             HStack {
                 Spacer()
                 Button("Post") {
+                    isTextEditorFocused = false
                     store.dispatch(CommentsStateAction.postComment(Comment(
                         id: UUID(),
                         userId: User.mock.id,
@@ -49,7 +52,7 @@ struct NewCommentView: View {
                 .foregroundColor(.yellow)
                 .buttonStyle(.bordered)
                 .controlSize(.large)
-                .tint(.red)
+                .tint(.yellow)
             }
         }
     }

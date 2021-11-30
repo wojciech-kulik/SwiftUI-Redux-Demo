@@ -22,6 +22,7 @@ struct EpisodeDetailsLoadingView: View {
                 Text("Loading Details")
                     .foregroundColor(.yellow)
             })
+            .animation(nil, value: UUID())
             .tint(.yellow)
             .onLoad { store.dispatch(EpisodeDetailsAction.fetchEpisodeDetails(id: episodeId)) }
         }

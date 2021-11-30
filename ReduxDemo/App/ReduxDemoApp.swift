@@ -31,7 +31,7 @@ struct AppView: View {
 @main
 struct ReduxDemoApp: App {
     var body: some Scene {
-        UINavigationBar.appearance().tintColor = .yellow
+        UINavigationBar.appearance().tintColor = .systemYellow
 
         return WindowGroup {
             AppView().environmentObject(store)

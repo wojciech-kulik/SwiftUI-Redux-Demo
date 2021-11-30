@@ -53,6 +53,7 @@
 		1684940127545D4C00BF3611 /* CommentsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1684940027545D4C00BF3611 /* CommentsState.swift */; };
 		1684940327545D8400BF3611 /* CommentsStateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1684940227545D8400BF3611 /* CommentsStateAction.swift */; };
 		1684940527545E1200BF3611 /* CommentsStateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1684940427545E1200BF3611 /* CommentsStateReducer.swift */; };
+		16C3D1772755B02D009B24B8 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C3D1762755B02D009B24B8 /* UIApplication.swift */; };
 		16FAB26427543E3000C73200 /* AppScreenStateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAB26327543E3000C73200 /* AppScreenStateReducer.swift */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +106,7 @@
 		1684940027545D4C00BF3611 /* CommentsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsState.swift; sourceTree = "<group>"; };
 		1684940227545D8400BF3611 /* CommentsStateAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsStateAction.swift; sourceTree = "<group>"; };
 		1684940427545E1200BF3611 /* CommentsStateReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsStateReducer.swift; sourceTree = "<group>"; };
+		16C3D1762755B02D009B24B8 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		16FAB26327543E3000C73200 /* AppScreenStateReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScreenStateReducer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -140,6 +142,8 @@
 			children = (
 				1631CF2D27539F010046BF66 /* App */,
 				1631CF3A2753A9B80046BF66 /* Extensions */,
+				16C3D1782755B3E3009B24B8 /* GlobalStates */,
+				1631CF81275418160046BF66 /* Middlewares */,
 				1631CF352753A3770046BF66 /* Models */,
 				16FAB26127543DC200C73200 /* Modules */,
 				1631CF4E275402180046BF66 /* Repositories */,
@@ -163,10 +167,6 @@
 			children = (
 				1631CF1C27539BB70046BF66 /* ReduxDemoApp.swift */,
 				1631CF522754092E0046BF66 /* Store.swift */,
-				1631CF81275418160046BF66 /* Middlewares */,
-				1631CF56275409890046BF66 /* AppState */,
-				1631CF6C27540C4C0046BF66 /* ActiveScreensState */,
-				16FAB26227543E1200C73200 /* AppScreenState */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -209,6 +209,7 @@
 				1631CF8627542A670046BF66 /* ViewDidLoadModifier.swift */,
 				1631CF8827542A850046BF66 /* View+Modifiers.swift */,
 				164DC11527555DBD0004CAFF /* Publisher.swift */,
+				16C3D1762755B02D009B24B8 /* UIApplication.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -353,6 +354,16 @@
 			path = State;
 			sourceTree = "<group>";
 		};
+		16C3D1782755B3E3009B24B8 /* GlobalStates */ = {
+			isa = PBXGroup;
+			children = (
+				1631CF56275409890046BF66 /* AppState */,
+				1631CF6C27540C4C0046BF66 /* ActiveScreensState */,
+				16FAB26227543E1200C73200 /* AppScreenState */,
+			);
+			path = GlobalStates;
+			sourceTree = "<group>";
+		};
 		16FAB26127543DC200C73200 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -444,6 +455,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16C3D1772755B02D009B24B8 /* UIApplication.swift in Sources */,
 				1631CF50275402670046BF66 /* TvShowsRepository.swift in Sources */,
 				1631CF8727542A670046BF66 /* ViewDidLoadModifier.swift in Sources */,
 				1631CF78275411080046BF66 /* EpisodeDetailsAction.swift in Sources */,

@@ -9,15 +9,23 @@ import SwiftUI
 
 struct SplashView: View {
     var body: some View {
-        Image("logo")
-            .resizable()
-            .frame(width: 120.0, height: 120.0, alignment: .center)
-            .aspectRatio(contentMode: .fit)
-            .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                    store.dispatch(ActiveScreensStateAction.showScreen(.home))
+        ZStack {
+            Image("logo")
+                .resizable()
+                .frame(width: 120.0, height: 120.0, alignment: .center)
+                .aspectRatio(contentMode: .fit)
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                        store.dispatch(ActiveScreensStateAction.showScreen(.home))
+                    }
                 }
+            VStack(spacing: 8) {
+                Spacer()
+                Text("Wojciech Kulik").font(.subheadline).foregroundColor(.primary)
+                Text("wojciechkulik.pl").font(.subheadline).foregroundColor(.secondary)
             }
+            .padding()
+        }
     }
 }
 

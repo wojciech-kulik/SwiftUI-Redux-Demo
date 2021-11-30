@@ -8,30 +8,30 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State var searchText = ""
     @EnvironmentObject var store: Store<AppState>
 
     var state: HomeState? { store.state.state(for: .home, type: HomeState.self) }
 
-    var body: some View {
-        UITableView.appearance().backgroundColor = .clear
-        UITableViewCell.appearance().backgroundColor = .clear
+    var noEpisodesPlaceholder: some View {
+        Text("Could not find episodes")
+            .font(.title2)
+            .foregroundColor(.gray)
+            .multilineTextAlignment(.center)
+            .padding(32.0)
+    }
 
-        return ZStack {
-            Color.black.ignoresSafeArea()
+    var body: some View {
+        ZStack {
             Text("")
                 .searchable(
                     text: Binding(get: { state?.searchText ?? "" }, set: { store.dispatch(HomeStateAction.filterEpisodes(phrase: $0)) }),
                     placement: .navigationBarDrawer(displayMode: .always)
                 )
+                .disableAutocorrection(true)
 
             if let state = state, !state.isLoading {
                 if state.upcomingEpisodes.isEmpty {
-                    Text("No episodes" + (state.searchText != "" ? " for \"\(state.searchText)\"" : ""))
-                        .font(.title2)
-                        .foregroundColor(.gray)
-                        .multilineTextAlignment(.center)
-                        .padding(32.0)
+                    noEpisodesPlaceholder.animation(nil, value: UUID())
                 } else {
                     createEpisodesList()
                 }
@@ -39,6 +39,7 @@ struct HomeView: View {
                 ProgressView().tint(.yellow)
             }
         }
+        .background(.black)
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("TV Shows")
         .onLoad { store.dispatch(HomeStateAction.fetchUpcomingEpisodes) }
@@ -49,7 +50,10 @@ struct HomeView: View {
             ForEach(state?.upcomingEpisodes ?? []) { episode in
                 ZStack {
                     Button(
-                        action: { store.dispatch(ActiveScreensStateAction.showScreen(.episode(id: episode.id))) },
+                        action: {
+                            UIApplication.shared.endEditing()
+                            store.dispatch(ActiveScreensStateAction.showScreen(.episode(id: episode.id)))
+                        },
                         label: {
                             UpcomingEpisodeView(episode: episode)
                                 .listRowBackground(Color.clear)
