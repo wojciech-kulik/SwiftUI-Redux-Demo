@@ -7,10 +7,11 @@
 
 import SwiftUI
 
+let timelineRecorder = TimelineRecorderMiddleware()
 let store = Store(
     initial: AppState(),
     reducer: AppState.reducer,
-    middlewares: [Middlewares.tvShows, Middlewares.logger]
+    middlewares: [Middlewares.tvShows, Middlewares.logger, timelineRecorder.execute]
 )
 
 struct AppView: View {
@@ -32,6 +33,7 @@ struct AppView: View {
 struct ReduxDemoApp: App {
     var body: some Scene {
         UINavigationBar.appearance().tintColor = .systemYellow
+        UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self]).tintColor = .systemYellow
 
         return WindowGroup {
             AppView()

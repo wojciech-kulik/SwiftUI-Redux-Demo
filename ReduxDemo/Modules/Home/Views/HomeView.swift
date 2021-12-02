@@ -44,6 +44,7 @@ struct HomeView: View {
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("TV Shows")
+        .addReplayButton()
         .onLoad { store.dispatch(HomeStateAction.fetchUpcomingEpisodes) }
     }
 

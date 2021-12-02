@@ -11,4 +11,8 @@ extension View {
     func onLoad(_ action: @escaping () -> Void) -> some View {
         modifier(ViewDidLoadModifier(action))
     }
+
+    func addReplayButton() -> some View {
+        modifier(ReplayButtonModifier())
+    }
 }

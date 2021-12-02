@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		160DE04A27597C2300E89CEB /* TimelineRecorderMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160DE04927597C2300E89CEB /* TimelineRecorderMiddleware.swift */; };
+		160DE04C2759854A00E89CEB /* ReplayButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160DE04B2759854A00E89CEB /* ReplayButtonModifier.swift */; };
 		1631CF1D27539BB70046BF66 /* ReduxDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF1C27539BB70046BF66 /* ReduxDemoApp.swift */; };
 		1631CF1F27539BB70046BF66 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF1E27539BB70046BF66 /* HomeView.swift */; };
 		1631CF2127539BB90046BF66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1631CF2027539BB90046BF66 /* Assets.xcassets */; };
@@ -60,6 +62,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		160DE04927597C2300E89CEB /* TimelineRecorderMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineRecorderMiddleware.swift; sourceTree = "<group>"; };
+		160DE04B2759854A00E89CEB /* ReplayButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplayButtonModifier.swift; sourceTree = "<group>"; };
 		1631CF1927539BB70046BF66 /* Redux Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Redux Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1631CF1C27539BB70046BF66 /* ReduxDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReduxDemoApp.swift; sourceTree = "<group>"; };
 		1631CF1E27539BB70046BF66 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -125,6 +129,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		160DE04D275985C200E89CEB /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				1631CF8627542A670046BF66 /* ViewDidLoadModifier.swift */,
+				160DE04B2759854A00E89CEB /* ReplayButtonModifier.swift */,
+				1631CF8827542A850046BF66 /* View+Modifiers.swift */,
+			);
+			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
 		1631CF1027539BB70046BF66 = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +166,7 @@
 				1631CF352753A3770046BF66 /* Models */,
 				16FAB26127543DC200C73200 /* Modules */,
 				1631CF4E275402180046BF66 /* Repositories */,
+				160DE04D275985C200E89CEB /* ViewModifiers */,
 				1631CF2027539BB90046BF66 /* Assets.xcassets */,
 				164DC11727557DDD0004CAFF /* README.md */,
 				1631CF2227539BB90046BF66 /* Preview Content */,
@@ -211,8 +226,6 @@
 				1631CF3B2753A9BE0046BF66 /* Color.swift */,
 				1631CF542754095F0046BF66 /* AnyCancellable.swift */,
 				1631CF7F275412C40046BF66 /* AppState+ScreenStateSelector.swift */,
-				1631CF8627542A670046BF66 /* ViewDidLoadModifier.swift */,
-				1631CF8827542A850046BF66 /* View+Modifiers.swift */,
 				164DC11527555DBD0004CAFF /* Publisher.swift */,
 				16C3D1762755B02D009B24B8 /* UIApplication.swift */,
 			);
@@ -326,6 +339,7 @@
 			children = (
 				1631CF822754182A0046BF66 /* TvShowsMiddleware.swift */,
 				1631CF84275419590046BF66 /* LoggerMiddleware.swift */,
+				160DE04927597C2300E89CEB /* TimelineRecorderMiddleware.swift */,
 			);
 			path = Middlewares;
 			sourceTree = "<group>";
@@ -500,8 +514,10 @@
 				1631CF1F27539BB70046BF66 /* HomeView.swift in Sources */,
 				1631CF76275410430046BF66 /* HomeStateAction.swift in Sources */,
 				1652578D27545A7F00E34B85 /* NewCommentView.swift in Sources */,
+				160DE04C2759854A00E89CEB /* ReplayButtonModifier.swift in Sources */,
 				1631CF7C275411AA0046BF66 /* UserDetailsStateAction.swift in Sources */,
 				1631CF4D2753FC2F0046BF66 /* UserDetailsView.swift in Sources */,
+				160DE04A27597C2300E89CEB /* TimelineRecorderMiddleware.swift in Sources */,
 				1631CF532754092E0046BF66 /* Store.swift in Sources */,
 				1631CF7427540FFA0046BF66 /* HomeStateReducer.swift in Sources */,
 				1631CF402753B5F10046BF66 /* EpisodeDetailsView.swift in Sources */,
