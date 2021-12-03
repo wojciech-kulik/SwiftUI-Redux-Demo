@@ -52,6 +52,7 @@
 		164DC11627555DBD0004CAFF /* Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164DC11527555DBD0004CAFF /* Publisher.swift */; };
 		1652578B2754597A00E34B85 /* CommentsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1652578A2754597A00E34B85 /* CommentsListView.swift */; };
 		1652578D27545A7F00E34B85 /* NewCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1652578C27545A7F00E34B85 /* NewCommentView.swift */; };
+		166F042A275A8B5E0068817D /* HotReloaderMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166F0429275A8B5E0068817D /* HotReloaderMiddleware.swift */; };
 		1684940127545D4C00BF3611 /* CommentsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1684940027545D4C00BF3611 /* CommentsState.swift */; };
 		1684940327545D8400BF3611 /* CommentsStateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1684940227545D8400BF3611 /* CommentsStateAction.swift */; };
 		1684940527545E1200BF3611 /* CommentsStateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1684940427545E1200BF3611 /* CommentsStateReducer.swift */; };
@@ -109,6 +110,7 @@
 		164DC11727557DDD0004CAFF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1652578A2754597A00E34B85 /* CommentsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsListView.swift; sourceTree = "<group>"; };
 		1652578C27545A7F00E34B85 /* NewCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCommentView.swift; sourceTree = "<group>"; };
+		166F0429275A8B5E0068817D /* HotReloaderMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotReloaderMiddleware.swift; sourceTree = "<group>"; };
 		1684940027545D4C00BF3611 /* CommentsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsState.swift; sourceTree = "<group>"; };
 		1684940227545D8400BF3611 /* CommentsStateAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsStateAction.swift; sourceTree = "<group>"; };
 		1684940427545E1200BF3611 /* CommentsStateReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsStateReducer.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 				1631CF822754182A0046BF66 /* TvShowsMiddleware.swift */,
 				1631CF84275419590046BF66 /* LoggerMiddleware.swift */,
 				160DE04927597C2300E89CEB /* TimelineRecorderMiddleware.swift */,
+				166F0429275A8B5E0068817D /* HotReloaderMiddleware.swift */,
 			);
 			path = Middlewares;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				166F042A275A8B5E0068817D /* HotReloaderMiddleware.swift in Sources */,
 				16C3D1772755B02D009B24B8 /* UIApplication.swift in Sources */,
 				1631CF50275402670046BF66 /* TvShowsRepository.swift in Sources */,
 				1631CF8727542A670046BF66 /* ViewDidLoadModifier.swift in Sources */,
