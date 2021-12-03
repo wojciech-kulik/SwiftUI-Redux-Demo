@@ -9,5 +9,5 @@ import Foundation
 
 enum UserDetailsStateAction: Action {
     case fetchUserProfile(userId: UUID)
-    case receivedUserProfile(user: User, comments: [Comment])
+    case didReceiveUserProfile(user: User, comments: [Comment])
 }

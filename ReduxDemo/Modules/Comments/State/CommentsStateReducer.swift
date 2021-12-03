@@ -37,7 +37,7 @@ extension CommentsState {
                 presentedUserProfileId: state.presentedUserProfileId,
                 newCommentText: state.newCommentText
             )
-        case CommentsStateAction.receivedEpisodeComments(let comments, let episodeId) where episodeId == state.episodeId:
+        case CommentsStateAction.didReceiveEpisodeComments(let comments, let episodeId) where episodeId == state.episodeId:
             return CommentsState(
                 episodeId: state.episodeId,
                 comments: comments,

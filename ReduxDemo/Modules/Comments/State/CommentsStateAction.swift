@@ -9,7 +9,7 @@ import Foundation
 
 enum CommentsStateAction: Action {
     case fetchEpisodeComments(id: UUID)
-    case receivedEpisodeComments([Comment], episodeId: UUID)
+    case didReceiveEpisodeComments([Comment], episodeId: UUID)
     case postComment(Comment)
     case updateNewCommentText(String)
 }

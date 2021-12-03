@@ -18,7 +18,7 @@ extension Middlewares {
         case HomeStateAction.fetchUpcomingEpisodes:
             return tvShowsRepository
                 .fetchUpcomingEpisodes()
-                .map { HomeStateAction.receivedUpcomingEpisodes($0) }
+                .map { HomeStateAction.didReceiveUpcomingEpisodes($0) }
                 .ignoreError()
                 .eraseToAnyPublisher()
         case HomeStateAction.filterEpisodes(let phrase):
@@ -30,20 +30,20 @@ extension Middlewares {
                 .debounce(for: phrase == "" ? 0.0 : 0.5, scheduler: RunLoop.main)
                 .first()
                 .flatMap { tvShowsRepository.fetchUpcomingEpisodes(phrase: $0) }
-                .map { HomeStateAction.receivedUpcomingEpisodes($0) }
+                .map { HomeStateAction.didReceiveUpcomingEpisodes($0) }
                 .ignoreError()
                 .eraseToAnyPublisher()
 
-        case EpisodeDetailsAction.fetchEpisodeDetails(let id):
+        case EpisodeDetailsStateAction.fetchEpisodeDetails(let id):
             return tvShowsRepository
                 .fetchEpisodeDetails(episodeId: id)
-                .map { EpisodeDetailsAction.receivedEpisodeDetails($0) }
+                .map { EpisodeDetailsStateAction.didReceiveEpisodeDetails($0) }
                 .ignoreError()
                 .eraseToAnyPublisher()
         case CommentsStateAction.fetchEpisodeComments(let id):
             return tvShowsRepository
                 .fetchComments(episodeId: id)
-                .map { CommentsStateAction.receivedEpisodeComments($0, episodeId: id) }
+                .map { CommentsStateAction.didReceiveEpisodeComments($0, episodeId: id) }
                 .ignoreError()
                 .eraseToAnyPublisher()
         case CommentsStateAction.postComment(let comment):
@@ -57,7 +57,7 @@ extension Middlewares {
                 usersRepository.fetchUser(id: userId).ignoreError(),
                 tvShowsRepository.fetchComments(userId: userId).ignoreError()
             )
-            .map { UserDetailsStateAction.receivedUserProfile(user: $0, comments: $1) }
+            .map { UserDetailsStateAction.didReceiveUserProfile(user: $0, comments: $1) }
             .eraseToAnyPublisher()
         default:
             return Empty().eraseToAnyPublisher()

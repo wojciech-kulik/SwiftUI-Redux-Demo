@@ -31,7 +31,7 @@ extension HomeState {
                 presentedEpisodeId: state.presentedEpisodeId,
                 searchText: state.searchText
             )
-        case HomeStateAction.receivedUpcomingEpisodes(let episodes):
+        case HomeStateAction.didReceiveUpcomingEpisodes(let episodes):
             return HomeState(
                 upcomingEpisodes: episodes,
                 isLoading: false,

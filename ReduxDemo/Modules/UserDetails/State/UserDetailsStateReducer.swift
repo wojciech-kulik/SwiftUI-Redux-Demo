@@ -19,7 +19,7 @@ extension UserDetailsState {
                 comments: [],
                 isLoading: true
             )
-        case .receivedUserProfile(let userDetails, let comments):
+        case .didReceiveUserProfile(let userDetails, let comments):
             return UserDetailsState(
                 userId: state.userId,
                 details: userDetails,

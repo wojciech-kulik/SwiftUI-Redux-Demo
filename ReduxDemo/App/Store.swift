@@ -53,10 +53,10 @@ final class Store<State>: ObservableObject {
     private func dispatch(_ currentState: State, _ action: Action) {
         let newState = reducer(currentState, action)
 
-        middlewares.forEach {
+        middlewares.forEach { middleware in
             let key = UUID()
-            $0(newState, action)
-                .receive(on: DispatchQueue.main)
+            middleware(newState, action)
+                .receive(on: RunLoop.main)
                 .handleEvents(receiveCompletion: { [weak self] _ in self?.subscriptions.removeValue(forKey: key) })
                 .sink(receiveValue: dispatch)
                 .store(in: &subscriptions, key: key)

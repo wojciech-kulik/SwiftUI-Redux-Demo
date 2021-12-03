@@ -8,12 +8,13 @@
 import Foundation
 
 extension AppState {
-    func state<State>(for screen: AppScreen, type: State.Type) -> State? {
+    func screenState<State>(for screen: AppScreen) -> State? {
         return activeScreens.screens
             .compactMap {
                 switch ($0, screen) {
                 case (.home(let state), .home): return state as? State
                 case (.episode(let state), .episode(let id)) where state.episodeId == id: return state as? State
+                case (.episode(let state), .comments(let id)) where state.episodeId == id: return state.comments as? State
                 case (.userProfile(let state), .userProfile(let id, _)) where state.userId == id: return state as? State
                 default: return nil
                 }

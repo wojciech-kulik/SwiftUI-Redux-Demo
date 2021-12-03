@@ -18,6 +18,7 @@ extension ActiveScreensState {
             case .showScreen(.home): screens = [.home(HomeState())]
             case .showScreen(.episode(let id)): screens += [.episode(EpisodeDetailsState(id: id))]
             case .showScreen(.userProfile(let id, _)): screens += [.userProfile(UserDetailsState(id: id))]
+            case .showScreen(.comments): ()
             case .dismissScreen(let screen): screens = screens.filter { $0 != screen }
             }
         }
