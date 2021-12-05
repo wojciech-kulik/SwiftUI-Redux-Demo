@@ -107,7 +107,6 @@
 		1631CF8827542A850046BF66 /* View+Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Modifiers.swift"; sourceTree = "<group>"; };
 		164DC11327555A8C0004CAFF /* UsersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersRepository.swift; sourceTree = "<group>"; };
 		164DC11527555DBD0004CAFF /* Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publisher.swift; sourceTree = "<group>"; };
-		164DC11727557DDD0004CAFF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1652578A2754597A00E34B85 /* CommentsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsListView.swift; sourceTree = "<group>"; };
 		1652578C27545A7F00E34B85 /* NewCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCommentView.swift; sourceTree = "<group>"; };
 		166F0429275A8B5E0068817D /* HotReloaderMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotReloaderMiddleware.swift; sourceTree = "<group>"; };
@@ -170,7 +169,6 @@
 				1631CF4E275402180046BF66 /* Repositories */,
 				160DE04D275985C200E89CEB /* ViewModifiers */,
 				1631CF2027539BB90046BF66 /* Assets.xcassets */,
-				164DC11727557DDD0004CAFF /* README.md */,
 				1631CF2227539BB90046BF66 /* Preview Content */,
 			);
 			path = ReduxDemo;
@@ -667,7 +665,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ReduxDemo/Preview Content\"";
-				DEVELOPMENT_TEAM = JT56B63DU5;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -697,7 +695,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ReduxDemo/Preview Content\"";
-				DEVELOPMENT_TEAM = JT56B63DU5;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
