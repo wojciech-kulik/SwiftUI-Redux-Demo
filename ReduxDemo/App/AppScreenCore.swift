@@ -33,3 +33,28 @@ extension AppScreen {
         }
     }
 }
+
+extension AppScreen.State {
+    static func == (lhs: AppScreen.State, rhs: AppScreen) -> Bool {
+        switch (lhs, rhs) {
+        case (.splashScreen, .splashScreen): return true
+        case (.home, .home): return true
+        case (.episode(let state), .episode(let id)): return state.episodeId == id
+        case (.userProfile(let state), .userProfile(let id, _)): return state.userId == id
+        default: return false
+        }
+    }
+
+    static func == (lhs: AppScreen, rhs: AppScreen.State) -> Bool {
+        rhs == lhs
+    }
+
+    static func != (lhs: AppScreen, rhs: AppScreen.State) -> Bool {
+        !(lhs == rhs)
+    }
+
+    static func != (lhs: AppScreen.State, rhs: AppScreen) -> Bool {
+        !(lhs == rhs)
+    }
+}
+

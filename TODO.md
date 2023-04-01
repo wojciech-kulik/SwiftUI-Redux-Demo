@@ -5,3 +5,4 @@
 - [] Fix local reducer handling app level action
 - [x] Fix boilerplate reducer composition
 - [] Fix warning `Publishing changes from within view updates is not allowed`
+- [] Fix Middleware dependency injection
