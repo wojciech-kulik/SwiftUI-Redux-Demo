@@ -12,7 +12,7 @@ struct UserDetailsView: View {
     let sourceCommentId: UUID
 
     @EnvironmentObject var store: Store<AppState>
-    var state: UserDetails.State? { store.state.screenState(for: .userProfile(id: userId, sourceCommentId: sourceCommentId)) }
+    private var state: UserDetails.State? { store.state.screenState(for: .userProfile(id: userId, sourceCommentId: sourceCommentId)) }
 
     var body: some View {
         if let state = state, let userDetails = state.details, !state.isLoading {

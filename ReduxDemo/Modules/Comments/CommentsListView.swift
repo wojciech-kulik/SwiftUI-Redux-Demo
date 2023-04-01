@@ -11,7 +11,7 @@ struct CommentsListView: View {
     let episodeId: UUID
     
     @EnvironmentObject var store: Store<AppState>
-    var state: Comments.State? { store.state.screenState(for: .comments(episodeId: episodeId)) }
+    private var state: Comments.State? { store.state.screenState(for: .comments(episodeId: episodeId)) }
 
     @ViewBuilder
     var body: some View {

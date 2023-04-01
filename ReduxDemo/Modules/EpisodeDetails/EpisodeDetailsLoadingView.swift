@@ -11,7 +11,7 @@ struct EpisodeDetailsLoadingView: View {
     let episodeId: UUID
     
     @EnvironmentObject var store: Store<AppState>
-    var state: EpisodeDetailsFeature.State? { store.state.screenState(for: .episode(id: episodeId)) }
+    private var state: EpisodeDetailsFeature.State? { store.state.screenState(for: .episode(id: episodeId)) }
 
     @ViewBuilder
     var body: some View {

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var store: Store<AppState>
-    var state: Home.State? { store.state.screenState(for: .home) }
+    private var state: Home.State? { store.state.screenState(for: .home) }
 
     var noEpisodesPlaceholder: some View {
         Text("Could not find episodes")

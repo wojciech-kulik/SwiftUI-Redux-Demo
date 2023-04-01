@@ -12,7 +12,7 @@ struct NewCommentView: View {
 
     @FocusState var isTextEditorFocused: Bool
     @EnvironmentObject var store: Store<AppState>
-    var state: Comments.State? { store.state.screenState(for: .comments(episodeId: episodeId)) }
+    private var state: Comments.State? { store.state.screenState(for: .comments(episodeId: episodeId)) }
 
     @ViewBuilder
     var body: some View {
