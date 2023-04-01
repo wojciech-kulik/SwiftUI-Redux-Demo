@@ -47,15 +47,13 @@
 		1652578B2754597A00E34B85 /* CommentsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1652578A2754597A00E34B85 /* CommentsListView.swift */; };
 		1652578D27545A7F00E34B85 /* NewCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1652578C27545A7F00E34B85 /* NewCommentView.swift */; };
 		166F042A275A8B5E0068817D /* HotReloaderMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166F0429275A8B5E0068817D /* HotReloaderMiddleware.swift */; };
-		1684940127545D4C00BF3611 /* CommentsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1684940027545D4C00BF3611 /* CommentsState.swift */; };
-		1684940327545D8400BF3611 /* CommentsStateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1684940227545D8400BF3611 /* CommentsStateAction.swift */; };
-		1684940527545E1200BF3611 /* CommentsStateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1684940427545E1200BF3611 /* CommentsStateReducer.swift */; };
 		16C3D1772755B02D009B24B8 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C3D1762755B02D009B24B8 /* UIApplication.swift */; };
 		16C3D17B2755B641009B24B8 /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C3D17A2755B641009B24B8 /* SpinnerView.swift */; };
 		16C3D17D2755B7F1009B24B8 /* CenteringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C3D17C2755B7F1009B24B8 /* CenteringView.swift */; };
 		16FAB26427543E3000C73200 /* AppScreenStateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAB26327543E3000C73200 /* AppScreenStateReducer.swift */; };
 		261E313229D8C1C300B98818 /* HomeCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E313129D8C1C300B98818 /* HomeCore.swift */; };
 		261E313429D8C76C00B98818 /* EpisodeDetailsCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E313329D8C76C00B98818 /* EpisodeDetailsCore.swift */; };
+		26B95B5B29D8CA35009BF07B /* CommentsCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B95B5A29D8CA35009BF07B /* CommentsCore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,15 +98,13 @@
 		1652578A2754597A00E34B85 /* CommentsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsListView.swift; sourceTree = "<group>"; };
 		1652578C27545A7F00E34B85 /* NewCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCommentView.swift; sourceTree = "<group>"; };
 		166F0429275A8B5E0068817D /* HotReloaderMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotReloaderMiddleware.swift; sourceTree = "<group>"; };
-		1684940027545D4C00BF3611 /* CommentsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsState.swift; sourceTree = "<group>"; };
-		1684940227545D8400BF3611 /* CommentsStateAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsStateAction.swift; sourceTree = "<group>"; };
-		1684940427545E1200BF3611 /* CommentsStateReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsStateReducer.swift; sourceTree = "<group>"; };
 		16C3D1762755B02D009B24B8 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		16C3D17A2755B641009B24B8 /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
 		16C3D17C2755B7F1009B24B8 /* CenteringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteringView.swift; sourceTree = "<group>"; };
 		16FAB26327543E3000C73200 /* AppScreenStateReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScreenStateReducer.swift; sourceTree = "<group>"; };
 		261E313129D8C1C300B98818 /* HomeCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCore.swift; sourceTree = "<group>"; };
 		261E313329D8C76C00B98818 /* EpisodeDetailsCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailsCore.swift; sourceTree = "<group>"; };
+		26B95B5A29D8CA35009BF07B /* CommentsCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsCore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,30 +300,12 @@
 		165257862754594800E34B85 /* Comments */ = {
 			isa = PBXGroup;
 			children = (
-				168493FF27545D3600BF3611 /* State */,
-				165257872754595100E34B85 /* Views */,
-			);
-			path = Comments;
-			sourceTree = "<group>";
-		};
-		165257872754595100E34B85 /* Views */ = {
-			isa = PBXGroup;
-			children = (
+				26B95B5A29D8CA35009BF07B /* CommentsCore.swift */,
 				1652578A2754597A00E34B85 /* CommentsListView.swift */,
 				1652578C27545A7F00E34B85 /* NewCommentView.swift */,
 				1631CF432753C38E0046BF66 /* CommentView.swift */,
 			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		168493FF27545D3600BF3611 /* State */ = {
-			isa = PBXGroup;
-			children = (
-				1684940027545D4C00BF3611 /* CommentsState.swift */,
-				1684940227545D8400BF3611 /* CommentsStateAction.swift */,
-				1684940427545E1200BF3611 /* CommentsStateReducer.swift */,
-			);
-			path = State;
+			path = Comments;
 			sourceTree = "<group>";
 		};
 		16C3D1782755B3E3009B24B8 /* GlobalStates */ = {
@@ -455,11 +433,8 @@
 				164DC11627555DBD0004CAFF /* Publisher.swift in Sources */,
 				1631CF552754095F0046BF66 /* AnyCancellable.swift in Sources */,
 				1631CF7E275411BE0046BF66 /* UserDetailsStateReducer.swift in Sources */,
-				1684940127545D4C00BF3611 /* CommentsState.swift in Sources */,
 				1631CF3227539F5D0046BF66 /* SplashView.swift in Sources */,
 				1631CF3C2753A9BE0046BF66 /* Color.swift in Sources */,
-				1684940327545D8400BF3611 /* CommentsStateAction.swift in Sources */,
-				1684940527545E1200BF3611 /* CommentsStateReducer.swift in Sources */,
 				1631CF4A2753FBA80046BF66 /* User.swift in Sources */,
 				1631CF8927542A850046BF66 /* View+Modifiers.swift in Sources */,
 				1631CF422753B6C70046BF66 /* EpisodeDetails.swift in Sources */,
@@ -484,6 +459,7 @@
 				16FAB26427543E3000C73200 /* AppScreenStateReducer.swift in Sources */,
 				1631CF1D27539BB70046BF66 /* ReduxDemoApp.swift in Sources */,
 				1631CF5A27540B460046BF66 /* AppScreenState.swift in Sources */,
+				26B95B5B29D8CA35009BF07B /* CommentsCore.swift in Sources */,
 				1631CF832754182A0046BF66 /* TvShowsMiddleware.swift in Sources */,
 				164DC11427555A8C0004CAFF /* UsersRepository.swift in Sources */,
 				1631CF80275412C40046BF66 /* AppState+ScreenStateSelector.swift in Sources */,

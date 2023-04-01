@@ -11,14 +11,14 @@ struct CommentsListView: View {
     let episodeId: UUID
     
     @EnvironmentObject var store: Store<AppState>
-    var state: CommentsState? { store.state.screenState(for: .comments(episodeId: episodeId)) }
+    var state: Comments.State? { store.state.screenState(for: .comments(episodeId: episodeId)) }
 
     @ViewBuilder
     var body: some View {
         if let state = state {
             if state.isLoading == true {
                 CenteringView(SpinnerView())
-                    .onLoad { store.dispatch(CommentsStateAction.fetchEpisodeComments(id: episodeId)) }
+                    .onLoad { store.dispatch(Comments.Action.fetchEpisodeComments(id: episodeId)) }
             } else {
                 VStack(alignment: .leading) {
                     NewCommentView(episodeId: episodeId)

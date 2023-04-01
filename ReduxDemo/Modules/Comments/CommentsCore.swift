@@ -1,17 +1,34 @@
 //
-//  CommentsStateReducer.swift
+//  CommentsCore.swift
 //  ReduxDemo
 //
-//  Created by Wojciech Kulik on 29/11/2021.
+//  Created by Hugues Telolahy on 01/04/2023.
 //
 
 import Foundation
 
-extension CommentsState {
-    static let reducer: Reducer<CommentsState> = { state, action in
+struct Comments {
+
+    struct State: Codable {
+        let episodeId: UUID
+        let comments: [Comment]
+        let isLoading: Bool
+        let selectedCommentId: UUID?
+        let presentedUserProfileId: UUID?
+        let newCommentText: String
+    }
+
+    enum Action: ActionProtocol {
+        case fetchEpisodeComments(id: UUID)
+        case didReceiveEpisodeComments([Comment], episodeId: UUID)
+        case postComment(Comment)
+        case updateNewCommentText(String)
+    }
+
+    static let reducer: Reducer<State> = { state, action in
         switch action {
         case ActiveScreensStateAction.showScreen(.userProfile(let id, let selectedCommentId)):
-            return CommentsState(
+            return .init(
                 episodeId: state.episodeId,
                 comments: state.comments,
                 isLoading: state.isLoading,
@@ -20,7 +37,7 @@ extension CommentsState {
                 newCommentText: state.newCommentText
             )
         case ActiveScreensStateAction.dismissScreen(.userProfile(let id, _)) where id == state.presentedUserProfileId:
-            return CommentsState(
+            return .init(
                 episodeId: state.episodeId,
                 comments: state.comments,
                 isLoading: state.isLoading,
@@ -28,8 +45,8 @@ extension CommentsState {
                 presentedUserProfileId: nil,
                 newCommentText: state.newCommentText
             )
-        case CommentsStateAction.fetchEpisodeComments(let id) where id == state.episodeId:
-            return CommentsState(
+        case Action.fetchEpisodeComments(let id) where id == state.episodeId:
+            return .init(
                 episodeId: state.episodeId,
                 comments: [],
                 isLoading: true,
@@ -37,8 +54,8 @@ extension CommentsState {
                 presentedUserProfileId: state.presentedUserProfileId,
                 newCommentText: state.newCommentText
             )
-        case CommentsStateAction.didReceiveEpisodeComments(let comments, let episodeId) where episodeId == state.episodeId:
-            return CommentsState(
+        case Action.didReceiveEpisodeComments(let comments, let episodeId) where episodeId == state.episodeId:
+            return .init(
                 episodeId: state.episodeId,
                 comments: comments,
                 isLoading: false,
@@ -46,8 +63,8 @@ extension CommentsState {
                 presentedUserProfileId: state.presentedUserProfileId,
                 newCommentText: ""
             )
-        case CommentsStateAction.postComment(let comment) where comment.episodeId == state.episodeId:
-            return CommentsState(
+        case Action.postComment(let comment) where comment.episodeId == state.episodeId:
+            return .init(
                 episodeId: state.episodeId,
                 comments: [comment] + state.comments,
                 isLoading: state.isLoading,
@@ -55,8 +72,8 @@ extension CommentsState {
                 presentedUserProfileId: state.presentedUserProfileId,
                 newCommentText: ""
             )
-        case CommentsStateAction.updateNewCommentText(let text):
-            return CommentsState(
+        case Action.updateNewCommentText(let text):
+            return .init(
                 episodeId: state.episodeId,
                 comments: state.comments,
                 isLoading: state.isLoading,
@@ -69,3 +86,15 @@ extension CommentsState {
         }
     }
 }
+
+extension Comments.State {
+    init(episodeId: UUID) {
+        self.episodeId = episodeId
+        comments = []
+        isLoading = true
+        selectedCommentId = nil
+        presentedUserProfileId = nil
+        newCommentText = ""
+    }
+}
+

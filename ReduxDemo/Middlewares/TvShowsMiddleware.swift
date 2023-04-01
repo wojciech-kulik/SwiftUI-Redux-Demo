@@ -40,13 +40,13 @@ extension Middlewares {
                 .map { EpisodeDetailsFeature.Action.didReceiveEpisodeDetails($0) }
                 .ignoreError()
                 .eraseToAnyPublisher()
-        case CommentsStateAction.fetchEpisodeComments(let id):
+        case Comments.Action.fetchEpisodeComments(let id):
             return tvShowsRepository
                 .fetchComments(episodeId: id)
-                .map { CommentsStateAction.didReceiveEpisodeComments($0, episodeId: id) }
+                .map { Comments.Action.didReceiveEpisodeComments($0, episodeId: id) }
                 .ignoreError()
                 .eraseToAnyPublisher()
-        case CommentsStateAction.postComment(let comment):
+        case Comments.Action.postComment(let comment):
             return tvShowsRepository
                 .postComment(comment)
                 .map { NoOpAction() }

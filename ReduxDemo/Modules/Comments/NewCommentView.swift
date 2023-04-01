@@ -12,7 +12,7 @@ struct NewCommentView: View {
 
     @FocusState var isTextEditorFocused: Bool
     @EnvironmentObject var store: Store<AppState>
-    var state: CommentsState? { store.state.screenState(for: .comments(episodeId: episodeId)) }
+    var state: Comments.State? { store.state.screenState(for: .comments(episodeId: episodeId)) }
 
     @ViewBuilder
     var body: some View {
@@ -21,11 +21,11 @@ struct NewCommentView: View {
         }
     }
 
-    private func createCommentBox(state: CommentsState) -> some View {
+    private func createCommentBox(state: Comments.State) -> some View {
         UITextView.appearance().backgroundColor = .clear
 
         return VStack {
-            TextEditor(text: Binding(get: { state.newCommentText }, set: { store.dispatch(CommentsStateAction.updateNewCommentText($0)) }))
+            TextEditor(text: Binding(get: { state.newCommentText }, set: { store.dispatch(Comments.Action.updateNewCommentText($0)) }))
                 .focused($isTextEditorFocused)
                 .background(Color(hex: "#1a1a1a"))
                 .frame(height: 120)
@@ -35,7 +35,7 @@ struct NewCommentView: View {
                 Spacer()
                 Button("Post") {
                     isTextEditorFocused = false
-                    store.dispatch(CommentsStateAction.postComment(Comment(
+                    store.dispatch(Comments.Action.postComment(Comment(
                         id: UUID(),
                         userId: User.mock.id,
                         avatar: User.mock.avatar,
