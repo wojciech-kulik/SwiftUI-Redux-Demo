@@ -25,14 +25,14 @@ struct Home {
 
     static let reducer: Reducer<State> = { state, action in
         switch action {
-        case ActiveScreensStateAction.showScreen(.episode(let id)):
+        case AppState.Action.showScreen(.episode(let id)):
             return .init(
                 upcomingEpisodes: state.upcomingEpisodes,
                 isLoading: state.isLoading,
                 presentedEpisodeId: id,
                 searchText: state.searchText
             )
-        case ActiveScreensStateAction.dismissScreen(.episode(let id)) where id == state.presentedEpisodeId:
+        case AppState.Action.dismissScreen(.episode(let id)) where id == state.presentedEpisodeId:
             return .init(
                 upcomingEpisodes: state.upcomingEpisodes,
                 isLoading: state.isLoading,

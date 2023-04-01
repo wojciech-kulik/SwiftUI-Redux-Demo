@@ -11,7 +11,10 @@ let timelineRecorder = TimelineRecorderMiddleware()
 let store = Store(
     initial: AppState(),
     reducer: AppState.reducer,
-    middlewares: [Middlewares.tvShows, Middlewares.logger, timelineRecorder.middleware, HotReloader().middleware]
+    middlewares: [Middlewares.tvShows,
+                  Middlewares.logger,
+                  timelineRecorder.middleware,
+                  HotReloader().middleware]
 )
 
 struct AppView: View {

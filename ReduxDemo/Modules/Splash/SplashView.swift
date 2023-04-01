@@ -16,7 +16,7 @@ struct SplashView: View {
                 .aspectRatio(contentMode: .fit)
                 .onAppear {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                        store.dispatch(ActiveScreensStateAction.showScreen(.home))
+                        store.dispatch(AppState.Action.showScreen(.home))
                     }
                 }
             VStack(spacing: 8) {

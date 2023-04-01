@@ -27,7 +27,7 @@ struct Comments {
 
     static let reducer: Reducer<State> = { state, action in
         switch action {
-        case ActiveScreensStateAction.showScreen(.userProfile(let id, let selectedCommentId)):
+        case AppState.Action.showScreen(.userProfile(let id, let selectedCommentId)):
             return .init(
                 episodeId: state.episodeId,
                 comments: state.comments,
@@ -36,7 +36,7 @@ struct Comments {
                 presentedUserProfileId: id,
                 newCommentText: state.newCommentText
             )
-        case ActiveScreensStateAction.dismissScreen(.userProfile(let id, _)) where id == state.presentedUserProfileId:
+        case AppState.Action.dismissScreen(.userProfile(let id, _)) where id == state.presentedUserProfileId:
             return .init(
                 episodeId: state.episodeId,
                 comments: state.comments,

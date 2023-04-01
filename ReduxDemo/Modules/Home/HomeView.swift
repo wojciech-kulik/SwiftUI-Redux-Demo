@@ -62,7 +62,7 @@ struct HomeView: View {
     private func episodeRow(for episode: UpcomingEpisode) -> some View {
         Button(
             action: {
-                store.dispatch(ActiveScreensStateAction.showScreen(.episode(id: episode.id)))
+                store.dispatch(AppState.Action.showScreen(.episode(id: episode.id)))
             },
             label: {
                 UpcomingEpisodeView(episode: episode)
@@ -80,7 +80,7 @@ struct HomeView: View {
                 set: { isActive in
                     let currentValue = episode.id == state?.presentedEpisodeId
                     guard currentValue != isActive, !isActive else { return }
-                    store.dispatch(ActiveScreensStateAction.dismissScreen(.episode(id: episode.id)))
+                    store.dispatch(AppState.Action.dismissScreen(.episode(id: episode.id)))
                 }
             ),
             destination: { EpisodeDetailsLoadingView(episodeId: episode.id) },

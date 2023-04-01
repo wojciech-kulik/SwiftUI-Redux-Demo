@@ -1,5 +1,5 @@
 //
-//  AppState+ScreenStateSelector.swift
+//  AppState+Selector.swift
 //  ReduxDemo
 //
 //  Created by Wojciech Kulik on 28/11/2021.
@@ -9,7 +9,7 @@ import Foundation
 
 extension AppState {
     func screenState<State>(for screen: AppScreen) -> State? {
-        return activeScreens.screens
+        screens
             .compactMap {
                 switch ($0, screen) {
                 case (.home(let state), .home): return state as? State
