@@ -15,13 +15,13 @@ extension Middlewares {
 
     static let tvShows: Middleware<AppState> = { state, action in
         switch action {
-        case Home.Action.fetchUpcomingEpisodes:
+        case HomeState.Action.fetchUpcomingEpisodes:
             return tvShowsRepository
                 .fetchUpcomingEpisodes()
-                .map { Home.Action.didReceiveUpcomingEpisodes($0) }
+                .map { HomeState.Action.didReceiveUpcomingEpisodes($0) }
                 .ignoreError()
                 .eraseToAnyPublisher()
-        case Home.Action.filterEpisodes(let phrase):
+        case HomeState.Action.filterEpisodes(let phrase):
             // Cancelling previous request
             searchDebouncer.send(completion: .finished)
             searchDebouncer = CurrentValueSubject<String, Never>(phrase)
@@ -30,14 +30,14 @@ extension Middlewares {
                 .debounce(for: phrase == "" ? 0.0 : 0.5, scheduler: RunLoop.main)
                 .first()
                 .flatMap { tvShowsRepository.fetchUpcomingEpisodes(phrase: $0) }
-                .map { Home.Action.didReceiveUpcomingEpisodes($0) }
+                .map { HomeState.Action.didReceiveUpcomingEpisodes($0) }
                 .ignoreError()
                 .eraseToAnyPublisher()
 
-        case EpisodeDetailsFeature.Action.fetchEpisodeDetails(let id):
+        case EpisodeDetailsState.Action.fetchEpisodeDetails(let id):
             return tvShowsRepository
                 .fetchEpisodeDetails(episodeId: id)
-                .map { EpisodeDetailsFeature.Action.didReceiveEpisodeDetails($0) }
+                .map { EpisodeDetailsState.Action.didReceiveEpisodeDetails($0) }
                 .ignoreError()
                 .eraseToAnyPublisher()
         case Comments.Action.fetchEpisodeComments(let id):

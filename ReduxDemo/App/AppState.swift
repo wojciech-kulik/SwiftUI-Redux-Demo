@@ -8,7 +8,7 @@
 import Foundation
 
 struct AppState: Codable {
-    let screens: [AppScreen.State]
+    let screens: [AppScreenState]
 }
 
 extension AppState {
@@ -36,7 +36,14 @@ extension AppState {
         }
 
         // Reduce each screen state
-        screens = screens.map { AppScreen.reducer($0, action) }
+        screens = screens.map {
+            switch $0 {
+            case .splashScreen: return .splashScreen
+            case .home(let state): return .home(HomeState.reducer(state, action))
+            case .episode(let state): return .episode(EpisodeDetailsState.reducer(state, action))
+            case .userProfile(let state): return .userProfile(UserDetails.reducer(state, action))
+            }
+        }
 
         return .init(screens: screens)
     }

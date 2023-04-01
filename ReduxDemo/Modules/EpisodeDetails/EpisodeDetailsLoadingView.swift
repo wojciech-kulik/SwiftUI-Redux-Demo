@@ -11,7 +11,7 @@ struct EpisodeDetailsLoadingView: View {
     let episodeId: UUID
     
     @EnvironmentObject var store: Store<AppState>
-    private var state: EpisodeDetailsFeature.State? { store.state.screenState(for: .episode(id: episodeId)) }
+    private var state: EpisodeDetailsState? { store.state.screenState(for: .episode(id: episodeId)) }
 
     @ViewBuilder
     var body: some View {
@@ -20,7 +20,7 @@ struct EpisodeDetailsLoadingView: View {
         } else if state?.isLoading == true {
             SpinnerView("Loading Details")
                 .animation(nil, value: UUID())
-                .onLoad { store.dispatch(EpisodeDetailsFeature.Action.fetchEpisodeDetails(id: episodeId)) }
+                .onLoad { store.dispatch(EpisodeDetailsState.Action.fetchEpisodeDetails(id: episodeId)) }
         }
     }
 }

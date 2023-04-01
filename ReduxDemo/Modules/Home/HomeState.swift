@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct Home {
+struct HomeState: Codable {
+    let upcomingEpisodes: [UpcomingEpisode]
+    let isLoading: Bool
+    let presentedEpisodeId: UUID?
+    let searchText: String
+}
 
-    struct State: Codable {
-        let upcomingEpisodes: [UpcomingEpisode]
-        let isLoading: Bool
-        let presentedEpisodeId: UUID?
-        let searchText: String
-    }
+extension HomeState {
 
     enum Action: ActionProtocol {
         case fetchUpcomingEpisodes
@@ -23,7 +23,7 @@ struct Home {
         case filterEpisodes(phrase: String)
     }
 
-    static let reducer: Reducer<State> = { state, action in
+    static let reducer: Reducer<Self> = { state, action in
         switch action {
         case AppState.Action.showScreen(.episode(let id)):
             return .init(
@@ -67,7 +67,7 @@ struct Home {
     }
 }
 
-extension Home.State {
+extension HomeState {
     init() {
         upcomingEpisodes = []
         isLoading = true

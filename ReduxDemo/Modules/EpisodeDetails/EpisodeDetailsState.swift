@@ -7,21 +7,21 @@
 
 import Foundation
 
-struct EpisodeDetailsFeature {
+struct EpisodeDetailsState: Codable {
+    let episodeId: UUID
+    let details: EpisodeDetails?
+    let comments: Comments.State
+    let isLoading: Bool
+}
 
-    struct State: Codable {
-        let episodeId: UUID
-        let details: EpisodeDetails?
-        let comments: Comments.State
-        let isLoading: Bool
-    }
+extension EpisodeDetailsState {
 
     enum Action: ActionProtocol {
         case fetchEpisodeDetails(id: UUID)
         case didReceiveEpisodeDetails(EpisodeDetails)
     }
 
-    static let reducer: Reducer<State> = { state, action in
+    static let reducer: Reducer<Self> = { state, action in
         switch action {
         case Action.fetchEpisodeDetails(let id) where id == state.episodeId:
             return .init(
@@ -48,7 +48,7 @@ struct EpisodeDetailsFeature {
     }
 }
 
-extension EpisodeDetailsFeature.State {
+extension EpisodeDetailsState {
     init(id: UUID) {
         episodeId = id
         details = nil
