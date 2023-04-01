@@ -12,7 +12,7 @@ struct UserDetailsView: View {
     let sourceCommentId: UUID
 
     @EnvironmentObject var store: Store<AppState>
-    var state: UserDetailsState? { store.state.screenState(for: .userProfile(id: userId, sourceCommentId: sourceCommentId)) }
+    var state: UserDetails.State? { store.state.screenState(for: .userProfile(id: userId, sourceCommentId: sourceCommentId)) }
 
     var body: some View {
         if let state = state, let userDetails = state.details, !state.isLoading {
@@ -51,7 +51,7 @@ struct UserDetailsView: View {
             }
         } else {
             SpinnerView("Loading Profile")
-                .onLoad { store.dispatch(UserDetailsStateAction.fetchUserProfile(userId: userId)) }
+                .onLoad { store.dispatch(UserDetails.Action.fetchUserProfile(userId: userId)) }
         }
     }
 }

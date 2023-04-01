@@ -11,7 +11,7 @@ enum AppScreenState: Codable {
     case splashScreen
     case home(Home.State)
     case episode(EpisodeDetailsFeature.State)
-    case userProfile(UserDetailsState)
+    case userProfile(UserDetails.State)
 }
 
 extension AppScreenState: CustomStringConvertible {

@@ -52,12 +52,12 @@ extension Middlewares {
                 .map { NoOpAction() }
                 .ignoreError()
                 .eraseToAnyPublisher()
-        case UserDetailsStateAction.fetchUserProfile(let userId):
+        case UserDetails.Action.fetchUserProfile(let userId):
             return Publishers.Zip(
                 usersRepository.fetchUser(id: userId).ignoreError(),
                 tvShowsRepository.fetchComments(userId: userId).ignoreError()
             )
-            .map { UserDetailsStateAction.didReceiveUserProfile(user: $0, comments: $1) }
+            .map { UserDetails.Action.didReceiveUserProfile(user: $0, comments: $1) }
             .eraseToAnyPublisher()
         default:
             return Empty().eraseToAnyPublisher()

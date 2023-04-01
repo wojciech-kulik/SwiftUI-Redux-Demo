@@ -13,7 +13,7 @@ extension AppScreenState {
         case .splashScreen: return .splashScreen
         case .home(let state): return .home(Home.reducer(state, action))
         case .episode(let state): return .episode(EpisodeDetailsFeature.reducer(state, action))
-        case .userProfile(let state): return .userProfile(UserDetailsState.reducer(state, action))
+        case .userProfile(let state): return .userProfile(UserDetails.reducer(state, action))
         }
     }
 }
