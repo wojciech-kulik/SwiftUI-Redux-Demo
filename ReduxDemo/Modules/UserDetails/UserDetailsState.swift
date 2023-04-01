@@ -1,5 +1,5 @@
 //
-//  UserDetailsCore.swift
+//  UserDetailsState.swift
 //  ReduxDemo
 //
 //  Created by Hugues Telolahy on 01/04/2023.

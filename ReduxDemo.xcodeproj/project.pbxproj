@@ -45,7 +45,7 @@
 		261E313429D8C76C00B98818 /* EpisodeDetailsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 261E313329D8C76C00B98818 /* EpisodeDetailsState.swift */; };
 		26B95B5B29D8CA35009BF07B /* CommentsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B95B5A29D8CA35009BF07B /* CommentsState.swift */; };
 		26B95B5E29D8CDDE009BF07B /* UserDetailsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B95B5D29D8CDDE009BF07B /* UserDetailsState.swift */; };
-		26B95B6629D8D495009BF07B /* AppScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B95B6529D8D495009BF07B /* AppScreen.swift */; };
+		26B95B6629D8D495009BF07B /* AppScreenState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B95B6529D8D495009BF07B /* AppScreenState.swift */; };
 		26C3746929D8DB6600C4DD8F /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C3746829D8DB6600C4DD8F /* AppState.swift */; };
 /* End PBXBuildFile section */
 
@@ -90,7 +90,7 @@
 		26B95B5A29D8CA35009BF07B /* CommentsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsState.swift; sourceTree = "<group>"; };
 		26B95B5D29D8CDDE009BF07B /* UserDetailsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsState.swift; sourceTree = "<group>"; };
 		26B95B5F29D8D005009BF07B /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
-		26B95B6529D8D495009BF07B /* AppScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScreen.swift; sourceTree = "<group>"; };
+		26B95B6529D8D495009BF07B /* AppScreenState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScreenState.swift; sourceTree = "<group>"; };
 		26C3746829D8DB6600C4DD8F /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -161,7 +161,7 @@
 				1631CF1C27539BB70046BF66 /* ReduxDemoApp.swift */,
 				1631CF522754092E0046BF66 /* Store.swift */,
 				26C3746829D8DB6600C4DD8F /* AppState.swift */,
-				26B95B6529D8D495009BF07B /* AppScreen.swift */,
+				26B95B6529D8D495009BF07B /* AppScreenState.swift */,
 				1631CF7F275412C40046BF66 /* AppState+Selector.swift */,
 			);
 			path = App;
@@ -380,7 +380,7 @@
 				26B95B5E29D8CDDE009BF07B /* UserDetailsState.swift in Sources */,
 				1631CF462753C4480046BF66 /* Comment.swift in Sources */,
 				16C3D17B2755B641009B24B8 /* SpinnerView.swift in Sources */,
-				26B95B6629D8D495009BF07B /* AppScreen.swift in Sources */,
+				26B95B6629D8D495009BF07B /* AppScreenState.swift in Sources */,
 				1631CF1F27539BB70046BF66 /* HomeView.swift in Sources */,
 				1652578D27545A7F00E34B85 /* NewCommentView.swift in Sources */,
 				160DE04C2759854A00E89CEB /* ReplayButtonModifier.swift in Sources */,
