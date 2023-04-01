@@ -22,7 +22,7 @@ struct HomeView: View {
     var searchBar: some View {
         Text("")
             .searchable(
-                text: Binding(get: { state?.searchText ?? "" }, set: { store.dispatch(Home.StateAction.filterEpisodes(phrase: $0)) }),
+                text: Binding(get: { state?.searchText ?? "" }, set: { store.dispatch(Home.Action.filterEpisodes(phrase: $0)) }),
                 placement: .navigationBarDrawer(displayMode: .always)
             )
             .disableAutocorrection(true)
@@ -45,7 +45,7 @@ struct HomeView: View {
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("TV Shows")
         .addReplayButton()
-        .onLoad { store.dispatch(Home.StateAction.fetchUpcomingEpisodes) }
+        .onLoad { store.dispatch(Home.Action.fetchUpcomingEpisodes) }
     }
 
     private func createEpisodesList() -> some View {

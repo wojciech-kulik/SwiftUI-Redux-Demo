@@ -15,7 +15,7 @@ enum AppScreen {
     case comments(episodeId: UUID)
 }
 
-enum ActiveScreensStateAction: Action {
+enum ActiveScreensStateAction: ActionProtocol {
     case showScreen(AppScreen)
     case dismissScreen(AppScreen)
 }

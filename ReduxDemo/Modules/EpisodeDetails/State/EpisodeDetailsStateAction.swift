@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum EpisodeDetailsStateAction: Action {
+enum EpisodeDetailsStateAction: ActionProtocol {
     case fetchEpisodeDetails(id: UUID)
     case didReceiveEpisodeDetails(EpisodeDetails)
 }

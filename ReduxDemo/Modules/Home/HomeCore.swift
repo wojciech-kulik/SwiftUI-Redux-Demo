@@ -16,8 +16,7 @@ struct Home {
         let searchText: String
     }
 
-    // TODO: rename to `Action`
-    enum StateAction: Action {
+    enum Action: ActionProtocol {
         case fetchUpcomingEpisodes
         case didReceiveUpcomingEpisodes([UpcomingEpisode])
         case updateSearchText(String)
@@ -40,22 +39,22 @@ struct Home {
                 presentedEpisodeId: nil,
                 searchText: state.searchText
             )
-        case StateAction.fetchUpcomingEpisodes:
+        case Action.fetchUpcomingEpisodes:
             return Home.State(
                 upcomingEpisodes: [],
                 isLoading: true,
                 presentedEpisodeId: state.presentedEpisodeId,
                 searchText: state.searchText
             )
-        case StateAction.didReceiveUpcomingEpisodes(let episodes):
+        case Action.didReceiveUpcomingEpisodes(let episodes):
             return Home.State(
                 upcomingEpisodes: episodes,
                 isLoading: false,
                 presentedEpisodeId: state.presentedEpisodeId,
                 searchText: state.searchText
             )
-        case StateAction.filterEpisodes(let phrase),
-            StateAction.updateSearchText(let phrase):
+        case Action.filterEpisodes(let phrase),
+            Action.updateSearchText(let phrase):
             return Home.State(
                 upcomingEpisodes: state.upcomingEpisodes,
                 isLoading: phrase != "",

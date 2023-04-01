@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum CommentsStateAction: Action {
+enum CommentsStateAction: ActionProtocol {
     case fetchEpisodeComments(id: UUID)
     case didReceiveEpisodeComments([Comment], episodeId: UUID)
     case postComment(Comment)

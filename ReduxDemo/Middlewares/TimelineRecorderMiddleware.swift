@@ -20,7 +20,7 @@ final class TimelineRecorderMiddleware {
         timeline = [(0.0, AppState())]
     }
 
-    func middleware(state: AppState, action: Action) -> AnyPublisher<Action, Never> {
+    func middleware(state: AppState, action: ActionProtocol) -> AnyPublisher<ActionProtocol, Never> {
         if shouldRecord {
             timeline.append((timeline.isEmpty ? 0.0 : Date().timeIntervalSince(lastStateChangeDate), state))
         }

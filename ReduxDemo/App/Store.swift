@@ -11,11 +11,11 @@ import SwiftUI
 
 /// Namespace for Middlewares
 enum Middlewares {}
-protocol Action {}
-struct NoOpAction: Action {}
+protocol ActionProtocol {}
+struct NoOpAction: ActionProtocol {}
 
-typealias Reducer<State> = (State, Action) -> State
-typealias Middleware<State> = (State, Action) -> AnyPublisher<Action, Never>
+typealias Reducer<State> = (State, ActionProtocol) -> State
+typealias Middleware<State> = (State, ActionProtocol) -> AnyPublisher<ActionProtocol, Never>
 
 final class Store<State>: ObservableObject {
     var isEnabled = true
@@ -42,7 +42,7 @@ final class Store<State>: ObservableObject {
         self.state = state
     }
 
-    func dispatch(_ action: Action) {
+    func dispatch(_ action: ActionProtocol) {
         guard isEnabled else { return }
 
         queue.sync {
@@ -50,7 +50,7 @@ final class Store<State>: ObservableObject {
         }
     }
 
-    private func dispatch(_ currentState: State, _ action: Action) {
+    private func dispatch(_ currentState: State, _ action: ActionProtocol) {
         let newState = reducer(currentState, action)
 
         middlewares.forEach { middleware in

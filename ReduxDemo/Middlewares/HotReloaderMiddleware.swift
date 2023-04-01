@@ -30,7 +30,7 @@ final class HotReloader {
         try? fileHandle?.close()
     }
 
-    func middleware(state: AppState, action: Action) -> AnyPublisher<Action, Never> {
+    func middleware(state: AppState, action: ActionProtocol) -> AnyPublisher<ActionProtocol, Never> {
         guard let json = try? jsonEncoder.encode(state) else { return Empty().eraseToAnyPublisher() }
 
         source?.cancel()
