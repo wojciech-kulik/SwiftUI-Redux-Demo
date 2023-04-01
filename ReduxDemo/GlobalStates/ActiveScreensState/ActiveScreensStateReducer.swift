@@ -16,7 +16,7 @@ extension ActiveScreensState {
             switch action {
             case .showScreen(.splashScreen), .dismissScreen(.home), .dismissScreen(.splashScreen): screens = [.splashScreen]
             case .showScreen(.home): screens = [.home(Home.State())]
-            case .showScreen(.episode(let id)): screens += [.episode(EpisodeDetailsState(id: id))]
+            case .showScreen(.episode(let id)): screens += [.episode(EpisodeDetailsFeature.State(id: id))]
             case .showScreen(.userProfile(let id, _)): screens += [.userProfile(UserDetailsState(id: id))]
             case .showScreen(.comments): ()
             case .dismissScreen(let screen): screens = screens.filter { $0 != screen }

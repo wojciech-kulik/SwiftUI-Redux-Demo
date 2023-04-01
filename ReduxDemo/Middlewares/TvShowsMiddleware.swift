@@ -34,10 +34,10 @@ extension Middlewares {
                 .ignoreError()
                 .eraseToAnyPublisher()
 
-        case EpisodeDetailsStateAction.fetchEpisodeDetails(let id):
+        case EpisodeDetailsFeature.Action.fetchEpisodeDetails(let id):
             return tvShowsRepository
                 .fetchEpisodeDetails(episodeId: id)
-                .map { EpisodeDetailsStateAction.didReceiveEpisodeDetails($0) }
+                .map { EpisodeDetailsFeature.Action.didReceiveEpisodeDetails($0) }
                 .ignoreError()
                 .eraseToAnyPublisher()
         case CommentsStateAction.fetchEpisodeComments(let id):

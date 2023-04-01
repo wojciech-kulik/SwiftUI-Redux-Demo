@@ -26,28 +26,28 @@ struct Home {
     static let reducer: Reducer<State> = { state, action in
         switch action {
         case ActiveScreensStateAction.showScreen(.episode(let id)):
-            return Home.State(
+            return .init(
                 upcomingEpisodes: state.upcomingEpisodes,
                 isLoading: state.isLoading,
                 presentedEpisodeId: id,
                 searchText: state.searchText
             )
         case ActiveScreensStateAction.dismissScreen(.episode(let id)) where id == state.presentedEpisodeId:
-            return Home.State(
+            return .init(
                 upcomingEpisodes: state.upcomingEpisodes,
                 isLoading: state.isLoading,
                 presentedEpisodeId: nil,
                 searchText: state.searchText
             )
         case Action.fetchUpcomingEpisodes:
-            return Home.State(
+            return .init(
                 upcomingEpisodes: [],
                 isLoading: true,
                 presentedEpisodeId: state.presentedEpisodeId,
                 searchText: state.searchText
             )
         case Action.didReceiveUpcomingEpisodes(let episodes):
-            return Home.State(
+            return .init(
                 upcomingEpisodes: episodes,
                 isLoading: false,
                 presentedEpisodeId: state.presentedEpisodeId,
@@ -55,7 +55,7 @@ struct Home {
             )
         case Action.filterEpisodes(let phrase),
             Action.updateSearchText(let phrase):
-            return Home.State(
+            return .init(
                 upcomingEpisodes: state.upcomingEpisodes,
                 isLoading: phrase != "",
                 presentedEpisodeId: state.presentedEpisodeId,
