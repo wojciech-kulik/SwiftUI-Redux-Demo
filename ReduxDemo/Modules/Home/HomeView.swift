@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var store: Store<AppState>
-    var state: HomeState? { store.state.screenState(for: .home) }
+    var state: Home.State? { store.state.screenState(for: .home) }
 
     var noEpisodesPlaceholder: some View {
         Text("Could not find episodes")
@@ -22,7 +22,7 @@ struct HomeView: View {
     var searchBar: some View {
         Text("")
             .searchable(
-                text: Binding(get: { state?.searchText ?? "" }, set: { store.dispatch(HomeStateAction.filterEpisodes(phrase: $0)) }),
+                text: Binding(get: { state?.searchText ?? "" }, set: { store.dispatch(Home.StateAction.filterEpisodes(phrase: $0)) }),
                 placement: .navigationBarDrawer(displayMode: .always)
             )
             .disableAutocorrection(true)
@@ -45,7 +45,7 @@ struct HomeView: View {
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("TV Shows")
         .addReplayButton()
-        .onLoad { store.dispatch(HomeStateAction.fetchUpcomingEpisodes) }
+        .onLoad { store.dispatch(Home.StateAction.fetchUpcomingEpisodes) }
     }
 
     private func createEpisodesList() -> some View {

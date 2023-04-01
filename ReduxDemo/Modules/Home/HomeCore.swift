@@ -1,45 +1,62 @@
 //
-//  HomeStateReducer.swift
+//  HomeCore.swift
 //  ReduxDemo
 //
-//  Created by Wojciech Kulik on 28/11/2021.
+//  Created by Hugues Telolahy on 01/04/2023.
 //
 
 import Foundation
 
-extension HomeState {
-    static let reducer: Reducer<Self> = { state, action in
+struct Home {
+
+    struct State: Codable {
+        let upcomingEpisodes: [UpcomingEpisode]
+        let isLoading: Bool
+        let presentedEpisodeId: UUID?
+        let searchText: String
+    }
+
+    // TODO: rename to `Action`
+    enum StateAction: Action {
+        case fetchUpcomingEpisodes
+        case didReceiveUpcomingEpisodes([UpcomingEpisode])
+        case updateSearchText(String)
+        case filterEpisodes(phrase: String)
+    }
+
+    static let reducer: Reducer<State> = { state, action in
         switch action {
         case ActiveScreensStateAction.showScreen(.episode(let id)):
-            return HomeState(
+            return Home.State(
                 upcomingEpisodes: state.upcomingEpisodes,
                 isLoading: state.isLoading,
                 presentedEpisodeId: id,
                 searchText: state.searchText
             )
         case ActiveScreensStateAction.dismissScreen(.episode(let id)) where id == state.presentedEpisodeId:
-            return HomeState(
+            return Home.State(
                 upcomingEpisodes: state.upcomingEpisodes,
                 isLoading: state.isLoading,
                 presentedEpisodeId: nil,
                 searchText: state.searchText
             )
-        case HomeStateAction.fetchUpcomingEpisodes:
-            return HomeState(
+        case StateAction.fetchUpcomingEpisodes:
+            return Home.State(
                 upcomingEpisodes: [],
                 isLoading: true,
                 presentedEpisodeId: state.presentedEpisodeId,
                 searchText: state.searchText
             )
-        case HomeStateAction.didReceiveUpcomingEpisodes(let episodes):
-            return HomeState(
+        case StateAction.didReceiveUpcomingEpisodes(let episodes):
+            return Home.State(
                 upcomingEpisodes: episodes,
                 isLoading: false,
                 presentedEpisodeId: state.presentedEpisodeId,
                 searchText: state.searchText
             )
-        case HomeStateAction.filterEpisodes(let phrase), HomeStateAction.updateSearchText(let phrase):
-            return HomeState(
+        case StateAction.filterEpisodes(let phrase),
+            StateAction.updateSearchText(let phrase):
+            return Home.State(
                 upcomingEpisodes: state.upcomingEpisodes,
                 isLoading: phrase != "",
                 presentedEpisodeId: state.presentedEpisodeId,
@@ -48,5 +65,14 @@ extension HomeState {
         default:
             return state
         }
+    }
+}
+
+extension Home.State {
+    init() {
+        upcomingEpisodes = []
+        isLoading = true
+        presentedEpisodeId = nil
+        searchText = ""
     }
 }

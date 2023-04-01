@@ -9,7 +9,7 @@ import Foundation
 
 enum AppScreenState: Codable {
     case splashScreen
-    case home(HomeState)
+    case home(Home.State)
     case episode(EpisodeDetailsState)
     case userProfile(UserDetailsState)
 }

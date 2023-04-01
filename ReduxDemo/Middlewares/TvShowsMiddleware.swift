@@ -15,13 +15,13 @@ extension Middlewares {
 
     static let tvShows: Middleware<AppState> = { state, action in
         switch action {
-        case HomeStateAction.fetchUpcomingEpisodes:
+        case Home.StateAction.fetchUpcomingEpisodes:
             return tvShowsRepository
                 .fetchUpcomingEpisodes()
-                .map { HomeStateAction.didReceiveUpcomingEpisodes($0) }
+                .map { Home.StateAction.didReceiveUpcomingEpisodes($0) }
                 .ignoreError()
                 .eraseToAnyPublisher()
-        case HomeStateAction.filterEpisodes(let phrase):
+        case Home.StateAction.filterEpisodes(let phrase):
             // Cancelling previous request
             searchDebouncer.send(completion: .finished)
             searchDebouncer = CurrentValueSubject<String, Never>(phrase)
@@ -30,7 +30,7 @@ extension Middlewares {
                 .debounce(for: phrase == "" ? 0.0 : 0.5, scheduler: RunLoop.main)
                 .first()
                 .flatMap { tvShowsRepository.fetchUpcomingEpisodes(phrase: $0) }
-                .map { HomeStateAction.didReceiveUpcomingEpisodes($0) }
+                .map { Home.StateAction.didReceiveUpcomingEpisodes($0) }
                 .ignoreError()
                 .eraseToAnyPublisher()
 

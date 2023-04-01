@@ -18,7 +18,7 @@ struct AppView: View {
     @EnvironmentObject var store: Store<AppState>
 
     var body: some View {
-        if store.state.screenState(for: .home) as HomeState? != nil {
+        if store.state.screenState(for: .home) as Home.State? != nil {
             NavigationView {
                 HomeView()
             }
