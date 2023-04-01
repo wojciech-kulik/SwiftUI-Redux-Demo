@@ -8,12 +8,13 @@
 import Foundation
 import Combine
 
-extension Middlewares {
-    private static let tvShowsRepository = TvShowsRepository()
-    private static let usersRepository = UsersRepository()
-    private static var searchDebouncer = CurrentValueSubject<String, Never>("")
+final class TvShowsMiddleware {
 
-    static let tvShows: Middleware<AppState> = { state, action in
+    private let tvShowsRepository = TvShowsRepository()
+    private let usersRepository = UsersRepository()
+    private var searchDebouncer = CurrentValueSubject<String, Never>("")
+
+    func middleware(state: AppState, action: ActionProtocol) -> AnyPublisher<ActionProtocol, Never> {
         switch action {
         case HomeState.Action.fetchUpcomingEpisodes:
             return tvShowsRepository
@@ -29,7 +30,7 @@ extension Middlewares {
             return searchDebouncer
                 .debounce(for: phrase == "" ? 0.0 : 0.5, scheduler: RunLoop.main)
                 .first()
-                .flatMap { tvShowsRepository.fetchUpcomingEpisodes(phrase: $0) }
+                .flatMap { self.tvShowsRepository.fetchUpcomingEpisodes(phrase: $0) }
                 .map { HomeState.Action.didReceiveUpcomingEpisodes($0) }
                 .ignoreError()
                 .eraseToAnyPublisher()

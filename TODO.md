@@ -4,4 +4,4 @@
 - [x] Local reducer handles app level action
 - [x] Fix reducer composition
 - [] Fix warning `Publishing changes from within view updates is not allowed`
-- [] Fix Middlewares dependency injection
+- [] Middlewares as class

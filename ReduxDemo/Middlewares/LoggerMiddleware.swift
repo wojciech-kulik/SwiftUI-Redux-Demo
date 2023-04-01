@@ -7,8 +7,9 @@
 
 import Combine
 
-extension Middlewares {
-    static let logger: Middleware<AppState> = { state, action in
+final class LoggerMiddleware {
+
+    func middleware(state: AppState, action: ActionProtocol) -> AnyPublisher<ActionProtocol, Never> {
         let stateDescription = "\(state)".replacingOccurrences(of: "ReduxDemo.", with: "")
         print("➡️ \(action)\n✅ \(stateDescription)\n")
 

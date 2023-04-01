@@ -9,9 +9,8 @@ import Foundation
 import Combine
 import SwiftUI
 
-/// Namespace for Middlewares
-enum Middlewares {}
 protocol ActionProtocol {}
+
 struct NoOpAction: ActionProtocol {}
 
 typealias Reducer<State> = (State, ActionProtocol) -> State
