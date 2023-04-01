@@ -7,16 +7,16 @@
 
 import Foundation
 
-struct Comments {
+struct CommentsState: Codable {
+    let episodeId: UUID
+    let comments: [Comment]
+    let isLoading: Bool
+    let selectedCommentId: UUID?
+    let presentedUserProfileId: UUID?
+    let newCommentText: String
+}
 
-    struct State: Codable {
-        let episodeId: UUID
-        let comments: [Comment]
-        let isLoading: Bool
-        let selectedCommentId: UUID?
-        let presentedUserProfileId: UUID?
-        let newCommentText: String
-    }
+extension CommentsState {
 
     enum Action: ActionProtocol {
         case fetchEpisodeComments(id: UUID)
@@ -25,7 +25,7 @@ struct Comments {
         case updateNewCommentText(String)
     }
 
-    static let reducer: Reducer<State> = { state, action in
+    static let reducer: Reducer<Self> = { state, action in
         switch action {
         case AppState.Action.showScreen(.userProfile(let id, let selectedCommentId)):
             return .init(
@@ -87,7 +87,7 @@ struct Comments {
     }
 }
 
-extension Comments.State {
+extension CommentsState {
     init(episodeId: UUID) {
         self.episodeId = episodeId
         comments = []

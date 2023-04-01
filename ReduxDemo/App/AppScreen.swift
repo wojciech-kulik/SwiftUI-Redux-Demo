@@ -19,7 +19,7 @@ enum AppScreenState: Codable {
     case splashScreen
     case home(HomeState)
     case episode(EpisodeDetailsState)
-    case userProfile(UserDetails.State)
+    case userProfile(UserDetailsState)
 }
 
 extension AppScreenState {

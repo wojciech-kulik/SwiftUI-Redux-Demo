@@ -41,7 +41,7 @@ extension AppState {
             case .splashScreen: return .splashScreen
             case .home(let state): return .home(HomeState.reducer(state, action))
             case .episode(let state): return .episode(EpisodeDetailsState.reducer(state, action))
-            case .userProfile(let state): return .userProfile(UserDetails.reducer(state, action))
+            case .userProfile(let state): return .userProfile(UserDetailsState.reducer(state, action))
             }
         }
 

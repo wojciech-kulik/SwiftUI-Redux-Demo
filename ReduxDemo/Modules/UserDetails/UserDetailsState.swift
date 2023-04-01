@@ -7,21 +7,21 @@
 
 import Foundation
 
-struct UserDetails {
+struct UserDetailsState: Codable {
+    let userId: UUID
+    let details: User?
+    let comments: [Comment]
+    let isLoading: Bool
+}
 
-    struct State: Codable {
-        let userId: UUID
-        let details: User?
-        let comments: [Comment]
-        let isLoading: Bool
-    }
+extension UserDetailsState {
 
     enum Action: ActionProtocol {
         case fetchUserProfile(userId: UUID)
         case didReceiveUserProfile(user: User, comments: [Comment])
     }
 
-    static let reducer: Reducer<State> = { state, action in
+    static let reducer: Reducer<Self> = { state, action in
         guard let action = action as? Action else { return state }
 
         switch action {
@@ -43,7 +43,7 @@ struct UserDetails {
     }
 }
 
-extension UserDetails.State {
+extension UserDetailsState {
     init(id: UUID) {
         userId = id
         details = nil

@@ -40,24 +40,24 @@ extension Middlewares {
                 .map { EpisodeDetailsState.Action.didReceiveEpisodeDetails($0) }
                 .ignoreError()
                 .eraseToAnyPublisher()
-        case Comments.Action.fetchEpisodeComments(let id):
+        case CommentsState.Action.fetchEpisodeComments(let id):
             return tvShowsRepository
                 .fetchComments(episodeId: id)
-                .map { Comments.Action.didReceiveEpisodeComments($0, episodeId: id) }
+                .map { CommentsState.Action.didReceiveEpisodeComments($0, episodeId: id) }
                 .ignoreError()
                 .eraseToAnyPublisher()
-        case Comments.Action.postComment(let comment):
+        case CommentsState.Action.postComment(let comment):
             return tvShowsRepository
                 .postComment(comment)
                 .map { NoOpAction() }
                 .ignoreError()
                 .eraseToAnyPublisher()
-        case UserDetails.Action.fetchUserProfile(let userId):
+        case UserDetailsState.Action.fetchUserProfile(let userId):
             return Publishers.Zip(
                 usersRepository.fetchUser(id: userId).ignoreError(),
                 tvShowsRepository.fetchComments(userId: userId).ignoreError()
             )
-            .map { UserDetails.Action.didReceiveUserProfile(user: $0, comments: $1) }
+            .map { UserDetailsState.Action.didReceiveUserProfile(user: $0, comments: $1) }
             .eraseToAnyPublisher()
         default:
             return Empty().eraseToAnyPublisher()

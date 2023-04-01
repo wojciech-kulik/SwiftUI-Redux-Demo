@@ -12,7 +12,7 @@ struct CommentView: View {
     let comment: Comment
 
     @EnvironmentObject var store: Store<AppState>
-    private var state: Comments.State? { store.state.screenState(for: .comments(episodeId: comment.episodeId)) }
+    private var state: CommentsState? { store.state.screenState(for: .comments(episodeId: comment.episodeId)) }
 
     @ViewBuilder
     var avatarView: some View {

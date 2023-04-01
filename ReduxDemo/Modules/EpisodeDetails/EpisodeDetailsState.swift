@@ -10,7 +10,7 @@ import Foundation
 struct EpisodeDetailsState: Codable {
     let episodeId: UUID
     let details: EpisodeDetails?
-    let comments: Comments.State
+    let comments: CommentsState
     let isLoading: Bool
 }
 
@@ -27,21 +27,21 @@ extension EpisodeDetailsState {
             return .init(
                 episodeId: state.episodeId,
                 details: nil,
-                comments: Comments.reducer(state.comments, action),
+                comments: CommentsState.reducer(state.comments, action),
                 isLoading: true
             )
         case Action.didReceiveEpisodeDetails(let details) where details.id == state.episodeId:
             return .init(
                 episodeId: state.episodeId,
                 details: details,
-                comments: Comments.reducer(state.comments, action),
+                comments: CommentsState.reducer(state.comments, action),
                 isLoading: false
             )
         default:
             return .init(
                 episodeId: state.episodeId,
                 details: state.details,
-                comments: Comments.reducer(state.comments, action),
+                comments: CommentsState.reducer(state.comments, action),
                 isLoading: state.isLoading
             )
         }
