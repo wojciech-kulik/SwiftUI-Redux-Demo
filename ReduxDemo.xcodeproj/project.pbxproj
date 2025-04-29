@@ -52,6 +52,7 @@
 		164DC11627555DBD0004CAFF /* Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164DC11527555DBD0004CAFF /* Publisher.swift */; };
 		1652578B2754597A00E34B85 /* CommentsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1652578A2754597A00E34B85 /* CommentsListView.swift */; };
 		1652578D27545A7F00E34B85 /* NewCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1652578C27545A7F00E34B85 /* NewCommentView.swift */; };
+		1668CB292D6BC59300EBB046 /* XcodebuildNvimPreview in Frameworks */ = {isa = PBXBuildFile; productRef = 1668CB282D6BC59300EBB046 /* XcodebuildNvimPreview */; };
 		166F042A275A8B5E0068817D /* HotReloaderMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166F0429275A8B5E0068817D /* HotReloaderMiddleware.swift */; };
 		1684940127545D4C00BF3611 /* CommentsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1684940027545D4C00BF3611 /* CommentsState.swift */; };
 		1684940327545D8400BF3611 /* CommentsStateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1684940227545D8400BF3611 /* CommentsStateAction.swift */; };
@@ -59,6 +60,7 @@
 		16C3D1772755B02D009B24B8 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C3D1762755B02D009B24B8 /* UIApplication.swift */; };
 		16C3D17B2755B641009B24B8 /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C3D17A2755B641009B24B8 /* SpinnerView.swift */; };
 		16C3D17D2755B7F1009B24B8 /* CenteringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C3D17C2755B7F1009B24B8 /* CenteringView.swift */; };
+		16C956732D6E326100454295 /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = 16C956722D6E326100454295 /* Inject */; };
 		16FAB26427543E3000C73200 /* AppScreenStateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAB26327543E3000C73200 /* AppScreenStateReducer.swift */; };
 /* End PBXBuildFile section */
 
@@ -124,6 +126,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1668CB292D6BC59300EBB046 /* XcodebuildNvimPreview in Frameworks */,
+				16C956732D6E326100454295 /* Inject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,6 +462,10 @@
 				Base,
 			);
 			mainGroup = 1631CF1027539BB70046BF66;
+			packageReferences = (
+				1668CB272D6BC59300EBB046 /* XCRemoteSwiftPackageReference "xcodebuild-nvim-preview" */,
+				16C956712D6E326100454295 /* XCRemoteSwiftPackageReference "Inject" */,
+			);
 			productRefGroup = 1631CF1A27539BB70046BF66 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -679,6 +687,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-Xlinker",
+					"-interposable",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = pl.wojciechkulik.ReduxDemo;
 				PRODUCT_NAME = "Redux Demo";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -709,6 +722,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-Xlinker",
+					"-interposable",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = pl.wojciechkulik.ReduxDemo;
 				PRODUCT_NAME = "Redux Demo";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -739,6 +757,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1668CB272D6BC59300EBB046 /* XCRemoteSwiftPackageReference "xcodebuild-nvim-preview" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:wojciech-kulik/xcodebuild-nvim-preview.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		16C956712D6E326100454295 /* XCRemoteSwiftPackageReference "Inject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krzysztofzablocki/Inject";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1668CB282D6BC59300EBB046 /* XcodebuildNvimPreview */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1668CB272D6BC59300EBB046 /* XCRemoteSwiftPackageReference "xcodebuild-nvim-preview" */;
+			productName = XcodebuildNvimPreview;
+		};
+		16C956722D6E326100454295 /* Inject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 16C956712D6E326100454295 /* XCRemoteSwiftPackageReference "Inject" */;
+			productName = Inject;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1631CF1127539BB70046BF66 /* Project object */;
 }

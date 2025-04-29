@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import XcodebuildNvimPreview
 
 let timelineRecorder = TimelineRecorderMiddleware()
 let store = Store(
@@ -23,6 +24,7 @@ struct AppView: View {
                 HomeView()
             }
             .navigationViewStyle(.stack)
+            .setupNvimPreview { HomeView().environmentObject(store) }
         } else {
             SplashView()
         }

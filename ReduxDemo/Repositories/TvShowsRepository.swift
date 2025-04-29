@@ -5,8 +5,8 @@
 //  Created by Wojciech Kulik on 28/11/2021.
 //
 
-import Foundation
 import Combine
+import Foundation
 
 enum TvShowsRepositoryError: Error {
     case unknown
@@ -26,7 +26,7 @@ final class TvShowsRepository: ObservableObject {
             .sorted(by: { $0.releaseDate < $1.releaseDate })
 
         return Just(episodes)
-            .delay(for: isFiltering ? 0.0 : simulatedDelay, scheduler: RunLoop.main)
+            // .delay(for: isFiltering ? 0.0 : simulatedDelay, scheduler: RunLoop.main)
             .setFailureType(to: TvShowsRepositoryError.self)
             .eraseToAnyPublisher()
     }
@@ -34,27 +34,27 @@ final class TvShowsRepository: ObservableObject {
     func fetchEpisodeDetails(episodeId: UUID) -> AnyPublisher<EpisodeDetails, TvShowsRepositoryError> {
         if let episode = EpisodeDetails.allMocks.first(where: { $0.id == episodeId }) {
             return Just(episode)
-                .delay(for: simulatedDelay, scheduler: RunLoop.main)
+                // .delay(for: simulatedDelay, scheduler: RunLoop.main)
                 .setFailureType(to: TvShowsRepositoryError.self)
                 .eraseToAnyPublisher()
         } else {
             return Fail(error: TvShowsRepositoryError.couldNotFind)
-                .delay(for: simulatedDelay, scheduler: RunLoop.main)
+                // .delay(for: simulatedDelay, scheduler: RunLoop.main)
                 .eraseToAnyPublisher()
         }
     }
 
     func fetchComments(episodeId: UUID) -> AnyPublisher<[Comment], TvShowsRepositoryError> {
-        let comments = comments.filter({ $0.episodeId == episodeId })
+        let comments = comments.filter { $0.episodeId == episodeId }
 
         if !comments.isEmpty {
             return Just(comments.sorted(by: { $0.date > $1.date }))
-                .delay(for: simulatedDelay, scheduler: RunLoop.main)
+                // .delay(for: simulatedDelay, scheduler: RunLoop.main)
                 .setFailureType(to: TvShowsRepositoryError.self)
                 .eraseToAnyPublisher()
         } else {
             return Fail(error: TvShowsRepositoryError.couldNotFind)
-                .delay(for: simulatedDelay, scheduler: RunLoop.main)
+                // .delay(for: simulatedDelay, scheduler: RunLoop.main)
                 .eraseToAnyPublisher()
         }
     }
@@ -63,7 +63,7 @@ final class TvShowsRepository: ObservableObject {
         let comments = comments.filter { $0.userId == userId }
 
         return Just(comments.sorted(by: { $0.date > $1.date }))
-            .delay(for: simulatedDelay, scheduler: RunLoop.main)
+            // .delay(for: simulatedDelay, scheduler: RunLoop.main)
             .setFailureType(to: TvShowsRepositoryError.self)
             .eraseToAnyPublisher()
     }
@@ -72,7 +72,7 @@ final class TvShowsRepository: ObservableObject {
         comments.append(comment)
 
         return Empty()
-            .delay(for: simulatedDelay, scheduler: RunLoop.main)
+            // .delay(for: simulatedDelay, scheduler: RunLoop.main)
             .eraseToAnyPublisher()
     }
 }

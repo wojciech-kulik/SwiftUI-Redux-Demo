@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct UpcomingEpisodeView : View {
+struct UpcomingEpisodeView: View {
     let episode: UpcomingEpisode
 
     var posterView: some View {

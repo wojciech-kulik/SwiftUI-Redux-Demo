@@ -16,8 +16,8 @@ struct HomeState: Codable {
 
 extension HomeState {
     init() {
-        upcomingEpisodes = []
-        isLoading = true
+        upcomingEpisodes = [.mockGameOfThrones, .mockBreakingBad]
+        isLoading = false
         presentedEpisodeId = nil
         searchText = ""
     }

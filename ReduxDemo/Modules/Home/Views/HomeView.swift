@@ -5,9 +5,12 @@
 //  Created by Wojciech Kulik on 28/11/2021.
 //
 
+import Inject
 import SwiftUI
 
 struct HomeView: View {
+    @ObserveInjection var injection
+
     @EnvironmentObject var store: Store<AppState>
     var state: HomeState? { store.state.screenState(for: .home) }
 
@@ -31,26 +34,19 @@ struct HomeView: View {
     var body: some View {
         ZStack {
             searchBar
-            
-            if let state = state, !state.isLoading {
-                if state.upcomingEpisodes.isEmpty {
-                    noEpisodesPlaceholder.animation(nil, value: UUID())
-                } else {
-                    createEpisodesList()
-                }
-            } else {
-                SpinnerView()
-            }
+
+            createEpisodesList()
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("TV Shows")
         .addReplayButton()
         .onLoad { store.dispatch(HomeStateAction.fetchUpcomingEpisodes) }
+        .enableInjection()
     }
 
     private func createEpisodesList() -> some View {
         List {
-            ForEach(state?.upcomingEpisodes ?? []) { episode in
+            ForEach([UpcomingEpisode.mockGameOfThrones, .mockBreakingBad]) { episode in
                 ZStack {
                     episodeRow(for: episode)
                     navigation(for: episode)
