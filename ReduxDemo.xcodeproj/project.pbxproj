@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		160D23832F9E437600124ED6 /* InjectionNext in Frameworks */ = {isa = PBXBuildFile; productRef = 160D23822F9E437600124ED6 /* InjectionNext */; };
 		160DE04A27597C2300E89CEB /* TimelineRecorderMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160DE04927597C2300E89CEB /* TimelineRecorderMiddleware.swift */; };
 		160DE04C2759854A00E89CEB /* ReplayButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160DE04B2759854A00E89CEB /* ReplayButtonModifier.swift */; };
 		1631CF1D27539BB70046BF66 /* ReduxDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631CF1C27539BB70046BF66 /* ReduxDemoApp.swift */; };
@@ -52,6 +53,7 @@
 		164DC11627555DBD0004CAFF /* Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164DC11527555DBD0004CAFF /* Publisher.swift */; };
 		1652578B2754597A00E34B85 /* CommentsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1652578A2754597A00E34B85 /* CommentsListView.swift */; };
 		1652578D27545A7F00E34B85 /* NewCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1652578C27545A7F00E34B85 /* NewCommentView.swift */; };
+		1661EF182F9E446700D901C5 /* HotSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 1661EF172F9E446700D901C5 /* HotSwiftUI */; };
 		1668CB292D6BC59300EBB046 /* XcodebuildNvimPreview in Frameworks */ = {isa = PBXBuildFile; productRef = 1668CB282D6BC59300EBB046 /* XcodebuildNvimPreview */; };
 		166F042A275A8B5E0068817D /* HotReloaderMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166F0429275A8B5E0068817D /* HotReloaderMiddleware.swift */; };
 		1684940127545D4C00BF3611 /* CommentsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1684940027545D4C00BF3611 /* CommentsState.swift */; };
@@ -60,7 +62,6 @@
 		16C3D1772755B02D009B24B8 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C3D1762755B02D009B24B8 /* UIApplication.swift */; };
 		16C3D17B2755B641009B24B8 /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C3D17A2755B641009B24B8 /* SpinnerView.swift */; };
 		16C3D17D2755B7F1009B24B8 /* CenteringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C3D17C2755B7F1009B24B8 /* CenteringView.swift */; };
-		16C956732D6E326100454295 /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = 16C956722D6E326100454295 /* Inject */; };
 		16FAB26427543E3000C73200 /* AppScreenStateReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FAB26327543E3000C73200 /* AppScreenStateReducer.swift */; };
 /* End PBXBuildFile section */
 
@@ -126,8 +127,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1661EF182F9E446700D901C5 /* HotSwiftUI in Frameworks */,
 				1668CB292D6BC59300EBB046 /* XcodebuildNvimPreview in Frameworks */,
-				16C956732D6E326100454295 /* Inject in Frameworks */,
+				160D23832F9E437600124ED6 /* InjectionNext in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,7 +466,8 @@
 			mainGroup = 1631CF1027539BB70046BF66;
 			packageReferences = (
 				1668CB272D6BC59300EBB046 /* XCRemoteSwiftPackageReference "xcodebuild-nvim-preview" */,
-				16C956712D6E326100454295 /* XCRemoteSwiftPackageReference "Inject" */,
+				160D23812F9E437600124ED6 /* XCRemoteSwiftPackageReference "InjectionNext" */,
+				1661EF162F9E446700D901C5 /* XCRemoteSwiftPackageReference "HotSwiftUI" */,
 			);
 			productRefGroup = 1631CF1A27539BB70046BF66 /* Products */;
 			projectDirPath = "";
@@ -759,6 +762,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		160D23812F9E437600124ED6 /* XCRemoteSwiftPackageReference "InjectionNext" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/johnno1962/InjectionNext";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.6.0;
+			};
+		};
+		1661EF162F9E446700D901C5 /* XCRemoteSwiftPackageReference "HotSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/johnno1962/HotSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.4;
+			};
+		};
 		1668CB272D6BC59300EBB046 /* XCRemoteSwiftPackageReference "xcodebuild-nvim-preview" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:wojciech-kulik/xcodebuild-nvim-preview.git";
@@ -767,26 +786,23 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		16C956712D6E326100454295 /* XCRemoteSwiftPackageReference "Inject" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/krzysztofzablocki/Inject";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.5.2;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		160D23822F9E437600124ED6 /* InjectionNext */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 160D23812F9E437600124ED6 /* XCRemoteSwiftPackageReference "InjectionNext" */;
+			productName = InjectionNext;
+		};
+		1661EF172F9E446700D901C5 /* HotSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1661EF162F9E446700D901C5 /* XCRemoteSwiftPackageReference "HotSwiftUI" */;
+			productName = HotSwiftUI;
+		};
 		1668CB282D6BC59300EBB046 /* XcodebuildNvimPreview */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1668CB272D6BC59300EBB046 /* XCRemoteSwiftPackageReference "xcodebuild-nvim-preview" */;
 			productName = XcodebuildNvimPreview;
-		};
-		16C956722D6E326100454295 /* Inject */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 16C956712D6E326100454295 /* XCRemoteSwiftPackageReference "Inject" */;
-			productName = Inject;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

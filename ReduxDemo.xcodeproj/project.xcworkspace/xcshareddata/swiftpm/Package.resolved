@@ -1,13 +1,22 @@
 {
-  "originHash" : "bfa0e30646a33c207d3542f30c08441d4f63edfa10a0eacd8e6d080f53156cf7",
+  "originHash" : "922dd4f7dcf57d446864dfd976749021899f14d8406ba403422b2cbb2c23e4ab",
   "pins" : [
     {
-      "identity" : "inject",
+      "identity" : "hotswiftui",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/krzysztofzablocki/Inject",
+      "location" : "https://github.com/johnno1962/HotSwiftUI",
       "state" : {
-        "revision" : "728c56639ecb3df441d51d5bc6747329afabcfc9",
-        "version" : "1.5.2"
+        "revision" : "9e701abd2da67c7cfac5b70ae6f225fa92a1c7bc",
+        "version" : "1.2.4"
+      }
+    },
+    {
+      "identity" : "injectionnext",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/johnno1962/InjectionNext",
+      "state" : {
+        "revision" : "7bae3044bc643460d1f83389446694a7444709cf",
+        "version" : "1.6.0"
       }
     },
     {
@@ -15,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "git@github.com:wojciech-kulik/xcodebuild-nvim-preview.git",
       "state" : {
-        "revision" : "60a9379d8d09d50312571ecd3ff4491b86a86d6e",
-        "version" : "1.0.10"
+        "revision" : "863260fe5fa0177807f4afda92aacc278dfc3ff1",
+        "version" : "1.0.11"
       }
     }
   ],

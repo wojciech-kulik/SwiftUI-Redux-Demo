@@ -5,9 +5,12 @@
 //  Created by Wojciech Kulik on 28/11/2021.
 //
 
+@_exported import HotSwiftUI
 import SwiftUI
 
 struct UpcomingEpisodeView: View {
+    @ObserveInjection var redraw
+
     let episode: UpcomingEpisode
 
     var posterView: some View {
@@ -62,6 +65,7 @@ struct UpcomingEpisodeView: View {
             }
         }
         .lineLimit(1)
+        .enableInjection()
     }
 }
 

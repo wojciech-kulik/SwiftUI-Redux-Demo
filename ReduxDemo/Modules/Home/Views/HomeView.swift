@@ -5,14 +5,13 @@
 //  Created by Wojciech Kulik on 28/11/2021.
 //
 
-import Inject
 import SwiftUI
 
 struct HomeView: View {
-    @ObserveInjection var injection
-
     @EnvironmentObject var store: Store<AppState>
-    var state: HomeState? { store.state.screenState(for: .home) }
+    var state: HomeState? {
+        store.state.screenState(for: .home)
+    }
 
     var noEpisodesPlaceholder: some View {
         Text("Could not find episodes")
@@ -25,7 +24,10 @@ struct HomeView: View {
     var searchBar: some View {
         Text("")
             .searchable(
-                text: Binding(get: { state?.searchText ?? "" }, set: { store.dispatch(HomeStateAction.filterEpisodes(phrase: $0)) }),
+                text: Binding(
+                    get: { state?.searchText ?? "" },
+                    set: { store.dispatch(HomeStateAction.filterEpisodes(phrase: $0)) }
+                ),
                 placement: .navigationBarDrawer(displayMode: .always)
             )
             .disableAutocorrection(true)
@@ -41,7 +43,6 @@ struct HomeView: View {
         .navigationTitle("TV Shows")
         .addReplayButton()
         .onLoad { store.dispatch(HomeStateAction.fetchUpcomingEpisodes) }
-        .enableInjection()
     }
 
     private func createEpisodesList() -> some View {
